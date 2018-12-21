@@ -1,0 +1,13 @@
+<div class="col-md-4">
+  <br>
+    <form>
+        <div *ngIf="!uploader.getNotUploadedItems().length" class="form-group">
+            <label for="multiple">Choose file(s)</label>
+            <input type="file" class="form-control" name="multiple" ng2FileSelect [uploader]="uploader" multiple  />
+        </div>            
+    </form>
+    <button type="button" class="btn btn-success btn-s"
+                      (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                  <span class="fa fa-upload"></span> Upload all
+              </button>
+</div>

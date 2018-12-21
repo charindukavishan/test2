@@ -1,0 +1,53 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Park Owners</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Name
+                </th>
+                <th>
+                  address
+                </th>
+                <th>
+                  profile
+                </th>
+                <!-- <th class="text-right">
+                  profile
+                </th> -->
+              </thead>
+              <tbody>
+                <tr *ngFor="let keeper of keepers">
+                  <td>
+                    {{ keeper.firstName }} {{keeper.lastName}}
+                  </td>
+                  <td>
+                    {{keeper.address}} , {{keeper.city}} , {{keeper.country}}
+                  </td>
+                  <td>
+                      <button type="button" (click)="profile(keeper.id)" class="btn btn-outline-primary btn-round">Show profile</button>
+                      <!-- <button type="button" class="btn btn-danger btn-round">close</button> -->
+                    
+                  </td>
+                  <!-- <td class="text-right">
+                    <button type="button" (click)="accept(keeper.id)" class="btn btn-info btn-round">Accept</button>
+                  </td> -->
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

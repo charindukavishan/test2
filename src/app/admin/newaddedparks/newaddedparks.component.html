@@ -1,0 +1,54 @@
+<div class="panel-header panel-header-sm">
+  </div>
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title"> Park Keepers</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    Name
+                  </th>
+                  <th>
+                    Activate
+                  </th>
+                  <th>
+                    state
+                  </th>
+                  <th class="text-right">
+                    
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let keeper of keepers">
+                    <td>
+                      {{ keeper.name }}
+                    </td>
+                    <td>
+                      {{ keeper.isactivate }}
+                    </td>
+                    <td>
+                        <button type="button" (click)="update(keeper.state,keeper.id)"  class="{{keeper.class}}">{{keeper.state}}</button>
+                        <!-- <button type="button" class="btn btn-danger btn-round">close</button> -->
+                      
+                    </td>
+                    <td class="text-right">
+                      <button type="button" class="btn btn-info btn-round">view profile</button>
+                    </td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  

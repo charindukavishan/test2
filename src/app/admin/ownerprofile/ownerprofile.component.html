@@ -1,0 +1,88 @@
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg');">
+      <div class="filter"></div>
+  </div>
+  <div class="section profile-content">
+      <div class="container">
+          <div class="owner">
+              <div class="avatar">
+                  <img src="./assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+              </div>
+              <!-- <button type="button" class="btn btn-primary btn-just-icon"><i class='fas fa-edit' style='font-size:24px'></i></button> -->
+              <!-- <button type="file" rel="tooltip" ngbTooltip="Edit profile picture" data-placement="bottom" type="button" class="btn btn-primary btn-link"> <i class='fa fa-edit' style='font-size:36px'></i></button>
+              
+              <app-editpropic></app-editpropic> -->
+              <div class="name">
+                  <h2 class="title">{{userDetails.firstName}} {{userDetails.lastName}}<br /></h2>
+                 <a routerLink="/admin/sendfile/{{userDetails._id}}"><i class='fas fa-archive' style='font-size:36px;color:brown'></i></a> 
+              </div>
+          </div>
+          <div class="row">
+              
+            
+                  
+                    
+          </div>
+          <br/>
+          <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+
+                <div class="panel-header panel-header-sm">
+                </div>
+                <div class="main-content">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title"> Park Keepers</h4>
+                        </div>
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead class=" text-primary">
+                                <th>
+                                  Name
+                                </th>
+                                <th>
+                                  Activate
+                                </th>
+                                <th>
+                                  state
+                                </th>
+                                <th class="text-right">
+                                  
+                                </th>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let keeper of keepers">
+                                  <td>
+                                    {{ keeper.name }}
+                                  </td>
+                                  <td>
+                                    {{ keeper.isactivate }}
+                                  </td>
+                                  <td>
+                                      <button type="button"   class="{{keeper.class}}">{{keeper.state}}</button>
+                                      <!-- <button type="button" class="btn btn-danger btn-round">close</button> -->
+                                    
+                                  </td>
+                                  <td class="text-right">
+                                    <button type="button" class="btn btn-info btn-round">view profile</button>
+                                  </td>
+                                </tr>
+                               
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

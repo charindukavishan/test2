@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <div class="page-header" style="background-image: url('../assets/img/login-image.jpg');">
+      <div class="filter"></div>
+          <div class="container">
+              <div class="row">
+                      
+                  <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                      <div class="card card-register">
+                          <h3 class="title">Reset password</h3>
+
+                          <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit()" class="register-form">
+                            
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">Email address</label>
+                                  <input disabled=""  [value]="reg.email" type="email" name="email" class="form-control">
+                                </div>
+                            
+                             
+                                <div class="form-group">
+                                  <label class="control-label" for="password">Create Password</label>  
+                                  <input class="form-control input-md" #password="ngModel" pattern=".{6,}" required id="password" name="password" type="password" placeholder="Create password" [(ngModel)]="reg.password">   
+                                  <div class="form-control-feedback" [hidden]="password.valid">Password must be at least 6 characters long</div>
+                              </div>
+                         
+                          
+                              <div class="form-group">
+                                  <label class="control-label" for="confirmPassword">Repeat Password</label>  
+                                  <input  class="form-control input-md" #confirmPassword="ngModel" required id="confirmPassword" name="confirmPassword" type="password" placeholder="Repeat password" [(ngModel)]="reg.confirmPassword">
+                                  <div class="form-control-feedback" *ngIf="password.value!=confirmPassword.value">Password not match</div>
+                              </div>
+                              
+                          
+                              <!-- <button class="btn btn-danger btn-block btn-round">Register</button> -->
+                              <input type="submit" [disabled]="!signInForm.valid||(password.value!=confirmPassword.value)" class="btn btn-danger btn-block btn-round" value="Sign In">
+                          </form>
+                         
+                      </div>
+                  </div>
+              </div>
+              <div class="footer register-footer text-center">
+                  <h6>&copy;{{test | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Creative Tim</h6>
+              </div>
+          </div>
+  </div>
+</div>
