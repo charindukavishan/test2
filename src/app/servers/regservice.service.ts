@@ -22,9 +22,9 @@ export class RegserviceService {
     return this.http.post(this.url+'/regkeeper/'+id,details,this.noAuthHeader);
    }
 
-   login(authCredentials) {
-     console.log(authCredentials);
-     return this.http.post(this.url + '/authenticate', authCredentials,this.noAuthHeader);
+   login(authCredentials,p) {
+     console.log(authCredentials); 
+     return this.http.post(this.url +p+ '/authenticate', authCredentials,this.noAuthHeader);
    }
    getUserProfile() {
      return this.http.get(this.url + '/userProfile');

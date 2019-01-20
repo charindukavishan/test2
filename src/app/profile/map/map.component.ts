@@ -31,15 +31,15 @@ export class MapComponent implements OnInit {
   origin = { lat: this.lat, lng: this.lng };
   destination = { lat: null, lng: null };
   // public searchControl: FormControl;
-public searchControl:FormControl
+  public searchControl: FormControl
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone,public service:RegserviceService) {}
-  private kepers ;
-  private keepers=[];
+  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, public service: RegserviceService) { }
+  private kepers;
+  private keepers = [];
   res;
-  class;
+  class; 
   ngOnInit() {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -76,29 +76,30 @@ public searchControl:FormControl
         });
       });
     });
-    
-    const token =this.service.getToken();
-  const tokenPayload = decode(token);
-    this.service.getkeepers(tokenPayload._id).subscribe(response => {this.kepers=response;
-      this.res=this.kepers.length;
+
+    const token = this.service.getToken();
+    const tokenPayload = decode(token);
+    this.service.getkeepers(tokenPayload._id).subscribe(response => {
+    this.kepers = response;
+      this.res = this.kepers.length;
       for (let i = 0; i < this.kepers.length; i++) {
-        
-        if(this.kepers[i].state=="open"){
-          this.class="btn btn-danger btn-round";
-          this.kepers[i].state="close";
+
+        if (this.kepers[i].state == "open") {
+          this.class = "btn btn-danger btn-round";
+          this.kepers[i].state = "close";
         }
-          else{
-          this.class="btn btn-warning btn-round"
-          this.kepers[i].state="open";
+        else {
+          this.class = "btn btn-warning btn-round"
+          this.kepers[i].state = "open";
         }
         this.keepers[i] = {
-          id:this.kepers[i]._id,
+          id: this.kepers[i]._id,
           name: this.kepers[i].name,
           class: this.class,
           isactivate: this.kepers[i].isactivate,
-          state:this.kepers[i].state,
-          lat:this.kepers[i].lat,
-          lng:this.kepers[i].lng,
+          state: this.kepers[i].state,
+          lat: this.kepers[i].lat,
+          lng: this.kepers[i].lng,
           // time:response[i].state,
         };
       }
@@ -148,7 +149,7 @@ public searchControl:FormControl
     console.log(distance);
     document.getElementById("distance").innerHTML = distance / 1000 + "km";
   }
-  click(){
+  click() {
     console.log('click')
   }
 }

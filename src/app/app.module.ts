@@ -48,6 +48,7 @@ import { KeeperprofileComponent } from './parkkeeper/keeperprofile/keeperprofile
 import { ParkingslotComponent } from './parkkeeper/parkingslot/parkingslot.component';
 import { ResetpwComponent } from './signup/resetpw/resetpw.component';
 import { NewpwComponent } from './signup/newpw/newpw.component';
+import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
  
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { NewpwComponent } from './signup/newpw/newpw.component';
     HttpModule,
     ReactiveFormsModule,
     HttpClientModule,FileUploadModule,
+    JwBootstrapSwitchNg2Module,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDySdsZG3tJO4FJqgu24ujKy8kIdlexmsE'
     })

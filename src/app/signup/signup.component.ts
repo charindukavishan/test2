@@ -33,10 +33,14 @@ export class SignupComponent implements OnInit {
       this.router.navigateByUrl('/admin');
       this.isAdmin=false;
     }
+   p="";
+  //  isKeeper=true;
+   isKeeper='';
    
     
       onSubmit(form : NgForm){
-        this.service.login(form.value).subscribe(
+        if(this.isKeeper) this.p="/keeper"
+        this.service.login(form.value,this.p).subscribe(
           res => {
             this.service.setToken(res['token']);
             const token =this.service.getToken();
