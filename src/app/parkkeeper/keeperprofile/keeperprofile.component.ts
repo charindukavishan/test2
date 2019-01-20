@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { homedir } from 'os';
+
 import { RegserviceService } from '../../servers/regservice.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-
+import { google } from '@google/maps';
 @Component({
   selector: 'app-keeperprofile',
   templateUrl: './keeperprofile.component.html',

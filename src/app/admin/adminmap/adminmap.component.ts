@@ -8,7 +8,7 @@ import {
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AgmCoreModule } from "@agm/core";
-
+import { google } from '@google/maps';
 import { MapsAPILoader, AgmMap } from "@agm/core";
 import { GoogleMapsAPIWrapper } from "@agm/core/services";
 import { AgmDirectionModule } from "agm-direction";

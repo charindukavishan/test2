@@ -4,11 +4,15 @@ import { Router } from '@angular/router';
 import decode from 'jwt-decode';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
+import { google } from '@google/maps';
+declare var google: any;
 @Component({
   selector: 'app-keeperreg',
   templateUrl: './keeperreg.component.html',
   styleUrls: ['./keeperreg.component.scss']
 })
+
+
 export class KeeperregComponent implements OnInit {
 
   constructor(public service:RegserviceService,public router:Router,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }

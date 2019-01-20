@@ -17,8 +17,8 @@ import { RegserviceService } from "../../servers/regservice.service";
 import decode from 'jwt-decode';
 
 //import { } from 'googlemaps';
+import { google } from '@google/maps';
 declare var google: any;
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
