@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
     userDetails;
     userId='';
     editpi=false;
+    pic="./assets/img/faces/default.jpg";
     constructor(private service: RegserviceService, private router: Router,private location :Location) { }
   
     ngOnInit() { 
@@ -26,8 +27,10 @@ export class ProfileComponent implements OnInit {
 
       this.service.getUserProfile().subscribe(
         res => {
+          
           this.userDetails = res['user'];
           this.userId=this.userDetails._id;
+          if(this.userDetails.proPic) this.pic=this.userDetails.proPic;
           this.service.setid(this.userDetails._id);
           // console.log(this.userId);
           // console.log(this.userDetails)

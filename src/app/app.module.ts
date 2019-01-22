@@ -49,6 +49,8 @@ import { ParkingslotComponent } from './parkkeeper/parkingslot/parkingslot.compo
 import { ResetpwComponent } from './signup/resetpw/resetpw.component';
 import { NewpwComponent } from './signup/newpw/newpw.component';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from 'angularfire2/storage';
  
 @NgModule({
   declarations: [
@@ -99,7 +101,14 @@ import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
     JwBootstrapSwitchNg2Module,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDySdsZG3tJO4FJqgu24ujKy8kIdlexmsE'
-    })
+    }),
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyD3dyNOte2kt3vQd1KjhivBe9Ahc3dtCiY",
+      authDomain: "parkherefiles.firebaseapp.com",
+      storageBucket: "parkherefiles.appspot.com",
+      projectId: "parkherefiles",
+    }),
+    AngularFireStorageModule
   ],
   providers: [RegserviceService,AuthGuard,{
     provide: HTTP_INTERCEPTORS,

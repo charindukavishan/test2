@@ -35,11 +35,17 @@ export class SignupComponent implements OnInit {
     }
    p="";
   //  isKeeper=true;
-   isKeeper='';
-   
+   isKeeper=false;
+   changtokeeper(){
+     if(this.isKeeper)
+     this.isKeeper=false
+     this.isKeeper=true
+   }
     
-      onSubmit(form : NgForm){
-        if(this.isKeeper) this.p="/keeper"
+      onSubmit(form : NgForm){console.log(form.value.isKeeper)
+        this.p="";
+        if(form.value.isKeeper==true) this.p="/keeper"
+
         this.service.login(form.value,this.p).subscribe(
           res => {
             this.service.setToken(res['token']);

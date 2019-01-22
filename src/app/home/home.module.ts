@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 
 import { ComponentsModule } from '../components/components.module';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
     imports: [
@@ -15,7 +16,10 @@ import { ComponentsModule } from '../components/components.module';
         BrowserModule,
         FormsModule,
         RouterModule,
-        ComponentsModule
+        ComponentsModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyDySdsZG3tJO4FJqgu24ujKy8kIdlexmsE'
+          })
     ],
     declarations: [ HomeComponent ],
     exports:[ HomeComponent ],

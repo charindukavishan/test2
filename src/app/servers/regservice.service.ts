@@ -29,6 +29,9 @@ export class RegserviceService {
    getUserProfile() {
      return this.http.get(this.url + '/userProfile');
    }
+   editPic(data){console.log(data)
+     return this.http.post(data.url,data,this.noAuthHeader);
+   }
    getKeeperProfile() {
     return this.http.get(this.url + '/keeperProfile');
   }
