@@ -12,6 +12,8 @@ export class AdminComponent implements OnInit {
 
   userDetails;
   userId='';
+  editpi=false;
+  pic="./assets/img/faces/default.jpg";
   constructor(private service: RegserviceService, private router: Router,private location :Location) { }
 
   ngOnInit() { 
@@ -22,6 +24,7 @@ export class AdminComponent implements OnInit {
       res => {
         this.userDetails = res['user'];
         this.userId=this.userDetails._id;
+        this.pic=this.userDetails.proPic; 
         this.service.setid(this.userDetails._id);
         // console.log(this.userId);
         // console.log(this.userDetails)
@@ -48,4 +51,10 @@ else {
     return false;
 }
 }
+
+editpic(){
+  if(this.editpi==false)
+  this.editpi=true;
+  else this.editpi=false
+  }
 }

@@ -31,10 +31,10 @@
                     </td>
                     <td>
                       
-                      <button type="button" class="btn btn-outline-primary btn-round">{{ keeper.owner }}</button>
+                      <button type="button" (click)="profile(keeper.ownerid)" class="btn btn-outline-primary btn-round">{{ keeper.owner }}</button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-outline-primary btn-round">Show park</button>
+                        <button type="button" (click)="parkPro(keeper.id)" class="btn btn-outline-primary btn-round">Show park</button>
                         <!-- <button type="button" class="btn btn-danger btn-round">close</button> -->
                       
                     </td>

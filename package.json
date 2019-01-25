@@ -35,6 +35,7 @@
     "agm-direction": "^0.7.5",
     "ajv": "^6.5.5",
     "ajv-keywords": "^3.2.0",
+    "angular2-flash-messages": "^3.0.1",
     "angularfire2": "^5.1.1",
     "arrive": "^2.4.1",
     "bootstrap": "4.1.0",

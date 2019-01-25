@@ -18,6 +18,7 @@ export class OwnerprofileComponent implements OnInit {
   id;
   userDetails;
     userId='';
+    pic:'../../../assets/img/faces/default.jpg';
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];});
@@ -28,7 +29,8 @@ export class OwnerprofileComponent implements OnInit {
           this.userId=this.userDetails._id;
           this.service.setid(this.userDetails._id);
           // console.log(this.userId);
-          // console.log(this.userDetails)
+          console.log(this.userDetails)
+          this.pic=this.userDetails.proPic;
         },
         err => { 
           console.log(err);

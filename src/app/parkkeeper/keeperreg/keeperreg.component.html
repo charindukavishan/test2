@@ -8,140 +8,123 @@
         </div>
         <div class="card-body">
           <form #regForm="ngForm">
-            
-            
-            <div class="row">
-              <div class="col-md-12 pr-1">
-                <div class="form-group">
-                  <label>Park Name</label>
-                  <input #firstname="ngModel" required id="firstName" name="firstName" type="text" class="form-control" placeholder="Company" [(ngModel)]="reg.firstName">
-                  <!-- <div class="form-control-feedback" [hidden]="firstname.valid">First Name is required</div> -->
-                  <div class="form-control-feedback" [hidden]="firstname.valid">Park Name is required and must be valid</div>
+              <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" [(ngModel)]="name" name="name" class="form-control">
                 </div>
-              </div>
-              <!-- <div class="col-md-6 pl-1">
                 <div class="form-group">
-                  <label>Last Name</label>
-                  <input #lastName="ngModel" required type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" [(ngModel)]="reg.lastName">
-                  <div class="form-control-feedback" [hidden]="lastName.valid">last name required and must be valid</div>
-
-                </div>
-              </div> -->
-            </div>
-            <!-- <div class="row"> -->
-                <!-- <div class="col-md-5 pr-1">
-                  <div class="form-group">
-                    <label>Company (disabled)</label>
-                    <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
-                  </div>
-                </div> -->
-                <!-- <div class="col-md-3 px-1">
-                  <div class="form-group">
                     <label>Username</label>
-                    <input type="text" class="form-control" placeholder="Username" value="michael23">
+                    <input type="text" [(ngModel)]="username" name="username" class="form-control">
                   </div>
-                </div> -->
-                <!-- <div class="col-md-12 pl-1">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" placeholder="Email">
-                  </div>
-                </div> -->
-              <!-- </div> -->
-              <div class="row">
-                  <div class="col-md-12">
+                      <label>Email</label>
+                      <input type="text" [(ngModel)]="email" name="email" class="form-control">
+                    </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input #email="ngModel" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" required type="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="reg.email">
-                        <div class="form-control-feedback" [hidden]="email.valid">Email is required and must be valid</div>
-                      </div>
-                  </div>
-                  
-                </div>
-                <p *ngIf="iserror">
-                    <ngb-alert type="danger"  [dismissible]="false">
-                        <div class="container">
-                            <ng-container>
-                                <i class="nc-icon nc-bell-55"></i>
-                            </ng-container>
-                {{ serverErrorMessages }}
-                            <button type="button" name="button" class="close" (click)="closeAlert()">
-                                <i class="nc-icon nc-simple-remove"></i>
-                            </button>
+                        <label>Serch your park <i class="fas fa-map-marker-alt"></i></label>
+                        <input
+                        required
+                          placeholder="search the park"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          spellcheck="off"
+                          type="text"
+                          class="form-control"
+                          #search
+                          [formControl]="searchControl"
+                        />
+                        
                         </div>
-                    </ngb-alert>
-                </p>
-                <div class="form-group">
-                    <label>Serch your park <i class="fas fa-map-marker-alt"></i></label>
-                    <input
-                    required
-                      placeholder="search the park"
-                      autocorrect="off"
-                      autocapitalize="off"
-                      spellcheck="off"
-                      type="text"
-                      class="form-control"
-                      #search
-                      [formControl]="searchControl"
-                    />
-                    
-                    </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Address</label>
-                  <input #address="ngModel" id="address" required name="address" type="text" class="form-control" [(ngModel)]="reg.address">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4 pr-1">
-                <div class="form-group">
-                  <label>City</label>
-                  <input #city="ngModel" type="text" required id="city" name="city" class="form-control" placeholder="City" [(ngModel)]="reg.city">
-                </div>
-              </div>
-              <div class="col-md-4 px-1">
-                <div class="form-group">
-                  <label>Country</label>
-                  <input #country="ngModel" type="text" required id="country" name="country" class="form-control" placeholder="Country" [(ngModel)]="reg.country">
-                </div>
-              </div>
-              <div class="col-md-4 pl-1">
-                <div class="form-group">
-                  <label>Postal Code</label>
-                  <input #zip="ngModel" type="number" required id="zip" name="zip" class="form-control" placeholder="ZIP Code" [(ngModel)]="reg.zip">
-                  <div class="form-control-feedback" [hidden]="email.valid">Must be number</div>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>About Me</label>
-                  <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" >Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
-                </div>
-              </div>
-            </div> -->
-            <div class="row">
-                <div class='col-xs-12 col-sm-6'>
                     <div class="form-group">
-                        <label class="control-label" for="password">Create Password</label>  
-                        <input class="form-control input-md" #password="ngModel" pattern=".{6,}" required id="password" name="password" type="password" placeholder="Create password" [(ngModel)]="reg.password">   
-                        <div class="form-control-feedback" [hidden]="password.valid">Password must be at least 6 characters long</div>
-                    </div>
-                </div>
-                <div class='col-xs-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="control-label" for="confirmPassword">Repeat Password</label>  
-                        <input  class="form-control input-md" #confirmPassword="ngModel" required id="confirmPassword" name="confirmPassword" type="password" placeholder="Repeat password" [(ngModel)]="reg.confirmPassword">
-                        <div class="form-control-feedback" *ngIf="password.value!=confirmPassword.value">Password not match</div>
-                    </div>
-                </div>
-            </div>
-            <div class="ml-auto mr-auto text-center">
-                <button (click)="register()" [disabled]="!regForm.valid||(password.value!=confirmPassword.value)" class="btn btn-outline-default btn-round"><i class="nc-icon nc-tap-01"></i>Add</button>
-             </div>
+                        <label>Password</label>
+                        <input type="password" [(ngModel)]="password" name="password" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="text" [(ngModel)]="mobileNum" name="mobileNum" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label>NIC number</label>
+                        <input type="text" [(ngModel)]="NICnumber" name="NICnumber" class="form-control">
+                      </div>
+                      <br>
+                      <br>
+                      <br>
+                      <h2>Fill this fields for get your park details</h2>
+                      <div class="form-group">
+                        <label>Park Name</label>
+                        <input type="text" [(ngModel)]="parkName" name="parkName" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label>Number of total slots</label>
+                        <input type="number" [(ngModel)]="numberOfSlots" name="numberOfSlots" class="form-control">
+                        <label>Open houres</label>
+                        <input type="text" [(ngModel)]="openHours" name="openHours" class="form-control">
+                      </div>
+                      
+                      <br>
+              <br>
+              <br>
+              <h2>Please fill these fileds to get your paking slots' details</h2>
+              
+                      <table class="table">
+                        <thead class="thead-dark">
+                        
+                          <tr>
+                            <th scope="col">Vehicle Type</th>
+                            <th scope="col">Number of slots allocated</th>
+                            <th scope="col">Charge per one hour</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row" style="color:black">Cars and Vans</th>
+                            <td><input type="number" [(ngModel)]="alocatedSlots1" name="alocatedSlots1" class="form-control"></td>
+                            <td><input type="text" [(ngModel)]="hourCharge1" name="hourCharge1" class="form-control"></td>
+                           
+                          </tr>
+                          <tr>
+                            <th scope="row" style="color:blue">Bikes</th>
+                            <td><input type="number" [(ngModel)]="alocatedSlots2" name="alocatedSlots2" class="form-control"></td>
+                            <td><input type="text" [(ngModel)]="hourCharge2" name="hourCharge2" class="form-control"></td>
+                            
+                          </tr>
+                          <tr>
+                            <th scope="row" style="color:red">Lorries and Buses</th>
+                            <td><input type="number" [(ngModel)]="alocatedSlots3" name="alocatedSlots3" class="form-control"></td>
+                            <td><input type="text" [(ngModel)]="hourCharge3" name="hourCharge3" class="form-control"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" style="color:green">Three Wheelers</th>
+                            <td><input type="number" [(ngModel)]="alocatedSlots4" name="alocatedSlots4" class="form-control"></td>
+                            <td><input type="text" [(ngModel)]="hourCharge4" name="hourCharge4" class="form-control"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" style="color:yellow">Long Vehicles</th>
+                            <td><input type="number" [(ngModel)]="alocatedSlots5" name="alocatedSlots5" class="form-control"></td>
+                            <td><input type="text" [(ngModel)]="hourCharge5" name="hourCharge5" class="form-control"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <br>
+                      <br>
+                      <br>
+                      <div class="form-group">
+                        <label>Maximum Weight</label>
+                        <input type="text" [(ngModel)]="MaximumWeight" name="MaximumWeight" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label>Maximum Height</label>
+                        <input type="text" [(ngModel)]="MaximumHeight" name="MaximumHeight" class="form-control">
+                      </div>
+                      <br>
+                      <br>
+                      <br>
+                      <flash-messages></flash-messages>
+                      <div class="ml-auto mr-auto text-center">
+                          <button (click)="register()"  class="btn btn-outline-default btn-round"><i class="nc-icon nc-tap-01"></i>Add</button>
+                       </div>
           </form>
           
         </div>

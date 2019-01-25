@@ -10,7 +10,7 @@ import { google } from '@google/maps';
   styleUrls: ['./keeperprofile.component.scss']
 })
 export class KeeperprofileComponent implements OnInit {
-isslot=false
+isSlot=false
 home=true;
 MotorBicycle=false
 ThreeWheelers=false
@@ -18,10 +18,12 @@ LightVehicle=false
 HeavyVehicle=false
 userDetails;
 userId='';
+editpi=false;
+  pic="../../../assets/img/faces/default.jpg";
   constructor(public service:RegserviceService,public router:Router,private location :Location) { }
 
   ngOnInit() {
-    
+     
     if(!this.service.isLoggedIn())
     this.router.navigate(['/login']);
 
@@ -30,6 +32,7 @@ userId='';
         this.userDetails = res['user'];
         console.log(this.userDetails)
         this.userId=this.userDetails._id;
+        this.pic=this.userDetails.proPic;
         this.service.setid(this.userDetails._id);
         // console.log(this.userId);
         console.log(this.userDetails.name)
@@ -40,11 +43,11 @@ userId='';
       });
   }
 slotmode(){
-  this.isslot=true;
+  this.isSlot=true;
   this.home=false;
 }
 gohome(){
-  this.isslot=false;
+  this.isSlot=false;
   this.home=true
 }
 
@@ -58,4 +61,21 @@ ishome(){
       return false;
   }
 }
+isslot(){
+  var titlee = this.location.prepareExternalUrl(this.location.path());
+
+  if( titlee === '/keeper/slot' ) {
+      return true;
+  }
+  else {
+      return false;
+  }
+
+}
+
+editpic(){
+  if(this.editpi==false)
+  this.editpi=true;
+  else this.editpi=false
+  }
 }

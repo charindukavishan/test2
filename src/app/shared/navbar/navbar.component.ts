@@ -36,7 +36,7 @@ signout(){
     this.service.deleteToken();
     this.router.navigate(['/signup']);
 }
-    isProfile(){
+     isProfile(){
         var titlee = this.location.prepareExternalUrl(this.location.path());
 
         if( titlee === '/user-profile/*' ) {

@@ -1,19 +1,4 @@
 
-<!-- <div class="grid-container">
-  <div class="card" style="background-color: orange">
-    <div class="bg-img"></div>
-    <div class="content">
-      <h4>Slot no : 1</h4>
-      <p style="text-align: center"><br>
-       Availability : yes<br>
-       Release      : 1.30pm<br>
-       User : chiranga
-      </p>
-      <button>Book Now</button>
-    </div>
-  </div>
-</div> -->
-{{userDetails.name}}
 <div class="wrapper">
     <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg');">
         <div class="filter"></div>
@@ -22,25 +7,33 @@
     <div class="section profile-content">
         <div class="container">
             <div class="owner">
-                <div class="avatar">
-                    <img src="file:///C:/Users/H.A.C.K.Hettiarachch/Desktop/AuditingHelpApp/server/uploads/user/5c02b7232cfb801080464c05/photo-1543840520711.jpg" alt="Circle Image" class="img-thumbnail img-responsive">
-                </div>
+                    <div class="avatar">
+                            <img src="{{pic}}" alt="Circle Image" class="img-thumbnail img-responsive">
+                        </div>
+                        <!-- <button type="button" class="btn btn-primary btn-just-icon"><i class='fas fa-edit' style='font-size:24px'></i></button> -->
+                        <button type="file" rel="tooltip" (click)="editpic()" ngbTooltip="Edit profile picture" data-placement="bottom" type="button"
+                            class="btn btn-primary btn-link">
+                            <i class='fa fa-edit' style='font-size:36px'></i>
+                        </button>
+                        <div *ngIf="editpi">
+                            <app-keeper-pic></app-keeper-pic>
+                        </div>
                 <!-- <button type="button" class="btn btn-primary btn-just-icon"><i class='fas fa-edit' style='font-size:24px'></i></button> -->
                 <!-- <button type="file" rel="tooltip" (click)="editpic()" ngbTooltip="Edit profile picture" data-placement="bottom" type="button" class="btn btn-primary btn-link"> <i class='fa fa-edit' style='font-size:36px'></i></button> -->
                 <!-- <s -->
                 <div class="name">
-                    <h2 class="title">{{userDetails.name}}<br /></h2>
+                    <h2 class="title">{{userDetails.parkName}}<br /></h2>
                 
                 </div>
             </div>
             <div class="row">
                 <div *ngIf="ishome()&& home" class="ml-auto mr-auto text-center">
                     
-                    <a routerLink="/keeper/owner"> <button class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i> Owner details</button></a>
+                    <a routerLink="/keeper/details"> <button class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i>Details</button></a>
                 </div>
                 <div  *ngIf="ishome()&& home" class="ml-auto mr-auto text-center">
                     
-                       <a ><button (click)="slotmode()" class="btn btn-outline-default btn-round"><i class="nc-icon nc-bank"></i> Parking Slot</button></a> 
+                       <a routerLink="/keeper/slot"><button (click)="slotmode()" class="btn btn-outline-default btn-round"><i class="nc-icon nc-bank"></i> Parking Slot</button></a> 
                 </div>
                 <div  *ngIf="ishome() && home" class="ml-auto mr-auto text-center">
                     
@@ -50,28 +43,28 @@
                     
                    <a routerLink="/keeper/recent"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i> Recent activities</button></a> 
                 </div>
-                <div  *ngIf="ishome() &&isslot" class="ml-auto mr-auto text-center">
-                    <a ><button (click)="gohome()" class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i> Home</button></a> 
+                <div  *ngIf="isslot()" class="ml-auto mr-auto text-center">
+                    <a routerLink="/keeper"><button (click)="gohome()" class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i> Home</button></a> 
                 </div>
-                <div  *ngIf="ishome() &&isslot" class="ml-auto mr-auto text-center">
+                <div  *ngIf="isslot()" class="ml-auto mr-auto text-center">
                     
-                    <a routerLink="/keeper/MotorBicycle"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i>car and Van</button></a> 
+                    <a routerLink="/keeper/car"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i>car and Van</button></a> 
                  </div>
-                 <div  *ngIf="ishome()&&isslot" class="ml-auto mr-auto text-center">
+                 <div  *ngIf="isslot()" class="ml-auto mr-auto text-center">
                     
-                    <a routerLink="/keeper/ThreeWheelers"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i>Bikes</button></a> 
+                    <a routerLink="/keeper/bike"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i>Bikes</button></a> 
                  </div>
-                 <div  *ngIf="ishome()&&isslot" class="ml-auto mr-auto text-center">
+                 <div  *ngIf="isslot()" class="ml-auto mr-auto text-center">
                     
-                    <a routerLink="/keeper/LightVehicle"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i>Busses and Lorries</button></a> 
+                    <a routerLink="/keeper/lorry"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i>Busses and Lorries</button></a> 
                 </div>
-                <div  *ngIf="ishome()&&isslot" class="ml-auto mr-auto text-center">
+                <div  *ngIf="isslot()" class="ml-auto mr-auto text-center">
                     
-                    <a routerLink="/keeper/HeavyVehicle"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i>Three Wheelers</button></a> 
+                    <a routerLink="/keeper/weel"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i>Three Wheelers</button></a> 
                  </div>
-                 <div  *ngIf="ishome()&&isslot" class="ml-auto mr-auto text-center">
+                 <div  *ngIf="isslot()" class="ml-auto mr-auto text-center">
                     
-                    <a routerLink="/keeper/HeavyVehicle"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i>Long</button></a> 
+                    <a routerLink="/keeper/longVehicle"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i>Long</button></a> 
                  </div>
             </div>
             <br/>

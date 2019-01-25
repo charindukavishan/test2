@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegserviceService } from '../../servers/regservice.service';
 import decode from 'jwt-decode';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-keepers',
   templateUrl: './keepers.component.html',
@@ -8,7 +9,7 @@ import decode from 'jwt-decode';
 })
 export class KeepersComponent implements OnInit {
 
-  constructor(public service:RegserviceService) { }
+  constructor(public service:RegserviceService,public router:Router) { }
   private kepers ;
   private owner ;
   private keepers=[];
@@ -48,8 +49,12 @@ export class KeepersComponent implements OnInit {
 ownerpro(id){
 
 }
-keeperpro(id){
-
+parkPro(id){
+  console.log(id)
+  this.router.navigateByUrl('park/'+id);
+}
+profile(id){console.log(id)
+  this.router.navigateByUrl('owner/'+id);
 }
  
 

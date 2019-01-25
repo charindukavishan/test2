@@ -11,6 +11,7 @@ import { finalize } from 'rxjs/operators';
 import { async } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { ProfileComponent } from '../profile.component';
+import { AdminComponent } from '../../admin/admin.component';
 @Component({
   selector: 'app-editpropic',
   templateUrl: './editpropic.component.html',
@@ -21,7 +22,7 @@ export class EditpropicComponent implements OnInit {
   task: AngularFireUploadTask;
   downloadURL: Observable<string>;
   profileUrl: Observable<string>;
-  constructor(public service:RegserviceService,private afStorage: AngularFireStorage,public router:Router,public profile:ProfileComponent) { }
+  constructor(public service:RegserviceService,private afStorage: AngularFireStorage,public router:Router,public profile:ProfileComponent,public admin:AdminComponent) { }
   pic="";
   private files = [];
   id='';
@@ -72,6 +73,8 @@ this.service.editPic(this.model).subscribe(
   res => { 
     this.profile.ngOnInit();
     this.profile.editpi=false
+    this.admin.ngOnInit();
+    this.admin.editpi=false;
   },
   err => { 
     console.log(err);

@@ -32,6 +32,10 @@ export class RegserviceService {
    editPic(data){console.log(data)
      return this.http.post(data.url,data,this.noAuthHeader);
    }
+
+   editkeeperPic(data){console.log(data)
+    return this.http.post(data.url,data,this.noAuthHeader);
+  }
    getKeeperProfile() {
     return this.http.get(this.url + '/keeperProfile');
   }
@@ -40,6 +44,13 @@ export class RegserviceService {
   }
    getkeepers(id) {
     return this.http.get(this.url+'/getkeepers/'+id);
+  }
+  sethistory(data){
+    return this.http.post(this.url+'/sethistory',data,this.noAuthHeader);
+  }
+
+  getkeeperprofile(id){
+    return this.http.get(this.url+'/getkeeperprofile/'+id);
   }
   getnewkeepers() {
     return this.http.get(this.url+'/getnewkeepers');
@@ -135,6 +146,19 @@ getusers(){console.log('getuser')
     }
     getAllPosts(){
      return this.http.get(this.url + '/getPosts');
+    }
+  
+    getbookings(id){
+      return this.http.get(this.url+'/bookingDetails/'+id);
+    }
+    getbooking(id){
+      return this.http.get(this.url+'/booking/'+id);
+    }
+    gethistory(id){
+      return this.http.get(this.url+'/bookinghistory/'+id);
+    }
+    deletebook(id){
+      return this.http.get(this.url+'/deletebook/'+id);
     }
 
 }

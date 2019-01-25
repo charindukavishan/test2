@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
@@ -29,15 +29,36 @@ import { OwnerprofileComponent } from './admin/ownerprofile/ownerprofile.compone
 import { AdminuploadComponent } from './admin/adminupload/adminupload.component';
 import { AdminreceiveComponent } from './admin/adminreceive/adminreceive.component';
 import { KeeperprofileComponent } from './parkkeeper/keeperprofile/keeperprofile.component';
+
 import { ResetpwComponent } from './signup/resetpw/resetpw.component';
 import { ParkingslotComponent } from './parkkeeper/parkingslot/parkingslot.component';
 import { NewpwComponent } from './signup/newpw/newpw.component';
+import { DetailsComponent } from './parkkeeper/details/details.component';
+import { CarComponent } from './parkkeeper/parkingslot/car/car.component';
+import { BikeComponent } from './parkkeeper/parkingslot/bike/bike.component';
+import { LorryComponent } from './parkkeeper/parkingslot/lorry/lorry.component';
+import { WeelComponent } from './parkkeeper/parkingslot/weel/weel.component';
+import { LongVehicleComponent } from './parkkeeper/parkingslot/long-vehicle/long-vehicle.component';
+import { KeeperProViewComponent } from './admin/keeper-pro-view/keeper-pro-view.component';
+import { BookingsComponent } from './parkkeeper/bookings/bookings.component';
+import { BookinghistoryComponent } from './parkkeeper/bookinghistory/bookinghistory.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
     { path: 'keeper',     component: KeeperprofileComponent ,canActivate:[RoleGuardServiceGuard],data: { 
       expectedRole: 'keeper'
-    }
+    },
+    children:[
+      {path:'details', component:DetailsComponent},
+      {path:'slot', component:ParkingslotComponent},
+      {path:'car', component:CarComponent},
+      {path:'bike', component:BikeComponent},
+      {path:'lorry', component:LorryComponent},
+      {path:'weel', component:WeelComponent},
+      {path:'longVehicle', component:LongVehicleComponent},
+      {path:'booking', component:BookingsComponent},
+      {path:'recent', component:BookinghistoryComponent}
+    ]
     },
 
 
@@ -72,6 +93,7 @@ const routes: Routes =[
     {path: 'owner/:id', component:OwnerprofileComponent,canActivate:[RoleGuardServiceGuard],data: { 
       expectedRole: 'admin'
     }},
+    {path: 'park/:id', component:KeeperProViewComponent},
     { path: 'signup',           component: SignupComponent },
     { path: 'resetpassword',           component: ResetpwComponent },
     { path: 'landing',          component: LandingComponent },

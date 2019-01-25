@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
- 
+  
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
@@ -51,6 +51,19 @@ import { NewpwComponent } from './signup/newpw/newpw.component';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { DetailsComponent } from './parkkeeper/details/details.component';
+import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
+import { ValidateService } from './servers/validate.service';
+import { CarComponent } from './parkkeeper/parkingslot/car/car.component';
+import { BikeComponent, NgbdModalContent } from './parkkeeper/parkingslot/bike/bike.component';
+import { LongVehicleComponent } from './parkkeeper/parkingslot/long-vehicle/long-vehicle.component';
+import { LorryComponent } from './parkkeeper/parkingslot/lorry/lorry.component';
+import { WeelComponent } from './parkkeeper/parkingslot/weel/weel.component';
+import { AdminPicComponent } from './admin/admin-pic/admin-pic.component';
+import { KeeperPicComponent } from './parkkeeper/keeper-pic/keeper-pic.component';
+import { KeeperProViewComponent } from './admin/keeper-pro-view/keeper-pro-view.component';
+import { BookingsComponent } from './parkkeeper/bookings/bookings.component';
+import { BookinghistoryComponent } from './parkkeeper/bookinghistory/bookinghistory.component';
  
 @NgModule({
   declarations: [
@@ -86,7 +99,19 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     KeeperprofileComponent,
     ParkingslotComponent,
     ResetpwComponent,
-    NewpwComponent
+    NewpwComponent,
+    DetailsComponent,
+    CarComponent,
+    BikeComponent,
+    LongVehicleComponent,
+    LorryComponent,
+    WeelComponent,
+    NgbdModalContent,
+    AdminPicComponent,
+    KeeperPicComponent,
+    KeeperProViewComponent,
+    BookingsComponent,
+    BookinghistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -108,13 +133,16 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
       storageBucket: "parkherefiles.appspot.com",
       projectId: "parkherefiles",
     }),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    FlashMessagesModule,
+    // FlashMessagesService
   ],
   providers: [RegserviceService,AuthGuard,{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
-  bootstrap: [AppComponent]
+  },FlashMessagesService,ValidateService],
+  bootstrap: [AppComponent],
+  entryComponents: [NgbdModalContent],
 })
 export class AppModule { }

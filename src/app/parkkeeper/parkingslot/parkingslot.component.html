@@ -1,3 +1,67 @@
-<p>
-  parkingslot works!
-</p>
+
+<div class="panel-header panel-header-sm">
+  </div>
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header ">
+            My Details
+          </div>
+          <div class="card-body ">
+              <ul class="list-group">
+                  <li class="list-group-item" style="color:black"><b>Park Name:  {{parkName}}</b></li>
+                <li class="list-group-item" style="color:black"><b>Number of total slots:  {{numberOfSlots}}</b></li>
+                <li class="list-group-item"  style="color:black"><b>Open Hours:  {{openHours}} </b></li>
+              </ul>
+              
+              <br>
+              <br>
+              <br>
+              
+              <table class="table">
+                <thead class="thead-dark">
+                
+                  <tr>
+                    <th scope="col">Vehicle Type</th>
+                    <th scope="col">Number of slots allocated</th>
+                    <th scope="col">Charge per one hour</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" style="color:black">Cars and Vans</th>
+                    <td>{{alocatedSlots1}}</td>
+                    <td>{{hourCharge1}}</td>
+                   
+                  </tr>
+                  <tr>
+                    <th scope="row" style="color:blue">Bikes</th>
+                    <td>{{alocatedSlots2}}</td>
+                    <td>{{hourCharge2}}</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row" style="color:red">Lorries and Buses</th>
+                    <td>{{alocatedSlots3}}</td>
+                    <td>{{hourCharge3}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" style="color:green">Three Wheelers</th>
+                    <td>{{alocatedSlots4}}</td>
+                    <td>{{hourCharge4}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" style="color:yellow">Long Vehicles</th>
+                    <td>{{alocatedSlots5}}</td>
+                    <td>{{hourCharge5}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
