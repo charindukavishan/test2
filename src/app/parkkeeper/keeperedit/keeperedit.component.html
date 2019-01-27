@@ -1,0 +1,118 @@
+
+<div class="main-content">
+    <div a class="row">
+      <div  class="col-md-12 mr-auto ml-auto">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="title">Edit park details</h5>
+          </div>
+          <div class="card-body">
+            <form #regForm="ngForm">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" [value]="userDetails.name" [(ngModel)]="name" name="name" class="form-control">
+                  </div>
+                  <div class="form-group">
+                      <label>Username</label>
+                      <input type="text" [value]="userDetails.username" [(ngModel)]="username" name="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" [value]="userDetails.email" [(ngModel)]="email" name="email" class="form-control">
+                      </div>
+                        <div class="form-group">
+                          <label>Mobile Number</label>
+                          <input type="text" [value]="userDetails.mobileNum" [(ngModel)]="mobileNum" name="mobileNum" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label>NIC number</label>
+                          <input type="text" [value]="userDetails.NICnumber" [(ngModel)]="NICnumber" name="NICnumber" class="form-control">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <h2>Fill this fields for get your park details</h2>
+                        <div class="form-group">
+                          <label>Park Name</label>
+                          <input type="text"[value]="userDetails.parkName" [(ngModel)]="parkName" name="parkName" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label>Number of total slots</label>
+                          <input type="number" [value]="userDetails.numberOfSlots" [(ngModel)]="numberOfSlots" name="numberOfSlots" class="form-control">
+                          <label>Open houres</label>
+                          <input type="text" [value]="userDetails.openHours" [(ngModel)]="openHours" name="openHours" class="form-control">
+                        </div>
+                        
+                        <br>
+                <br>
+                <br>
+                <h2>Please fill these fileds to get your paking slots' details</h2>
+                
+                        <table class="table">
+                          <thead class="thead-dark">
+                          
+                            <tr>
+                              <th scope="col">Vehicle Type</th>
+                              <th scope="col">Number of slots allocated</th>
+                              <th scope="col">Charge per one hour</th>
+                              
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row" style="color:black">Cars and Vans</th>
+                              <td><input type="number" [value]="userDetails.alocatedSlots1" [(ngModel)]="alocatedSlots1" name="alocatedSlots1" class="form-control"></td>
+                              <td><input type="text" [value]="userDetails.hourCharge1" [(ngModel)]="hourCharge1" name="hourCharge1" class="form-control"></td>
+                             
+                            </tr>
+                            <tr>
+                              <th scope="row" style="color:blue">Bikes</th>
+                              <td><input type="number" [value]="userDetails.alocatedSlots2" [(ngModel)]="alocatedSlots2" name="alocatedSlots2" class="form-control"></td>
+                              <td><input type="text" [value]="userDetails.hourCharge2" [(ngModel)]="hourCharge2" name="hourCharge2" class="form-control"></td>
+                              
+                            </tr>
+                            <tr>
+                              <th scope="row" style="color:red">Lorries and Buses</th>
+                              <td><input type="number" [value]="userDetails.alocatedSlots3" [(ngModel)]="alocatedSlots3" name="alocatedSlots3" class="form-control"></td>
+                              <td><input type="text" [value]="userDetails.hourCharge3" [(ngModel)]="hourCharge3" name="hourCharge3" class="form-control"></td>
+                            </tr>
+                            <tr>
+                              <th scope="row" style="color:green">Three Wheelers</th>
+                              <td><input type="number" [value]="userDetails.alocatedSlots4" [(ngModel)]="alocatedSlots4" name="alocatedSlots4" class="form-control"></td>
+                              <td><input type="text" [value]="userDetails.hourCharge4" [(ngModel)]="hourCharge4" name="hourCharge4" class="form-control"></td>
+                            </tr>
+                            <tr>
+                              <th scope="row" style="color:yellow">Long Vehicles</th>
+                              <td><input type="number" [value]="userDetails.alocatedSlots5" [(ngModel)]="alocatedSlots5" name="alocatedSlots5" class="form-control"></td>
+                              <td><input type="text" [value]="userDetails.hourCharge5" [(ngModel)]="hourCharge5" name="hourCharge5" class="form-control"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                          <label>Maximum Weight</label>
+                          <input type="text" [value]="userDetails.MaximumWeight" [(ngModel)]="MaximumWeight" name="MaximumWeight" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label>Maximum Height</label>
+                          <input type="text" [value]="userDetails.MaximumHeight" [(ngModel)]="MaximumHeight" name="MaximumHeight" class="form-control">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <flash-messages></flash-messages>
+                        <div class="ml-auto mr-auto text-center">
+                            <button (click)="register()"  class="btn btn-outline-default btn-round"><i class="nc-icon nc-tap-01"></i>Add</button>
+                         </div>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+   

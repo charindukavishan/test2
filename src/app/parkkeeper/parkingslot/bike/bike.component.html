@@ -1,0 +1,42 @@
+<h1>Bikes</h1>
+<br>
+<br>
+<br>
+<h2>Total number of allocated slots: {{amounts}}</h2>
+<h2>Charge per Hour: {{charge}}</h2>
+<flash-messages></flash-messages>
+
+<div class="grid-container">
+  <div *ngFor="let i of Arr">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+
+        <div class="flip-card-front" style="background-color:rgb(19, 198, 221)">
+          <div class="card-header" style="font-size: 30pt">{{i.slotNumber}}</div>
+
+          <div class="card-body">
+            <h1 *ngIf="i.isBook==false" style="font-size: 20pt">Available Now</h1>
+            <h1 *ngIf="i.isBook==true" style="font-size: 20pt">Parked</h1>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <h3 *ngIf="i.isBook">Reserved by : {{i.name}}</h3>
+          <h3 *ngIf="i.isBook">Reverver Id : {{i.nic}}</h3>
+          <h3 *ngIf="i.isBook">Parks : {{i.parkedAt}}</h3>
+          <h3 *ngIf="i.isBook">Leaves : {{i.leavAt}}</h3>
+          <br>
+          
+          
+          <button class="btn btn-success btn-sm" (click)="open(i.slotId)">Details</button>
+          <button class="btn btn-danger btn-sm"*ngIf="i.isBook" (click)="Release(i.slotId)">Release</button>
+          <br>
+          <br>
+          <button (click)="price(i)" type="top" class="btn btn-outline-light  btn-sm btn-round" placement="top" ngbPopover="Rs. {{finalPrice}}"
+            popoverTitle="Calculated charge">
+            Calculate charge
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

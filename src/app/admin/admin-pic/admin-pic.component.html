@@ -1,0 +1,29 @@
+<div class="col-md-4">
+    <br>
+      <form>
+          <div  class="form-group">
+              <label for="multiple">Choose file(s)</label>
+              <!-- <input type="file" class="form-control" name="multiple" ng2FileSelect [uploader]="uploader" multiple  /> -->
+  
+              <input type="file" class="form-control" (change)="upload($event)" accept=".png,.jpg" />
+          </div>            
+      </form>
+      <!-- <button type="button" class="btn btn-success btn-s"
+                        (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                    <span class="fa fa-upload"></span> Upload all
+                </button> -->
+  </div>
+  
+  
+  <!-- <div class="card-body">
+      <h5 class="card-title">Select a file for upload:</h5>
+      <input type="file" class="form-control" (change)="upload($event)" accept=".png,.jpg" />
+    </div>
+    
+    <br>
+          <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+              File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+              <img src={{downloadSrc}} alt="">
+          </div>
+    
+          <br> -->

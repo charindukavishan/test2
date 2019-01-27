@@ -23,6 +23,241 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/admin/addadmin/addadmin.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/admin/addadmin/addadmin.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header page-header-xs\" data-parallax=\"true\" style=\"background-image: url('./assets/img/login.jpg');\">\n        <div class=\"filter\"></div>\n    </div>\n\n<div class=\"panel-header panel-header-sm\">\n  </div>\n  <div class=\"main-content\">\n    <div a class=\"row\">\n      <div  class=\"col-md-12 mr-auto ml-auto\">\n        <div class=\"card\">\n          <div class=\"card-header\">\n            <h5 class=\"title\">Register Admin</h5>\n          </div>\n          <div class=\"card-body\">\n            <form #regForm=\"ngForm\">\n              \n              \n              <div class=\"row\">\n                <div class=\"col-md-6 pr-1\">\n                  <div class=\"form-group\">\n                    <label>First Name</label>\n                    <input #firstname=\"ngModel\" required id=\"firstName\" name=\"firstName\" type=\"text\" class=\"form-control\" placeholder=\"Company\" [(ngModel)]=\"reg.firstName\">\n                    <!-- <div class=\"form-control-feedback\" [hidden]=\"firstname.valid\">First Name is required</div> -->\n                    <div class=\"form-control-feedback\" [hidden]=\"firstname.valid\">Email is required and must be valid</div>\n                  </div>\n                </div>\n                <div class=\"col-md-6 pl-1\">\n                  <div class=\"form-group\">\n                    <label>Last Name</label>\n                    <input #lastName=\"ngModel\" required type=\"text\" id=\"lastName\" name=\"lastName\" class=\"form-control\" placeholder=\"Last Name\" [(ngModel)]=\"reg.lastName\">\n                    <div class=\"form-control-feedback\" [hidden]=\"lastName.valid\">Email is required and must be valid</div>\n\n                  </div>\n                </div>\n              </div>\n              <!-- <div class=\"row\"> -->\n                  <!-- <div class=\"col-md-5 pr-1\">\n                    <div class=\"form-group\">\n                      <label>Company (disabled)</label>\n                      <input type=\"text\" class=\"form-control\" disabled=\"\" placeholder=\"Company\" value=\"Creative Code Inc.\">\n                    </div>\n                  </div> -->\n                  <!-- <div class=\"col-md-3 px-1\">\n                    <div class=\"form-group\">\n                      <label>Username</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Username\" value=\"michael23\">\n                    </div>\n                  </div> -->\n                  <!-- <div class=\"col-md-12 pl-1\">\n                    <div class=\"form-group\">\n                      <label for=\"exampleInputEmail1\">Email address</label>\n                      <input type=\"email\" class=\"form-control\" placeholder=\"Email\">\n                    </div>\n                  </div> -->\n                <!-- </div> -->\n                <div class=\"row\">\n                    <div class=\"col-md-12\">\n                      <div class=\"form-group\">\n                          <label for=\"exampleInputEmail1\">Email address</label>\n                          <input #email=\"ngModel\" pattern=\"^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$\" id=\"email\" required type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"reg.email\">\n                          <div class=\"form-control-feedback\" [hidden]=\"email.valid\">Email is required and must be valid</div>\n                        </div>\n                    </div>\n                    \n                  </div>\n                  <p *ngIf=\"iserror\">\n                      <ngb-alert type=\"danger\"  [dismissible]=\"false\">\n                          <div class=\"container\">\n                              <ng-container>\n                                  <i class=\"nc-icon nc-bell-55\"></i>\n                              </ng-container>\n                  {{ serverErrorMessages }}\n                              <button type=\"button\" name=\"button\" class=\"close\" (click)=\"closeAlert()\">\n                                  <i class=\"nc-icon nc-simple-remove\"></i>\n                              </button>\n                          </div>\n                      </ngb-alert>\n                  </p>\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label>Address</label>\n                    <input #address=\"ngModel\" id=\"address\" required name=\"address\" type=\"text\" class=\"form-control\" [(ngModel)]=\"reg.address\">\n                  </div>\n                </div>\n              </div>\n              <div class=\"row\">\n                <div class=\"col-md-4 pr-1\">\n                  <div class=\"form-group\">\n                    <label>City</label>\n                    <input #city=\"ngModel\" type=\"text\" required id=\"city\" name=\"city\" class=\"form-control\" placeholder=\"City\" [(ngModel)]=\"reg.city\">\n                  </div>\n                </div>\n                <div class=\"col-md-4 px-1\">\n                  <div class=\"form-group\">\n                    <label>Country</label>\n                    <input #country=\"ngModel\" type=\"text\" required id=\"country\" name=\"country\" class=\"form-control\" placeholder=\"Country\" [(ngModel)]=\"reg.country\">\n                  </div>\n                </div>\n                <div class=\"col-md-4 pl-1\">\n                  <div class=\"form-group\">\n                    <label>Postal Code</label>\n                    <input #zip=\"ngModel\" type=\"number\" required id=\"zip\" name=\"zip\" class=\"form-control\" placeholder=\"ZIP Code\" [(ngModel)]=\"reg.zip\">\n                    <div class=\"form-control-feedback\" [hidden]=\"email.valid\">Must be number</div>\n                  </div>\n                </div>\n              </div>\n              <!-- <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label>About Me</label>\n                    <textarea rows=\"4\" cols=\"80\" class=\"form-control\" placeholder=\"Here can be your description\" >Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>\n                  </div>\n                </div>\n              </div> -->\n              <div class=\"row\">\n                  <div class='col-xs-12 col-sm-6'>\n                      <div class=\"form-group\">\n                          <label class=\"control-label\" for=\"password\">Create Password</label>  \n                          <input class=\"form-control input-md\" #password=\"ngModel\" pattern=\".{6,}\" required id=\"password\" name=\"password\" type=\"password\" placeholder=\"Create password\" [(ngModel)]=\"reg.password\">   \n                          <div class=\"form-control-feedback\" [hidden]=\"password.valid\">Password must be at least 6 characters long</div>\n                      </div>\n                  </div>\n                  <div class='col-xs-12 col-sm-6'>\n                      <div class=\"form-group\">\n                           <label class=\"control-label\" for=\"confirmPassword\">Repeat Password</label>  \n                          <input  class=\"form-control input-md\" #confirmPassword=\"ngModel\" required id=\"confirmPassword\" name=\"confirmPassword\" type=\"password\" placeholder=\"Repeat password\" [(ngModel)]=\"reg.confirmPassword\">\n                          <div class=\"form-control-feedback\" *ngIf=\"password.value!=confirmPassword.value\">Password not match</div>\n                      </div>\n                  </div>\n              </div>\n              <div class=\"ml-auto mr-auto text-center\">\n                  <button (click)=\"register()\" [disabled]=\"!regForm.valid||(password.value!=confirmPassword.value)\" class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-tap-01\"></i>Sing Up</button>\n               </div>\n            </form>\n            \n          </div>\n        </div>\n      </div>\n      \n    </div>\n  </div>\n  \n  "
+
+/***/ }),
+
+/***/ "./src/app/admin/addadmin/addadmin.component.scss":
+/*!********************************************************!*\
+  !*** ./src/app/admin/addadmin/addadmin.component.scss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/addadmin/addadmin.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/admin/addadmin/addadmin.component.ts ***!
+  \******************************************************/
+/*! exports provided: AddadminComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddadminComponent", function() { return AddadminComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AddadminComponent = /** @class */ (function () {
+    function AddadminComponent(service, router) {
+        this.service = service;
+        this.router = router;
+        this.reg = {
+            firstName: '',
+            lastName: '',
+            email: '',
+            address: '',
+            city: '',
+            country: '',
+            zip: '',
+            nic: '',
+            password: '',
+            confirmPassword: '',
+            role: 'admin'
+        };
+        this.iserror = false;
+        this.res = '';
+        this.serverErrorMessages = '';
+    }
+    AddadminComponent.prototype.ngOnInit = function () {
+    };
+    AddadminComponent.prototype.register = function () {
+        var _this = this;
+        this.service.storedetails(this.reg)
+            .subscribe(function (response) {
+            if (response) {
+                _this.res = response['status'];
+                console.log(response);
+                if (!_this.res) {
+                    _this.serverErrorMessages = 'Your email is already exists';
+                }
+                else {
+                    console.log(response);
+                    _this.serverErrorMessages = "Registration Succsesfull";
+                    _this.router.navigateByUrl('/signup');
+                }
+            }
+        }, function (error) {
+            console.log(error);
+            _this.iserror = true;
+            {
+                if (error)
+                    _this.serverErrorMessages = 'Your email is already exists';
+            }
+        });
+    };
+    AddadminComponent.prototype.closeAlert = function () {
+        this.iserror = false;
+    };
+    AddadminComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-addadmin',
+            template: __webpack_require__(/*! ./addadmin.component.html */ "./src/app/admin/addadmin/addadmin.component.html"),
+            styles: [__webpack_require__(/*! ./addadmin.component.scss */ "./src/app/admin/addadmin/addadmin.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], AddadminComponent);
+    return AddadminComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/admin-pic/admin-pic.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/admin/admin-pic/admin-pic.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-md-4\">\n    <br>\n      <form>\n          <div  class=\"form-group\">\n              <label for=\"multiple\">Choose file(s)</label>\n              <!-- <input type=\"file\" class=\"form-control\" name=\"multiple\" ng2FileSelect [uploader]=\"uploader\" multiple  /> -->\n  \n              <input type=\"file\" class=\"form-control\" (change)=\"upload($event)\" accept=\".png,.jpg\" />\n          </div>            \n      </form>\n      <!-- <button type=\"button\" class=\"btn btn-success btn-s\"\n                        (click)=\"uploader.uploadAll()\" [disabled]=\"!uploader.getNotUploadedItems().length\">\n                    <span class=\"fa fa-upload\"></span> Upload all\n                </button> -->\n  </div>\n  \n  \n  <!-- <div class=\"card-body\">\n      <h5 class=\"card-title\">Select a file for upload:</h5>\n      <input type=\"file\" class=\"form-control\" (change)=\"upload($event)\" accept=\".png,.jpg\" />\n    </div>\n    \n    <br>\n          <div *ngIf=\"downloadURL | async; let downloadSrc\" class=\"alert alert-info\" role=\"alert\">\n              File uploaded: <a [href]=\"downloadSrc\">{{downloadSrc}}</a>\n              <img src={{downloadSrc}} alt=\"\">\n          </div>\n    \n          <br> -->"
+
+/***/ }),
+
+/***/ "./src/app/admin/admin-pic/admin-pic.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/admin/admin-pic/admin-pic.component.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/admin-pic/admin-pic.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/admin/admin-pic/admin-pic.component.ts ***!
+  \********************************************************/
+/*! exports provided: AdminPicComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminPicComponent", function() { return AdminPicComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jwt-decode */ "./node_modules/jwt-decode/lib/index.js");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/index.js");
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng2_file_upload__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _admin_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../admin.component */ "./src/app/admin/admin.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var AdminPicComponent = /** @class */ (function () {
+    function AdminPicComponent(service, afStorage, router, admin) {
+        this.service = service;
+        this.afStorage = afStorage;
+        this.router = router;
+        this.admin = admin;
+        this.pic = "";
+        this.files = [];
+        this.id = '';
+        this.url = '';
+        this.model = {
+            url: "",
+            PicUrl: ""
+        };
+    }
+    AdminPicComponent.prototype.ngOnInit = function () {
+        var token = this.service.getToken();
+        var tokenPayload = jwt_decode__WEBPACK_IMPORTED_MODULE_2___default()(token);
+        this.id = tokenPayload._id;
+        this.url = 'http://localhost:3001/api/updateprofilepic/' + tokenPayload._id;
+        this.uploader = new ng2_file_upload__WEBPACK_IMPORTED_MODULE_3__["FileUploader"]({ url: this.url, itemAlias: 'photo' });
+    };
+    AdminPicComponent.prototype.upload = function (event) {
+        var _this = this;
+        var id = Math.random().toString(36).substring(2);
+        this.ref = this.afStorage.ref(id);
+        this.task = this.ref.put(event.target.files[0]);
+        this.task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["finalize"])(function () { return _this.downloadURL = _this.ref.getDownloadURL(); }))
+            .subscribe();
+        this.task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["finalize"])(function () {
+            _this.ref.getDownloadURL().subscribe(function (PicUrl) {
+                _this.model.PicUrl = PicUrl;
+                // console.log(url); // <-- do what ever you want with the url..
+                var token = _this.service.getToken();
+                var tokenPayload = jwt_decode__WEBPACK_IMPORTED_MODULE_2___default()(token);
+                _this.id = tokenPayload._id;
+                _this.model.url = 'http://localhost:3000/api/updateprofilepic/' + tokenPayload._id;
+                _this.service.editPic(_this.model).subscribe(function (res) {
+                    _this.admin.ngOnInit();
+                    _this.admin.editpi = false;
+                }, function (err) {
+                    console.log(err);
+                });
+                // this.pic=url;
+            });
+        })).subscribe();
+    };
+    AdminPicComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-admin-pic',
+            template: __webpack_require__(/*! ./admin-pic.component.html */ "./src/app/admin/admin-pic/admin-pic.component.html"),
+            styles: [__webpack_require__(/*! ./admin-pic.component.scss */ "./src/app/admin/admin-pic/admin-pic.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], angularfire2_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _admin_component__WEBPACK_IMPORTED_MODULE_7__["AdminComponent"]])
+    ], AdminPicComponent);
+    return AdminPicComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/admin/admin.component.html":
 /*!********************************************!*\
   !*** ./src/app/admin/admin.component.html ***!
@@ -30,7 +265,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header page-header-xs\" data-parallax=\"true\" style=\"background-image: url('./assets/img/black1.jpg');\">\n        <div class=\"filter\"></div>\n    </div>\n    <div class=\"section profile-content\">\n        <div class=\"container\">\n            <div class=\"owner\">\n                <div class=\"avatar\">\n                    <img src=\"./assets/img/faces/joe-gardner-2.jpg\" alt=\"Circle Image\" class=\"img-circle img-no-padding img-responsive\">\n                    <h4 class=\"title\">@Admin<br /></h4>\n                  \n                  </div>\n                <!-- <button type=\"button\" class=\"btn btn-primary btn-just-icon\"><i class='fas fa-edit' style='font-size:24px'></i></button> -->\n                <!-- <button type=\"file\" rel=\"tooltip\" ngbTooltip=\"Edit profile picture\" data-placement=\"bottom\" type=\"button\" class=\"btn btn-primary btn-link\"> <i class='fa fa-edit' style='font-size:36px'></i></button> -->\n                <h2 class=\"title\">{{userDetails.firstName}} {{userDetails.lastName}}<br /></h2>\n                    \n                \n                <!-- <app-editpropic></app-editpropic> -->\n                <!-- <div class=\"name\">\n                    <h2 class=\"title\">{{userDetails.firstName}} {{userDetails.lastName}}<br /></h2>\n                \n                </div> -->\n            </div>\n            <div class=\"row\">\n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/admin/owners\"> <button class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-single-02\" style=\"font-size:20px;\"></i> Park owners</button></a>\n                </div>\n                <div  *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n                    \n                       <a routerLink=\"/admin/newparks\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-bank\" style=\"font-size:20px;\"></i> New parks</button></a> \n                    </div>\n                    <div  *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n                    \n                            <a routerLink=\"/admin/map\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-pin-3\" style=\"font-size:20px;\"></i> Map</button></a> \n                         </div>\n                         <div  *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n                    \n                                <a routerLink=\"/admin/pic\"><button  class=\"btn btn-outline-danger btn-round\"><i class=\"fa fa-wheelchair-alt\" style=\"font-size:20px;\"></i>   Low ratings</button></a> \n                             </div>\n                             <div  *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n                    \n                                    <a routerLink=\"/admin/myparks\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i> My Parks</button></a> \n                                 </div>\n            </div>\n            <br/>\n            <div class=\"nav-tabs-navigation\">\n                <div class=\"nav-tabs-wrapper\">\n\n                    \n                        <!-- <ngb-tab routerLink=\"/userprofile/userHome\" title=\"Send\">\n                            <ng-template ngbTabContent >\n                                \n                                    <router-outlet></router-outlet>\n                                    </ng-template>\n                        </ngb-tab>\n                        <ngb-tab routerLink=\"/userprofile/gallery\" title=\"Receive\">\n                            <ng-template ngbTabContent>\n                                <router-outlet></router-outlet>\n                            </ng-template>\n                        </ngb-tab> -->\n\n                        <router-outlet></router-outlet>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header page-header-xs\" data-parallax=\"true\" style=\"background-image: url('./assets/img/12.jpg');\">\n        <div class=\"filter\"></div>\n    </div>\n    <div class=\"section profile-content\">\n        <div class=\"container\">\n            <div class=\"owner\">\n                <div class=\"avatar\">\n                    <img src=\"{{pic}}\" alt=\"Circle Image\" class=\"img-thumbnail img-responsive\">\n                </div>\n                <!-- <button type=\"button\" class=\"btn btn-primary btn-just-icon\"><i class='fas fa-edit' style='font-size:24px'></i></button> -->\n                <button type=\"file\" rel=\"tooltip\" (click)=\"editpic()\" ngbTooltip=\"Edit profile picture\" data-placement=\"bottom\" type=\"button\"\n                    class=\"btn btn-primary btn-link\">\n                    <i class='fa fa-edit' style='font-size:36px'></i>\n                </button>\n                <div *ngIf=\"editpi\">\n                    <app-admin-pic></app-admin-pic>\n                </div>\n                <!-- <button type=\"button\" class=\"btn btn-primary btn-just-icon\"><i class='fas fa-edit' style='font-size:24px'></i></button> -->\n                <!-- <button type=\"file\" rel=\"tooltip\" ngbTooltip=\"Edit profile picture\" data-placement=\"bottom\" type=\"button\" class=\"btn btn-primary btn-link\"> <i class='fa fa-edit' style='font-size:36px'></i></button> -->\n                <h2 class=\"title\">{{userDetails.firstName}} {{userDetails.lastName}}\n                    <br />\n                </h2>\n\n\n                <!-- <app-editpropic></app-editpropic> -->\n                <!-- <div class=\"name\">\n                    <h2 class=\"title\">{{userDetails.firstName}} {{userDetails.lastName}}<br /></h2>\n                \n                </div> -->\n            </div>\n            <div class=\"row\">\n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/admin/owners\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-single-02\" style=\"font-size:20px;\"></i> Park owners</button>\n                    </a>\n                </div>\n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/admin/newparks\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-bank\" style=\"font-size:20px;\"></i> New parks</button>\n                    </a>\n                </div>\n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/admin/map\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-pin-3\" style=\"font-size:20px;\"></i> Map</button>\n                    </a>\n                </div>\n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/admin/reported\">\n                        <button class=\"btn btn-outline-danger btn-round\">\n                            <i class=\"fa fa-wheelchair-alt\" style=\"font-size:20px;\"></i>Reported parks</button>\n                    </a>\n                </div>\n\n            </div>\n            <br/>\n            <div class=\"nav-tabs-navigation\">\n                <div class=\"nav-tabs-wrapper\">\n                    <router-outlet></router-outlet>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -78,6 +313,8 @@ var AdminComponent = /** @class */ (function () {
         this.router = router;
         this.location = location;
         this.userId = '';
+        this.editpi = false;
+        this.pic = "./assets/img/faces/default.jpg";
     }
     AdminComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -86,6 +323,7 @@ var AdminComponent = /** @class */ (function () {
         this.service.getUserProfile().subscribe(function (res) {
             _this.userDetails = res['user'];
             _this.userId = _this.userDetails._id;
+            _this.pic = _this.userDetails.proPic;
             _this.service.setid(_this.userDetails._id);
             // console.log(this.userId);
             // console.log(this.userDetails)
@@ -110,6 +348,12 @@ var AdminComponent = /** @class */ (function () {
             return false;
         }
     };
+    AdminComponent.prototype.editpic = function () {
+        if (this.editpi == false)
+            this.editpi = true;
+        else
+            this.editpi = false;
+    };
     AdminComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-admin',
@@ -132,7 +376,7 @@ var AdminComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n  <div class=\"panel-header panel-header-sm\">\n    </div>\n    <div class=\"main-content\">\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <div class=\"card \">\n            <div class=\"card-header \">\n              Google Maps\n            </div>\n            <div class=\"card-body \">\n                <agm-map [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\n                    <!-- <agm-direction\n                      *ngIf=\"destination.lat !== null\"\n                      [origin]=\"{ lat: lat, lng: lng }\"\n                      [destination]=\"destination\"\n                    >\n                    </agm-direction> -->\n        \n                    <agm-marker\n                    *ngIf=\"destination.lat === null\"\n                    [latitude]=\"lat\"\n                    [longitude]=\"lng\"\n                  ></agm-marker>\n                  </agm-map>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    "
+module.exports = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"card \">\n        <div class=\"card-header \">\n          Google Maps\n        </div>\n        <div class=\"card-body \">\n          <agm-map [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\n            <!-- <agm-direction\n                      *ngIf=\"destination.lat !== null\"\n                      [origin]=\"{ lat: lat, lng: lng }\"\n                      [destination]=\"destination\"\n                    >\n                    </agm-direction> -->\n\n            <!-- <agm-marker\n                    *ngIf=\"destination.lat === null\"\n                    [latitude]=\"lat\"\n                    [longitude]=\"lng\"\n                  ></agm-marker> -->\n            <agm-marker ng-click=\"click()\" *ngFor=\"let keeper of keepers\" [latitude]=\" keeper.lat\" [longitude]=\" keeper.lng\"></agm-marker>\n          </agm-map>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -143,7 +387,7 @@ module.exports = "\n  <div class=\"panel-header panel-header-sm\">\n    </div>\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "agm-map {\n  height: 500px; }\n"
 
 /***/ }),
 
@@ -160,6 +404,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -172,22 +417,25 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AdminmapComponent = /** @class */ (function () {
-    function AdminmapComponent(mapsAPILoader, ngZone) {
+    function AdminmapComponent(mapsAPILoader, ngZone, service) {
         this.mapsAPILoader = mapsAPILoader;
         this.ngZone = ngZone;
+        this.service = service;
         this.lat = null;
         this.lng = null;
         this.zoom = 4;
         this.origin = { lat: this.lat, lng: this.lng };
         this.destination = { lat: null, lng: null };
+        this.keepers = [];
     }
     AdminmapComponent.prototype.ngOnInit = function () {
         var _this = this;
         navigator.geolocation.getCurrentPosition(function (position) {
             _this.lat = position.coords.latitude;
             _this.lng = position.coords.longitude;
-            _this.zoom = 10;
+            _this.zoom = 8;
             console.log(_this.lat, _this.lng);
         }, function (err) { return console.log(err); });
         this.searchControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
@@ -210,6 +458,29 @@ var AdminmapComponent = /** @class */ (function () {
                     console.log(_this.destination);
                 });
             });
+        });
+        this.service.allkeepers().subscribe(function (response) {
+            _this.kepers = response;
+            _this.res = _this.kepers.length;
+            for (var i = 0; i < _this.kepers.length; i++) {
+                if (_this.kepers[i].state == "open") {
+                    _this.class = "btn btn-danger btn-round";
+                    _this.kepers[i].state = "close";
+                }
+                else {
+                    _this.class = "btn btn-warning btn-round";
+                    _this.kepers[i].state = "open";
+                }
+                _this.keepers[i] = {
+                    id: _this.kepers[i]._id,
+                    name: _this.kepers[i].name,
+                    class: _this.class,
+                    isactivate: _this.kepers[i].isactivate,
+                    state: _this.kepers[i].state,
+                    lat: _this.kepers[i].lat,
+                    lng: _this.kepers[i].lng,
+                };
+            }
         });
     };
     // calculateDuration() {
@@ -248,6 +519,9 @@ var AdminmapComponent = /** @class */ (function () {
         console.log(distance);
         document.getElementById("distance").innerHTML = distance / 1000 + "km";
     };
+    AdminmapComponent.prototype.click = function () {
+        console.log('click');
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("search"),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
@@ -258,7 +532,7 @@ var AdminmapComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./adminmap.component.html */ "./src/app/admin/adminmap/adminmap.component.html"),
             styles: [__webpack_require__(/*! ./adminmap.component.scss */ "./src/app/admin/adminmap/adminmap.component.scss")]
         }),
-        __metadata("design:paramtypes", [_agm_core__WEBPACK_IMPORTED_MODULE_1__["MapsAPILoader"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]])
+        __metadata("design:paramtypes", [_agm_core__WEBPACK_IMPORTED_MODULE_1__["MapsAPILoader"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"]])
     ], AdminmapComponent);
     return AdminmapComponent;
 }());
@@ -594,6 +868,109 @@ var AdminuploadComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/admin/keeper-pro-view/keeper-pro-view.component.html":
+/*!**********************************************************************!*\
+  !*** ./src/app/admin/keeper-pro-view/keeper-pro-view.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header page-header-xs\" data-parallax=\"true\" style=\"background-image: url('./assets/img/fabio-mangione.jpg');\">\n        <div class=\"filter\"></div>\n    </div>\n    <div class=\"section profile-content\">\n        <div class=\"container\">\n            <div class=\"owner\">\n                <div class=\"avatar\">\n                    <img src=\"{{pic}}\" alt=\"Circle Image\" class=\"img-circle img-no-padding img-responsive\">\n                </div>\n                <!-- <button type=\"button\" class=\"btn btn-primary btn-just-icon\"><i class='fas fa-edit' style='font-size:24px'></i></button> -->\n                <!-- <button type=\"file\" rel=\"tooltip\" ngbTooltip=\"Edit profile picture\" data-placement=\"bottom\" type=\"button\" class=\"btn btn-primary btn-link\"> <i class='fa fa-edit' style='font-size:36px'></i></button>\n                \n                <app-editpropic></app-editpropic> -->\n                <div class=\"name\">\n                    <h2 class=\"title\">{{firstName}} {{lastName}}<br /></h2>\n                   <a routerLink=\"/admin/sendfile/{{_id}}\"><i class='fas fa-archive' style='font-size:36px;color:brown'></i></a> \n                </div>\n            </div>\n            <div class=\"row\">\n                \n              \n                    \n                      \n            </div>\n            <br/>\n            <div class=\"nav-tabs-navigation\">\n                <div class=\"nav-tabs-wrapper\">\n  \n                  <div class=\"panel-header panel-header-sm\">\n                  </div>\n                  <div class=\"main-content\">\n                    <div class=\"row\">\n                      <div class=\"col-md-12\">\n                        <div class=\"card\">\n                          <div class=\"card-header\">\n                            <h4 class=\"card-title\"> Details</h4>\n                          </div>\n                          <div class=\"card-body\">\n                            \n                              \n                                <ul class=\"list-group\">\n                                    <li class=\"list-group-item\" style=\"color:black\"><b>Park Name:  {{parkName}}</b></li>\n                                  <li class=\"list-group-item\" style=\"color:black\"><b>Number of total slots:  {{numberOfSlots}}</b></li>\n                                  <li class=\"list-group-item\"  style=\"color:black\"><b>Open Hours:  {{openHours}} </b></li>\n                                  <li class=\"list-group-item\"  style=\"color:black\"><b><a href=\"{{docUrl}}\">Park document</a> </b></li>\n                                </ul>\n                                \n                                <br>\n                                <br>\n                                <br>\n                                \n                                <table class=\"table\">\n                                  <thead class=\"thead-dark\">\n                                  \n                                    <tr>\n                                      <th scope=\"col\">Vehicle Type</th>\n                                      <th scope=\"col\">Number of slots allocated</th>\n                                      <th scope=\"col\">Charge per one hour</th>\n                                      \n                                    </tr>\n                                  </thead>\n                                  <tbody>\n                                    <tr>\n                                      <th scope=\"row\" style=\"color:black\">Cars and Vans</th>\n                                      <td>{{alocatedSlots1}}</td>\n                                      <td>{{hourCharge1}}</td>\n                                     \n                                    </tr>\n                                    <tr>\n                                      <th scope=\"row\" style=\"color:blue\">Bikes</th>\n                                      <td>{{alocatedSlots2}}</td>\n                                      <td>{{hourCharge2}}</td>\n                                      \n                                    </tr>\n                                    <tr>\n                                      <th scope=\"row\" style=\"color:red\">Lorries and Buses</th>\n                                      <td>{{alocatedSlots3}}</td>\n                                      <td>{{hourCharge3}}</td>\n                                    </tr>\n                                    <tr>\n                                      <th scope=\"row\" style=\"color:green\">Three Wheelers</th>\n                                      <td>{{alocatedSlots4}}</td>\n                                      <td>{{hourCharge4}}</td>\n                                    </tr>\n                                    <tr>\n                                      <th scope=\"row\" style=\"color:yellow\">Long Vehicles</th>\n                                      <td>{{alocatedSlots5}}</td>\n                                      <td>{{hourCharge5}}</td>\n                                    </tr>\n                                  </tbody>\n                                </table>\n                            \n                          </div>\n                        </div>\n                      </div>\n                      \n                    </div>\n                  </div>\n                  \n                </div>\n            </div>\n        </div>\n    </div>\n  </div>\n  "
+
+/***/ }),
+
+/***/ "./src/app/admin/keeper-pro-view/keeper-pro-view.component.scss":
+/*!**********************************************************************!*\
+  !*** ./src/app/admin/keeper-pro-view/keeper-pro-view.component.scss ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/keeper-pro-view/keeper-pro-view.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/admin/keeper-pro-view/keeper-pro-view.component.ts ***!
+  \********************************************************************/
+/*! exports provided: KeeperProViewComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KeeperProViewComponent", function() { return KeeperProViewComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var KeeperProViewComponent = /** @class */ (function () {
+    function KeeperProViewComponent(service, route) {
+        this.service = service;
+        this.route = route;
+        this.keepers = [];
+        this.userId = '';
+        this.pic = "../../../assets/img/faces/default.jpg";
+    }
+    KeeperProViewComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log('jhsdvcshdvfhk');
+        this.route.params.subscribe(function (params) {
+            _this.id = params['id'];
+        });
+        console.log(this.id);
+        this.service.getkeeperprofile(this.id).subscribe(function (res) {
+            _this.user = res;
+            _this.userId = _this.user._id;
+            _this.service.setid(_this.user._id);
+            _this.pic = _this.user.proPic;
+            // console.log(this.userId);
+            console.log(_this.user);
+            _this.email = _this.user.email;
+            _this.parkName = _this.user.parkName;
+            _this.numberOfSlots = _this.user.numberOfSlots;
+            _this.openHours = _this.user.openHours;
+            _this.alocatedSlots1 = _this.user.alocatedSlots1;
+            _this.hourCharge1 = _this.user.hourCharge1;
+            _this.alocatedSlots2 = _this.user.alocatedSlots2;
+            _this.hourCharge2 = _this.user.hourCharge2;
+            _this.alocatedSlots3 = _this.user.alocatedSlots3;
+            _this.hourCharge3 = _this.user.hourCharge3;
+            _this.alocatedSlots4 = _this.user.alocatedSlots4;
+            _this.hourCharge4 = _this.user.hourCharge4;
+            _this.alocatedSlots5 = _this.user.alocatedSlots5;
+            _this.hourCharge5 = _this.user.hourCharge5;
+            _this.docUrl = _this.user.docUrl;
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    KeeperProViewComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-keeper-pro-view',
+            template: __webpack_require__(/*! ./keeper-pro-view.component.html */ "./src/app/admin/keeper-pro-view/keeper-pro-view.component.html"),
+            styles: [__webpack_require__(/*! ./keeper-pro-view.component.scss */ "./src/app/admin/keeper-pro-view/keeper-pro-view.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+    ], KeeperProViewComponent);
+    return KeeperProViewComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/admin/keepers/keepers.component.html":
 /*!******************************************************!*\
   !*** ./src/app/admin/keepers/keepers.component.html ***!
@@ -601,7 +978,7 @@ var AdminuploadComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel-header panel-header-sm\">\n  </div>\n  <div class=\"main-content\">\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <div class=\"card\">\n          <div class=\"card-header\">\n            <h4 class=\"card-title\"> Park Keepers</h4>\n          </div>\n          <div class=\"card-body\">\n            <div class=\"table-responsive\">\n              <table class=\"table\">\n                <thead class=\" text-primary\">\n                  <th>\n                    Name\n                  </th>\n                  <th>\n                    owner name\n                  </th>\n                  <th>\n                    Park\n                  </th>\n                  <th class=\"text-right\">\n                    \n                  </th>\n                </thead>\n                <tbody>\n                  <tr *ngFor=\"let keeper of keepers\">\n                    <td>\n                      {{ keeper.name }}\n                    </td>\n                    <td>\n                      \n                      <button type=\"button\" class=\"btn btn-outline-primary btn-round\">{{ keeper.owner }}</button>\n                    </td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-outline-primary btn-round\">Show park</button>\n                        <!-- <button type=\"button\" class=\"btn btn-danger btn-round\">close</button> -->\n                      \n                    </td>\n                    <td class=\"text-right\">\n                      <button type=\"button\" (click)=\"accept(keeper.id)\" class=\"btn btn-info btn-round\">Accept</button>\n                    </td>\n                  </tr>\n                  \n                </tbody>\n              </table>\n            </div>\n          </div>\n        </div>\n      </div>\n      \n    </div>\n  </div>\n  "
+module.exports = "<div class=\"panel-header panel-header-sm\">\n  </div>\n  <div class=\"main-content\">\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <div class=\"card\">\n          <div class=\"card-header\">\n            <h4 class=\"card-title\"> Park Keepers</h4>\n          </div>\n          <div class=\"card-body\">\n            <div class=\"table-responsive\">\n              <table class=\"table\">\n                <thead class=\" text-primary\">\n                  <th>\n                    Name\n                  </th>\n                  <th>\n                    owner name\n                  </th>\n                  <th>\n                    Park\n                  </th>\n                  <th class=\"text-right\">\n                    \n                  </th>\n                </thead>\n                <tbody>\n                  <tr *ngFor=\"let keeper of keepers\">\n                    <td>\n                      {{ keeper.name }}\n                    </td>\n                    <td>\n                      \n                      <button type=\"button\" (click)=\"profile(keeper.ownerid)\" class=\"btn btn-outline-primary btn-round\">{{ keeper.owner }}</button>\n                    </td>\n                    <td>\n                        <button type=\"button\" (click)=\"parkPro(keeper.id)\" class=\"btn btn-outline-primary btn-round\">Show park</button>\n                        <!-- <button type=\"button\" class=\"btn btn-danger btn-round\">close</button> -->\n                      \n                    </td>\n                    <td class=\"text-right\">\n                        <button type=\"button\" (click)=\"reject(keeper.id)\" class=\"btn btn-danger btn-round\">Reject</button>\n                      </td>\n                    <td class=\"text-right\">\n                      <button type=\"button\" (click)=\"accept(keeper.id)\" class=\"btn btn-info btn-round\">Accept</button>\n                    </td>\n                  </tr>\n                  \n                </tbody>\n              </table>\n            </div>\n          </div>\n        </div>\n      </div>\n      \n    </div>\n  </div>\n  "
 
 /***/ }),
 
@@ -630,6 +1007,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jwt-decode */ "./node_modules/jwt-decode/lib/index.js");
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -642,9 +1020,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var KeepersComponent = /** @class */ (function () {
-    function KeepersComponent(service) {
+    function KeepersComponent(service, router) {
         this.service = service;
+        this.router = router;
         this.keepers = [];
     }
     // ow;
@@ -684,7 +1064,19 @@ var KeepersComponent = /** @class */ (function () {
     };
     KeepersComponent.prototype.ownerpro = function (id) {
     };
-    KeepersComponent.prototype.keeperpro = function (id) {
+    KeepersComponent.prototype.parkPro = function (id) {
+        console.log(id);
+        this.router.navigateByUrl('park/' + id);
+    };
+    KeepersComponent.prototype.profile = function (id) {
+        console.log(id);
+        this.router.navigateByUrl('owner/' + id);
+    };
+    KeepersComponent.prototype.reject = function (id) {
+        var _this = this;
+        this.service.reject(id).subscribe(function (response) {
+            _this.ngOnInit();
+        });
     };
     KeepersComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -692,7 +1084,7 @@ var KeepersComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./keepers.component.html */ "./src/app/admin/keepers/keepers.component.html"),
             styles: [__webpack_require__(/*! ./keepers.component.scss */ "./src/app/admin/keepers/keepers.component.scss")]
         }),
-        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"]])
+        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], KeepersComponent);
     return KeepersComponent;
 }());
@@ -809,7 +1201,7 @@ var NewaddedparksComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n  <div class=\"page-header page-header-xs\" data-parallax=\"true\" style=\"background-image: url('./assets/img/fabio-mangione.jpg');\">\n      <div class=\"filter\"></div>\n  </div>\n  <div class=\"section profile-content\">\n      <div class=\"container\">\n          <div class=\"owner\">\n              <div class=\"avatar\">\n                  <img src=\"./assets/img/faces/joe-gardner-2.jpg\" alt=\"Circle Image\" class=\"img-circle img-no-padding img-responsive\">\n              </div>\n              <!-- <button type=\"button\" class=\"btn btn-primary btn-just-icon\"><i class='fas fa-edit' style='font-size:24px'></i></button> -->\n              <!-- <button type=\"file\" rel=\"tooltip\" ngbTooltip=\"Edit profile picture\" data-placement=\"bottom\" type=\"button\" class=\"btn btn-primary btn-link\"> <i class='fa fa-edit' style='font-size:36px'></i></button>\n              \n              <app-editpropic></app-editpropic> -->\n              <div class=\"name\">\n                  <h2 class=\"title\">{{userDetails.firstName}} {{userDetails.lastName}}<br /></h2>\n                 <a routerLink=\"/admin/sendfile/{{userDetails._id}}\"><i class='fas fa-archive' style='font-size:36px;color:brown'></i></a> \n              </div>\n          </div>\n          <div class=\"row\">\n              \n            \n                  \n                    \n          </div>\n          <br/>\n          <div class=\"nav-tabs-navigation\">\n              <div class=\"nav-tabs-wrapper\">\n\n                <div class=\"panel-header panel-header-sm\">\n                </div>\n                <div class=\"main-content\">\n                  <div class=\"row\">\n                    <div class=\"col-md-12\">\n                      <div class=\"card\">\n                        <div class=\"card-header\">\n                          <h4 class=\"card-title\"> Park Keepers</h4>\n                        </div>\n                        <div class=\"card-body\">\n                          <div class=\"table-responsive\">\n                            <table class=\"table\">\n                              <thead class=\" text-primary\">\n                                <th>\n                                  Name\n                                </th>\n                                <th>\n                                  Activate\n                                </th>\n                                <th>\n                                  state\n                                </th>\n                                <th class=\"text-right\">\n                                  \n                                </th>\n                              </thead>\n                              <tbody>\n                                <tr *ngFor=\"let keeper of keepers\">\n                                  <td>\n                                    {{ keeper.name }}\n                                  </td>\n                                  <td>\n                                    {{ keeper.isactivate }}\n                                  </td>\n                                  <td>\n                                      <button type=\"button\"   class=\"{{keeper.class}}\">{{keeper.state}}</button>\n                                      <!-- <button type=\"button\" class=\"btn btn-danger btn-round\">close</button> -->\n                                    \n                                  </td>\n                                  <td class=\"text-right\">\n                                    <button type=\"button\" class=\"btn btn-info btn-round\">view profile</button>\n                                  </td>\n                                </tr>\n                               \n                              </tbody>\n                            </table>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                    \n                  </div>\n                </div>\n                \n              </div>\n          </div>\n      </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"wrapper\">\n  <div class=\"page-header page-header-xs\" data-parallax=\"true\" style=\"background-image: url('./assets/img/fabio-mangione.jpg');\">\n      <div class=\"filter\"></div>\n  </div>\n  <div class=\"section profile-content\">\n      <div class=\"container\">\n          <div class=\"owner\">\n              <div class=\"avatar\">\n                  <img src=\"{{pic}}\" alt=\"Circle Image\" class=\"img-circle img-no-padding img-responsive\">\n              </div>\n              <!-- <button type=\"button\" class=\"btn btn-primary btn-just-icon\"><i class='fas fa-edit' style='font-size:24px'></i></button> -->\n              <!-- <button type=\"file\" rel=\"tooltip\" ngbTooltip=\"Edit profile picture\" data-placement=\"bottom\" type=\"button\" class=\"btn btn-primary btn-link\"> <i class='fa fa-edit' style='font-size:36px'></i></button>\n              \n              <app-editpropic></app-editpropic> -->\n              <div class=\"name\">\n                  <h2 class=\"title\">{{userDetails.firstName}} {{userDetails.lastName}}<br /></h2>\n                 <a routerLink=\"/admin/sendfile/{{userDetails._id}}\"><i class='fas fa-archive' style='font-size:36px;color:brown'></i></a> \n              </div>\n          </div>\n          <div class=\"row\">\n              \n            \n                  \n                    \n          </div>\n          <br/>\n          <div class=\"nav-tabs-navigation\">\n              <div class=\"nav-tabs-wrapper\">\n\n                <div class=\"panel-header panel-header-sm\">\n                </div>\n                <div class=\"main-content\">\n                  <div class=\"row\">\n                    <div class=\"col-md-12\">\n                      <div class=\"card\">\n                        <div class=\"card-header\">\n                          <h4 class=\"card-title\"> Park Keepers</h4>\n                        </div>\n                        <div class=\"card-body\" style=\"color:black;font-size: 20px\">\n                          <div class=\"table-responsive\">\n                            <table class=\"table\">\n                              <thead class=\" text-primary\">\n                                <th>\n                                  Name\n                                </th>\n                                <th>\n                                  Activate\n                                </th>\n                                <th>\n                                  state\n                                </th>\n                                <th class=\"text-right\">\n                                  \n                                </th>\n                              </thead>\n                              <tbody>\n                                <tr *ngFor=\"let keeper of keepers\">\n                                  <td>\n                                    {{ keeper.name }}\n                                  </td>\n                                  <td>\n                                    {{ keeper.isactivate }}\n                                  </td>\n                                  <td>\n                                      <button type=\"button\"   class=\"{{keeper.class}}\">{{keeper.state}}</button>\n                                      <!-- <button type=\"button\" class=\"btn btn-danger btn-round\">close</button> -->\n                                    \n                                  </td>\n                                  <td class=\"text-right\">\n                                    <button type=\"button\" class=\"btn btn-info btn-round\">view profile</button>\n                                  </td>\n                                </tr>\n                               \n                              </tbody>\n                            </table>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                    \n                  </div>\n                </div>\n                \n              </div>\n          </div>\n      </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -867,7 +1259,8 @@ var OwnerprofileComponent = /** @class */ (function () {
             _this.userId = _this.userDetails._id;
             _this.service.setid(_this.userDetails._id);
             // console.log(this.userId);
-            // console.log(this.userDetails)
+            console.log(_this.userDetails);
+            _this.pic = _this.userDetails.proPic;
         }, function (err) {
             console.log(err);
         });
@@ -1186,6 +1579,121 @@ var ProfileeditadminComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/admin/reported/reported.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/admin/reported/reported.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"panel-header panel-header-sm\">\n  </div>\n  <div class=\"main-content\">\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <div class=\"card\">\n          <div class=\"card-header\">\n            <h4 class=\"card-title\"> Park Keepers</h4>\n          </div>\n          <div class=\"card-body\">\n            <div class=\"table-responsive\">\n              <table class=\"table\">\n                <thead class=\" text-primary\">\n                  <th>\n                    Name\n                  </th>\n                  <th>\n                    owner name\n                  </th>\n                  <th>\n                    Park\n                  </th>\n                  <th class=\"text-right\">\n                    \n                  </th>\n                </thead>\n                <tbody>\n                  <tr *ngFor=\"let keeper of keepers\">\n                    <td>\n                      {{ keeper.name }}\n                    </td>\n                    <td>\n                      \n                      <button type=\"button\" (click)=\"profile(keeper.ownerid)\" class=\"btn btn-outline-primary btn-round\">{{ keeper.owner }}</button>\n                    </td>\n                    <td>\n                        <button type=\"button\" (click)=\"parkPro(keeper.id)\" class=\"btn btn-outline-primary btn-round\">Show park</button>\n                        <!-- <button type=\"button\" class=\"btn btn-danger btn-round\">close</button> -->\n                      \n                    </td>\n                    <td class=\"text-right\">\n                        <button type=\"button\" (click)=\"reject(keeper.id)\" class=\"btn btn-danger btn-round\">Reject</button>\n                      </td>\n                    <td class=\"text-right\">\n                      <button type=\"button\" (click)=\"accept(keeper.id)\" class=\"btn btn-info btn-round\">Accept</button>\n                    </td>\n                  </tr>\n                  \n                </tbody>\n              </table>\n            </div>\n          </div>\n        </div>\n      </div>\n      \n    </div>\n  </div>\n  "
+
+/***/ }),
+
+/***/ "./src/app/admin/reported/reported.component.scss":
+/*!********************************************************!*\
+  !*** ./src/app/admin/reported/reported.component.scss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/reported/reported.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/admin/reported/reported.component.ts ***!
+  \******************************************************/
+/*! exports provided: ReportedComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReportedComponent", function() { return ReportedComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ReportedComponent = /** @class */ (function () {
+    function ReportedComponent(service, router) {
+        this.service = service;
+        this.router = router;
+        this.keepers = [];
+    }
+    // ow;
+    ReportedComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.reported().subscribe(function (response) {
+            _this.kepers = response;
+            // console.log(response)
+            _this.res = _this.kepers.length;
+            var _loop_1 = function (i) {
+                _this.service.getowner(_this.kepers[i].ownerid).subscribe(function (user) {
+                    _this.owner = user;
+                    console.log(_this.kepers[i].name);
+                    _this.keepers[i] = {
+                        id: _this.kepers[i]._id,
+                        name: _this.kepers[i].name,
+                        owner: _this.owner.firstName,
+                        ownerid: _this.owner._id,
+                        state: _this.kepers[i].state
+                        // time:response[i].state,
+                    };
+                    console.log(_this.keepers[i].owner);
+                });
+            };
+            for (var i = 0; i < _this.kepers.length; i++) {
+                _loop_1(i);
+            }
+        });
+    };
+    ReportedComponent.prototype.accept = function (id) {
+        var _this = this;
+        this.service.acceptpark(id).subscribe(function (response) {
+            _this.ngOnInit();
+        });
+    };
+    ReportedComponent.prototype.parkPro = function (id) {
+        console.log(id);
+        this.router.navigateByUrl('park/' + id);
+    };
+    ReportedComponent.prototype.profile = function (id) {
+        console.log(id);
+        this.router.navigateByUrl('owner/' + id);
+    };
+    ReportedComponent.prototype.reject = function (id) {
+        var _this = this;
+        this.service.reject(id).subscribe(function (response) {
+            _this.ngOnInit();
+        });
+    };
+    ReportedComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-reported',
+            template: __webpack_require__(/*! ./reported.component.html */ "./src/app/admin/reported/reported.component.html"),
+            styles: [__webpack_require__(/*! ./reported.component.scss */ "./src/app/admin/reported/reported.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], ReportedComponent);
+    return ReportedComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/admin/servers/files.service.ts":
 /*!************************************************!*\
   !*** ./src/app/admin/servers/files.service.ts ***!
@@ -1442,12 +1950,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/index.js");
 /* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
 /* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_49___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_49__);
+/* harmony import */ var _parkkeeper_details_details_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./parkkeeper/details/details.component */ "./src/app/parkkeeper/details/details.component.ts");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_51___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_51__);
+/* harmony import */ var _servers_validate_service__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./servers/validate.service */ "./src/app/servers/validate.service.ts");
+/* harmony import */ var _parkkeeper_parkingslot_car_car_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./parkkeeper/parkingslot/car/car.component */ "./src/app/parkkeeper/parkingslot/car/car.component.ts");
+/* harmony import */ var _parkkeeper_parkingslot_bike_bike_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./parkkeeper/parkingslot/bike/bike.component */ "./src/app/parkkeeper/parkingslot/bike/bike.component.ts");
+/* harmony import */ var _parkkeeper_parkingslot_long_vehicle_long_vehicle_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./parkkeeper/parkingslot/long-vehicle/long-vehicle.component */ "./src/app/parkkeeper/parkingslot/long-vehicle/long-vehicle.component.ts");
+/* harmony import */ var _parkkeeper_parkingslot_lorry_lorry_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./parkkeeper/parkingslot/lorry/lorry.component */ "./src/app/parkkeeper/parkingslot/lorry/lorry.component.ts");
+/* harmony import */ var _parkkeeper_parkingslot_weel_weel_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./parkkeeper/parkingslot/weel/weel.component */ "./src/app/parkkeeper/parkingslot/weel/weel.component.ts");
+/* harmony import */ var _admin_admin_pic_admin_pic_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/admin-pic/admin-pic.component */ "./src/app/admin/admin-pic/admin-pic.component.ts");
+/* harmony import */ var _parkkeeper_keeper_pic_keeper_pic_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./parkkeeper/keeper-pic/keeper-pic.component */ "./src/app/parkkeeper/keeper-pic/keeper-pic.component.ts");
+/* harmony import */ var _admin_keeper_pro_view_keeper_pro_view_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin/keeper-pro-view/keeper-pro-view.component */ "./src/app/admin/keeper-pro-view/keeper-pro-view.component.ts");
+/* harmony import */ var _parkkeeper_bookings_bookings_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./parkkeeper/bookings/bookings.component */ "./src/app/parkkeeper/bookings/bookings.component.ts");
+/* harmony import */ var _parkkeeper_bookinghistory_bookinghistory_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./parkkeeper/bookinghistory/bookinghistory.component */ "./src/app/parkkeeper/bookinghistory/bookinghistory.component.ts");
+/* harmony import */ var _parkkeeper_keeperedit_keeperedit_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./parkkeeper/keeperedit/keeperedit.component */ "./src/app/parkkeeper/keeperedit/keeperedit.component.ts");
+/* harmony import */ var _admin_reported_reported_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/reported/reported.component */ "./src/app/admin/reported/reported.component.ts");
+/* harmony import */ var _admin_addadmin_addadmin_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./admin/addadmin/addadmin.component */ "./src/app/admin/addadmin/addadmin.component.ts");
+/* harmony import */ var _profile_progress_progress_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./profile/progress/progress.component */ "./src/app/profile/progress/progress.component.ts");
+/* harmony import */ var _profile_documentsupload_documentsupload_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./profile/documentsupload/documentsupload.component */ "./src/app/profile/documentsupload/documentsupload.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1536,7 +2081,24 @@ var AppModule = /** @class */ (function () {
                 _parkkeeper_keeperprofile_keeperprofile_component__WEBPACK_IMPORTED_MODULE_43__["KeeperprofileComponent"],
                 _parkkeeper_parkingslot_parkingslot_component__WEBPACK_IMPORTED_MODULE_44__["ParkingslotComponent"],
                 _signup_resetpw_resetpw_component__WEBPACK_IMPORTED_MODULE_45__["ResetpwComponent"],
-                _signup_newpw_newpw_component__WEBPACK_IMPORTED_MODULE_46__["NewpwComponent"]
+                _signup_newpw_newpw_component__WEBPACK_IMPORTED_MODULE_46__["NewpwComponent"],
+                _parkkeeper_details_details_component__WEBPACK_IMPORTED_MODULE_50__["DetailsComponent"],
+                _parkkeeper_parkingslot_car_car_component__WEBPACK_IMPORTED_MODULE_53__["CarComponent"],
+                _parkkeeper_parkingslot_bike_bike_component__WEBPACK_IMPORTED_MODULE_54__["BikeComponent"],
+                _parkkeeper_parkingslot_long_vehicle_long_vehicle_component__WEBPACK_IMPORTED_MODULE_55__["LongVehicleComponent"],
+                _parkkeeper_parkingslot_lorry_lorry_component__WEBPACK_IMPORTED_MODULE_56__["LorryComponent"],
+                _parkkeeper_parkingslot_weel_weel_component__WEBPACK_IMPORTED_MODULE_57__["WeelComponent"],
+                _parkkeeper_parkingslot_bike_bike_component__WEBPACK_IMPORTED_MODULE_54__["NgbdModalContent"],
+                _admin_admin_pic_admin_pic_component__WEBPACK_IMPORTED_MODULE_58__["AdminPicComponent"],
+                _parkkeeper_keeper_pic_keeper_pic_component__WEBPACK_IMPORTED_MODULE_59__["KeeperPicComponent"],
+                _admin_keeper_pro_view_keeper_pro_view_component__WEBPACK_IMPORTED_MODULE_60__["KeeperProViewComponent"],
+                _parkkeeper_bookings_bookings_component__WEBPACK_IMPORTED_MODULE_61__["BookingsComponent"],
+                _parkkeeper_bookinghistory_bookinghistory_component__WEBPACK_IMPORTED_MODULE_62__["BookinghistoryComponent"],
+                _parkkeeper_keeperedit_keeperedit_component__WEBPACK_IMPORTED_MODULE_63__["KeepereditComponent"],
+                _admin_reported_reported_component__WEBPACK_IMPORTED_MODULE_64__["ReportedComponent"],
+                _admin_addadmin_addadmin_component__WEBPACK_IMPORTED_MODULE_65__["AddadminComponent"],
+                _profile_progress_progress_component__WEBPACK_IMPORTED_MODULE_66__["ProgressComponent"],
+                _profile_documentsupload_documentsupload_component__WEBPACK_IMPORTED_MODULE_67__["DocumentsuploadComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -1558,14 +2120,16 @@ var AppModule = /** @class */ (function () {
                     storageBucket: "parkherefiles.appspot.com",
                     projectId: "parkherefiles",
                 }),
-                angularfire2_storage__WEBPACK_IMPORTED_MODULE_49__["AngularFireStorageModule"]
+                angularfire2_storage__WEBPACK_IMPORTED_MODULE_49__["AngularFireStorageModule"],
+                angular2_flash_messages__WEBPACK_IMPORTED_MODULE_51__["FlashMessagesModule"],
             ],
             providers: [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_14__["RegserviceService"], _auth_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AuthGuard"], {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_16__["HTTP_INTERCEPTORS"],
                     useClass: _auth_auth_interceptor__WEBPACK_IMPORTED_MODULE_18__["AuthInterceptor"],
                     multi: true
-                }],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+                }, angular2_flash_messages__WEBPACK_IMPORTED_MODULE_51__["FlashMessagesService"], _servers_validate_service__WEBPACK_IMPORTED_MODULE_52__["ValidateService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
+            entryComponents: [_parkkeeper_parkingslot_bike_bike_component__WEBPACK_IMPORTED_MODULE_54__["NgbdModalContent"]],
         })
     ], AppModule);
     return AppModule;
@@ -1600,21 +2164,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile_parkkeepers_parkkeepers_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./profile/parkkeepers/parkkeepers.component */ "./src/app/profile/parkkeepers/parkkeepers.component.ts");
 /* harmony import */ var _profile_map_map_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./profile/map/map.component */ "./src/app/profile/map/map.component.ts");
 /* harmony import */ var _profile_editpropic_editpropic_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./profile/editpropic/editpropic.component */ "./src/app/profile/editpropic/editpropic.component.ts");
-/* harmony import */ var _profile_profileedit_profileedit_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./profile/profileedit/profileedit.component */ "./src/app/profile/profileedit/profileedit.component.ts");
-/* harmony import */ var _parkkeeper_keeperreg_keeperreg_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./parkkeeper/keeperreg/keeperreg.component */ "./src/app/parkkeeper/keeperreg/keeperreg.component.ts");
-/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
-/* harmony import */ var _auth_role_guard_service_guard__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./auth/role-guard-service.guard */ "./src/app/auth/role-guard-service.guard.ts");
-/* harmony import */ var _admin_profileeditadmin_profileeditadmin_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/profileeditadmin/profileeditadmin.component */ "./src/app/admin/profileeditadmin/profileeditadmin.component.ts");
-/* harmony import */ var _admin_adminmap_adminmap_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/adminmap/adminmap.component */ "./src/app/admin/adminmap/adminmap.component.ts");
-/* harmony import */ var _admin_keepers_keepers_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/keepers/keepers.component */ "./src/app/admin/keepers/keepers.component.ts");
-/* harmony import */ var _admin_owners_owners_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/owners/owners.component */ "./src/app/admin/owners/owners.component.ts");
-/* harmony import */ var _admin_ownerprofile_ownerprofile_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/ownerprofile/ownerprofile.component */ "./src/app/admin/ownerprofile/ownerprofile.component.ts");
-/* harmony import */ var _admin_adminupload_adminupload_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/adminupload/adminupload.component */ "./src/app/admin/adminupload/adminupload.component.ts");
-/* harmony import */ var _admin_adminreceive_adminreceive_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/adminreceive/adminreceive.component */ "./src/app/admin/adminreceive/adminreceive.component.ts");
-/* harmony import */ var _parkkeeper_keeperprofile_keeperprofile_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./parkkeeper/keeperprofile/keeperprofile.component */ "./src/app/parkkeeper/keeperprofile/keeperprofile.component.ts");
-/* harmony import */ var _signup_resetpw_resetpw_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./signup/resetpw/resetpw.component */ "./src/app/signup/resetpw/resetpw.component.ts");
-/* harmony import */ var _parkkeeper_parkingslot_parkingslot_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./parkkeeper/parkingslot/parkingslot.component */ "./src/app/parkkeeper/parkingslot/parkingslot.component.ts");
-/* harmony import */ var _signup_newpw_newpw_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./signup/newpw/newpw.component */ "./src/app/signup/newpw/newpw.component.ts");
+/* harmony import */ var _profile_progress_progress_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./profile/progress/progress.component */ "./src/app/profile/progress/progress.component.ts");
+/* harmony import */ var _profile_profileedit_profileedit_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./profile/profileedit/profileedit.component */ "./src/app/profile/profileedit/profileedit.component.ts");
+/* harmony import */ var _parkkeeper_keeperreg_keeperreg_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./parkkeeper/keeperreg/keeperreg.component */ "./src/app/parkkeeper/keeperreg/keeperreg.component.ts");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
+/* harmony import */ var _auth_role_guard_service_guard__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./auth/role-guard-service.guard */ "./src/app/auth/role-guard-service.guard.ts");
+/* harmony import */ var _admin_profileeditadmin_profileeditadmin_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/profileeditadmin/profileeditadmin.component */ "./src/app/admin/profileeditadmin/profileeditadmin.component.ts");
+/* harmony import */ var _admin_adminmap_adminmap_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/adminmap/adminmap.component */ "./src/app/admin/adminmap/adminmap.component.ts");
+/* harmony import */ var _admin_keepers_keepers_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/keepers/keepers.component */ "./src/app/admin/keepers/keepers.component.ts");
+/* harmony import */ var _admin_owners_owners_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/owners/owners.component */ "./src/app/admin/owners/owners.component.ts");
+/* harmony import */ var _admin_ownerprofile_ownerprofile_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/ownerprofile/ownerprofile.component */ "./src/app/admin/ownerprofile/ownerprofile.component.ts");
+/* harmony import */ var _admin_adminupload_adminupload_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/adminupload/adminupload.component */ "./src/app/admin/adminupload/adminupload.component.ts");
+/* harmony import */ var _admin_adminreceive_adminreceive_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/adminreceive/adminreceive.component */ "./src/app/admin/adminreceive/adminreceive.component.ts");
+/* harmony import */ var _parkkeeper_keeperprofile_keeperprofile_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./parkkeeper/keeperprofile/keeperprofile.component */ "./src/app/parkkeeper/keeperprofile/keeperprofile.component.ts");
+/* harmony import */ var _signup_resetpw_resetpw_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./signup/resetpw/resetpw.component */ "./src/app/signup/resetpw/resetpw.component.ts");
+/* harmony import */ var _parkkeeper_parkingslot_parkingslot_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./parkkeeper/parkingslot/parkingslot.component */ "./src/app/parkkeeper/parkingslot/parkingslot.component.ts");
+/* harmony import */ var _signup_newpw_newpw_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./signup/newpw/newpw.component */ "./src/app/signup/newpw/newpw.component.ts");
+/* harmony import */ var _parkkeeper_details_details_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./parkkeeper/details/details.component */ "./src/app/parkkeeper/details/details.component.ts");
+/* harmony import */ var _parkkeeper_parkingslot_car_car_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./parkkeeper/parkingslot/car/car.component */ "./src/app/parkkeeper/parkingslot/car/car.component.ts");
+/* harmony import */ var _parkkeeper_parkingslot_bike_bike_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./parkkeeper/parkingslot/bike/bike.component */ "./src/app/parkkeeper/parkingslot/bike/bike.component.ts");
+/* harmony import */ var _parkkeeper_parkingslot_lorry_lorry_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./parkkeeper/parkingslot/lorry/lorry.component */ "./src/app/parkkeeper/parkingslot/lorry/lorry.component.ts");
+/* harmony import */ var _parkkeeper_parkingslot_weel_weel_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./parkkeeper/parkingslot/weel/weel.component */ "./src/app/parkkeeper/parkingslot/weel/weel.component.ts");
+/* harmony import */ var _parkkeeper_parkingslot_long_vehicle_long_vehicle_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./parkkeeper/parkingslot/long-vehicle/long-vehicle.component */ "./src/app/parkkeeper/parkingslot/long-vehicle/long-vehicle.component.ts");
+/* harmony import */ var _admin_keeper_pro_view_keeper_pro_view_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/keeper-pro-view/keeper-pro-view.component */ "./src/app/admin/keeper-pro-view/keeper-pro-view.component.ts");
+/* harmony import */ var _parkkeeper_bookings_bookings_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./parkkeeper/bookings/bookings.component */ "./src/app/parkkeeper/bookings/bookings.component.ts");
+/* harmony import */ var _parkkeeper_bookinghistory_bookinghistory_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./parkkeeper/bookinghistory/bookinghistory.component */ "./src/app/parkkeeper/bookinghistory/bookinghistory.component.ts");
+/* harmony import */ var _home_about_about_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./home/about/about.component */ "./src/app/home/about/about.component.ts");
+/* harmony import */ var _parkkeeper_keeperedit_keeperedit_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./parkkeeper/keeperedit/keeperedit.component */ "./src/app/parkkeeper/keeperedit/keeperedit.component.ts");
+/* harmony import */ var _admin_reported_reported_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/reported/reported.component */ "./src/app/admin/reported/reported.component.ts");
+/* harmony import */ var _admin_addadmin_addadmin_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/addadmin/addadmin.component */ "./src/app/admin/addadmin/addadmin.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1651,48 +2229,80 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var routes = [
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"] },
-    { path: 'keeper', component: _parkkeeper_keeperprofile_keeperprofile_component__WEBPACK_IMPORTED_MODULE_26__["KeeperprofileComponent"], canActivate: [_auth_role_guard_service_guard__WEBPACK_IMPORTED_MODULE_18__["RoleGuardServiceGuard"]], data: {
+    { path: 'keeper', component: _parkkeeper_keeperprofile_keeperprofile_component__WEBPACK_IMPORTED_MODULE_27__["KeeperprofileComponent"], canActivate: [_auth_role_guard_service_guard__WEBPACK_IMPORTED_MODULE_19__["RoleGuardServiceGuard"]], data: {
             expectedRole: 'keeper'
-        }
+        },
+        children: [
+            { path: 'details', component: _parkkeeper_details_details_component__WEBPACK_IMPORTED_MODULE_31__["DetailsComponent"] },
+            { path: 'slot', component: _parkkeeper_parkingslot_parkingslot_component__WEBPACK_IMPORTED_MODULE_29__["ParkingslotComponent"] },
+            { path: 'car', component: _parkkeeper_parkingslot_car_car_component__WEBPACK_IMPORTED_MODULE_32__["CarComponent"] },
+            { path: 'edit', component: _parkkeeper_keeperedit_keeperedit_component__WEBPACK_IMPORTED_MODULE_41__["KeepereditComponent"] },
+            { path: 'bike', component: _parkkeeper_parkingslot_bike_bike_component__WEBPACK_IMPORTED_MODULE_33__["BikeComponent"] },
+            { path: 'lorry', component: _parkkeeper_parkingslot_lorry_lorry_component__WEBPACK_IMPORTED_MODULE_34__["LorryComponent"] },
+            { path: 'weel', component: _parkkeeper_parkingslot_weel_weel_component__WEBPACK_IMPORTED_MODULE_35__["WeelComponent"] },
+            { path: 'longVehicle', component: _parkkeeper_parkingslot_long_vehicle_long_vehicle_component__WEBPACK_IMPORTED_MODULE_36__["LongVehicleComponent"] },
+            { path: 'booking', component: _parkkeeper_bookings_bookings_component__WEBPACK_IMPORTED_MODULE_38__["BookingsComponent"] },
+            { path: 'recent', component: _parkkeeper_bookinghistory_bookinghistory_component__WEBPACK_IMPORTED_MODULE_39__["BookinghistoryComponent"] }
+        ]
     },
-    { path: 'user-profile', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_5__["ProfileComponent"], canActivate: [_auth_role_guard_service_guard__WEBPACK_IMPORTED_MODULE_18__["RoleGuardServiceGuard"]], data: {
+    { path: 'user-profile', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_5__["ProfileComponent"], canActivate: [_auth_role_guard_service_guard__WEBPACK_IMPORTED_MODULE_19__["RoleGuardServiceGuard"]], data: {
             expectedRole: 'user'
         },
         children: [
             { path: 'send', component: _file_upload_file_upload_component__WEBPACK_IMPORTED_MODULE_10__["FileUploadComponent"] },
             //   {path: 'settings', component: SettingsComponent},
             { path: 'inbox', component: _profile_receive_receive_component__WEBPACK_IMPORTED_MODULE_11__["ReceiveComponent"] },
-            { path: 'edit', component: _profile_profileedit_profileedit_component__WEBPACK_IMPORTED_MODULE_15__["ProfileeditComponent"] },
+            { path: 'edit', component: _profile_profileedit_profileedit_component__WEBPACK_IMPORTED_MODULE_16__["ProfileeditComponent"] },
             { path: 'myparks', component: _profile_parkkeepers_parkkeepers_component__WEBPACK_IMPORTED_MODULE_12__["ParkkeepersComponent"] },
             { path: 'map', component: _profile_map_map_component__WEBPACK_IMPORTED_MODULE_13__["MapComponent"] },
             { path: 'pic', component: _profile_editpropic_editpropic_component__WEBPACK_IMPORTED_MODULE_14__["EditpropicComponent"] },
-            { path: 'regkeeper', component: _parkkeeper_keeperreg_keeperreg_component__WEBPACK_IMPORTED_MODULE_16__["KeeperregComponent"] },
-            { path: 'keeper', component: _parkkeeper_keeperprofile_keeperprofile_component__WEBPACK_IMPORTED_MODULE_26__["KeeperprofileComponent"] },
+            { path: 'progress', component: _profile_progress_progress_component__WEBPACK_IMPORTED_MODULE_15__["ProgressComponent"] },
+            { path: 'regkeeper', component: _parkkeeper_keeperreg_keeperreg_component__WEBPACK_IMPORTED_MODULE_17__["KeeperregComponent"] },
+            { path: 'keeper', component: _parkkeeper_keeperprofile_keeperprofile_component__WEBPACK_IMPORTED_MODULE_27__["KeeperprofileComponent"] },
             { path: '', redirectTo: 'userHome', pathMatch: 'full' },
         ]
     },
-    { path: 'admin', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_17__["AdminComponent"], canActivate: [_auth_role_guard_service_guard__WEBPACK_IMPORTED_MODULE_18__["RoleGuardServiceGuard"]], data: {
+    { path: 'admin', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_18__["AdminComponent"], canActivate: [_auth_role_guard_service_guard__WEBPACK_IMPORTED_MODULE_19__["RoleGuardServiceGuard"]], data: {
             expectedRole: 'admin'
         }, children: [
-            { path: 'edit', component: _admin_profileeditadmin_profileeditadmin_component__WEBPACK_IMPORTED_MODULE_19__["ProfileeditadminComponent"] },
-            { path: 'map', component: _admin_adminmap_adminmap_component__WEBPACK_IMPORTED_MODULE_20__["AdminmapComponent"] },
-            { path: 'newparks', component: _admin_keepers_keepers_component__WEBPACK_IMPORTED_MODULE_21__["KeepersComponent"] },
-            { path: 'owners', component: _admin_owners_owners_component__WEBPACK_IMPORTED_MODULE_22__["OwnersComponent"] },
-            { path: 'sendfile/:id', component: _admin_adminupload_adminupload_component__WEBPACK_IMPORTED_MODULE_24__["AdminuploadComponent"] },
-            { path: 'messages', component: _admin_adminreceive_adminreceive_component__WEBPACK_IMPORTED_MODULE_25__["AdminreceiveComponent"] },
+            { path: 'edit', component: _admin_profileeditadmin_profileeditadmin_component__WEBPACK_IMPORTED_MODULE_20__["ProfileeditadminComponent"] },
+            { path: 'addadmin', component: _admin_addadmin_addadmin_component__WEBPACK_IMPORTED_MODULE_43__["AddadminComponent"] },
+            { path: 'map', component: _admin_adminmap_adminmap_component__WEBPACK_IMPORTED_MODULE_21__["AdminmapComponent"] },
+            { path: 'newparks', component: _admin_keepers_keepers_component__WEBPACK_IMPORTED_MODULE_22__["KeepersComponent"] },
+            { path: 'owners', component: _admin_owners_owners_component__WEBPACK_IMPORTED_MODULE_23__["OwnersComponent"] },
+            { path: 'reported', component: _admin_reported_reported_component__WEBPACK_IMPORTED_MODULE_42__["ReportedComponent"] },
+            { path: 'sendfile/:id', component: _admin_adminupload_adminupload_component__WEBPACK_IMPORTED_MODULE_25__["AdminuploadComponent"] },
+            { path: 'messages', component: _admin_adminreceive_adminreceive_component__WEBPACK_IMPORTED_MODULE_26__["AdminreceiveComponent"] },
         ] },
-    { path: 'owner/:id', component: _admin_ownerprofile_ownerprofile_component__WEBPACK_IMPORTED_MODULE_23__["OwnerprofileComponent"], canActivate: [_auth_role_guard_service_guard__WEBPACK_IMPORTED_MODULE_18__["RoleGuardServiceGuard"]], data: {
+    { path: 'owner/:id', component: _admin_ownerprofile_ownerprofile_component__WEBPACK_IMPORTED_MODULE_24__["OwnerprofileComponent"], canActivate: [_auth_role_guard_service_guard__WEBPACK_IMPORTED_MODULE_19__["RoleGuardServiceGuard"]], data: {
             expectedRole: 'admin'
         } },
+    { path: 'park/:id', component: _admin_keeper_pro_view_keeper_pro_view_component__WEBPACK_IMPORTED_MODULE_37__["KeeperProViewComponent"] },
     { path: 'signup', component: _signup_signup_component__WEBPACK_IMPORTED_MODULE_6__["SignupComponent"] },
-    { path: 'resetpassword', component: _signup_resetpw_resetpw_component__WEBPACK_IMPORTED_MODULE_27__["ResetpwComponent"] },
+    { path: 'resetpassword', component: _signup_resetpw_resetpw_component__WEBPACK_IMPORTED_MODULE_28__["ResetpwComponent"] },
     { path: 'landing', component: _landing_landing_component__WEBPACK_IMPORTED_MODULE_7__["LandingComponent"] },
     { path: 'nucleoicons', component: _components_nucleoicons_nucleoicons_component__WEBPACK_IMPORTED_MODULE_8__["NucleoiconsComponent"] },
     { path: 'signin', component: _signin_signin_component__WEBPACK_IMPORTED_MODULE_9__["SigninComponent"] },
-    { path: 'slot', component: _parkkeeper_parkingslot_parkingslot_component__WEBPACK_IMPORTED_MODULE_28__["ParkingslotComponent"] },
-    { path: 'reset/:token', component: _signup_newpw_newpw_component__WEBPACK_IMPORTED_MODULE_29__["NewpwComponent"] },
+    { path: 'slot', component: _parkkeeper_parkingslot_parkingslot_component__WEBPACK_IMPORTED_MODULE_29__["ParkingslotComponent"] },
+    { path: 'newpassword/:token/:type', component: _signup_newpw_newpw_component__WEBPACK_IMPORTED_MODULE_30__["NewpwComponent"] },
+    // { path: 'newpassword/:token',      component: NewpwComponent },
+    { path: 'about', component: _home_about_about_component__WEBPACK_IMPORTED_MODULE_40__["AboutComponent"] },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -2578,6 +3188,69 @@ var FileUploadComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/home/about/about.component.html":
+/*!*************************************************!*\
+  !*** ./src/app/home/about/about.component.html ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"page-header\" data-parallax=\"true\" style=\"background-image: url('assets/img/mainpic.jpg')\">\n  <div class=\"filter\"></div>\n  <div class=\"container\">\n    <div class=\"motto text-center\">\n      <h1 class=\"presentation-title\">\n        <b>PARK HERE</b>\n      </h1>\n      <h3>Assuring Your Secure and Pleasure</h3>\n      <br />\n\n    </div>\n  </div>\n</div>\n<div class=\"main\">\n  <div class=\"section text-center\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-md-8 mr-auto ml-auto\">\n          <h2 class=\"title\">\n            <b>What is PARK HERE?</b>\n          </h2>\n          <h5 style=\"color:black\">Are you get confusing when parking your vehicle somewhere?</h5>\n          <h5 style=\"color:black\">Now it’s time to change your way. Solution PARK HERE</h5>\n          <h5 style=\"color:black\">We assure your safety and the best ever experience with parking</h5>\n          <br>\n\n        </div>\n      </div>\n      <br/>\n      <br/>\n      <div class=\"row\">\n        <div class=\"col-md-6\">\n          <div class=\"info\">\n            <div class=\"icon icon-danger\">\n                <i class='fas fa-globe' style='font-size:48px'></i>\n            </div>\n            <div class=\"description\">\n              <h4 class=\"info-title\">\n                <b>Our Mission</b>\n              </h4>\n              <p class=\"description\" style=\"color:black\">\"To provide a secure, and pleasurable environment to park your vehicle with effient and relaiable manner</p>\n\n            </div>\n          </div>\n        </div>\n\n\n        <div class=\"col-md-6\">\n          <div class=\"info\">\n            <div class=\"icon icon-danger\">\n              <i class='far fa-handshake' style='font-size:48px;'></i>\n            </div>\n            <div class=\"description\">\n              <h4 class=\"info-title\">\n                <b>Our Vision</b>\n              </h4>\n              <p style=\"color:black\">Beyond the boundaries make the best plase in your heart as the most realiable and effienet parking system in\n                Sri Lanka</p>\n\n            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <div class=\"section section-dark text-center\">\n    <div class=\"container\">\n      <h2 class=\"title\">To be connected</h2>\n      <br>\n\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <div class=\"card card-profile card-plain\">\n            <div class=\"card-avatar\">\n\n            </div>\n            <div class=\"card-block\">\n              <a href=\"#paper-kit\">\n                <div class=\"author\">\n                    <div class=\"icon icon-danger\">\n                        <i class='fas fa-phone-volume' style='font-size:48px;color:red'></i>\n                      </div>\n                  <h4 class=\"card-title\">Contact Us</h4>\n                  \n                    <br>\n                    <h6 class=\"card-category\">Address- University of Moratuwa, Katubedda, Sri Lanka</h6>\n                  <h6 class=\"card-category\">Tel - +94 71 765 7216</h6>\n                  <h6 class=\"card-category\">E-mail- parkhere@gmail.com</h6>\n                  \n                </div>\n              </a>\n\n            </div>\n         "
+
+/***/ }),
+
+/***/ "./src/app/home/about/about.component.scss":
+/*!*************************************************!*\
+  !*** ./src/app/home/about/about.component.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/home/about/about.component.ts":
+/*!***********************************************!*\
+  !*** ./src/app/home/about/about.component.ts ***!
+  \***********************************************/
+/*! exports provided: AboutComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutComponent", function() { return AboutComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AboutComponent = /** @class */ (function () {
+    function AboutComponent() {
+    }
+    AboutComponent.prototype.ngOnInit = function () {
+    };
+    AboutComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-about',
+            template: __webpack_require__(/*! ./about.component.html */ "./src/app/home/about/about.component.html"),
+            styles: [__webpack_require__(/*! ./about.component.scss */ "./src/app/home/about/about.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AboutComponent);
+    return AboutComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/home/home.component.html":
 /*!******************************************!*\
   !*** ./src/app/home/home.component.html ***!
@@ -2585,7 +3258,7 @@ var FileUploadComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header section-dark\" style=\"background-image: url('assets/img/mainpic.jpg')\">\n        <div class=\"filter\"></div>\n        <div class=\"content-center\">\n            <div class=\"container\">\n                <div class=\"title-brand\">\n                    <!-- <div class=\"angular-logo\">\n                        <img src=\"assets/img/parkhere.png\" alt=\"\">\n                    </div> -->\n                    <h1 class=\"presentation-title\">PARK HERE</h1>\n                    <!-- <div class=\"fog-low\">\n                        <img src=\"assets/img/fog-low.png\" alt=\"\">\n                    </div> -->\n                    <!-- <div class=\"fog-low right\">\n                        <img src=\"assets/img/fog-low.png\" alt=\"\">\n                    </div> -->\n                </div>\n\n                <h2 class=\"presentation-subtitle text-center\">slogan</h2>\n            </div>\n        </div>\n        <!-- <div class=\"moving-clouds\" style=\"background-image: url('assets/img/clouds.png'); \"></div> -->\n        <!-- <h6 class=\" category-absolute ml-auto mr-auto\">Designed and coded by -->\n        <h6 class=\"category category-absolute\">Designed and coded by Park Here \n\n            \n        </h6>\n    </div>\n    <div class=\"main\">\n        <div class=\"section text-center\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-8 mr-auto ml-auto\">\n                    <h2 class=\"title\">Let's talk product</h2>\n                    <h5 class=\"description\">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more.</h5>\n                    <br>\n                    <a href=\"#paper-kit\" class=\"btn btn-danger btn-round\">See Details</a>\n                </div>\n            </div>\n            <br/><br/>\n            <div class=\"row\">\n                <div class=\"col-md-3\">\n                    <div class=\"info\">\n                        <div class=\"icon icon-danger\">\n                            <i class=\"nc-icon nc-album-2\"></i>\n                        </div>\n                        <div class=\"description\">\n                            <h4 class=\"info-title\">Beautiful Gallery</h4>\n                            <p class=\"description\">Spend your time generating new ideas. You don't have to think of implementing.</p>\n                            <a href=\"#pkp\" class=\"btn btn-link btn-danger\">See more</a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"info\">\n                        <div class=\"icon icon-danger\">\n                            <i class=\"nc-icon nc-bulb-63\"></i>\n                        </div>\n                        <div class=\"description\">\n                            <h4 class=\"info-title\">New Ideas</h4>\n                            <p>Larger, yet dramatically thinner. More powerful, but remarkably power efficient.</p>\n                            <a href=\"#pkp\" class=\"btn btn-link btn-danger\">See more</a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"info\">\n                        <div class=\"icon icon-danger\">\n                            <i class=\"nc-icon nc-chart-bar-32\"></i>\n                        </div>\n                        <div class=\"description\">\n                            <h4 class=\"info-title\">Statistics</h4>\n                            <p>Choose from a veriety of many colors resembling sugar paper pastels.</p>\n                            <a href=\"#pkp\" class=\"btn btn-link btn-danger\">See more</a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"info\">\n                        <div class=\"icon icon-danger\">\n                            <i class=\"nc-icon nc-sun-fog-29\"></i>\n                        </div>\n                        <div class=\"description\">\n                            <h4 class=\"info-title\">Delightful design</h4>\n                            <p>Find unique and handmade delightful designs related items directly from our sellers.</p>\n                            <a href=\"#pkp\" class=\"btn btn-link btn-danger\">See more</a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n    \n        </div>\n    </div>\n    <div class=\"panel-header panel-header-sm\">\n    </div>\n    <div class=\"main-content\">\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <div class=\"card \">\n            <div class=\"card-header \">\n              Google Maps\n            </div>\n            <div class=\"card-body \">\n                <agm-map [latitude]=\"lat\" [longitude]=\"lng\">\n                    <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n                  </agm-map>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"section section-dark text-center\">\n        <div class=\"container\">\n            <h2 class=\"title\">Let's talk about us</h2>\n            <div class=\"row\">\n                <div class=\"col-md-4\">\n                    <div class=\"card card-profile card-plain\">\n                        <div class=\"card-avatar\">\n                            <a href=\"#avatar\"><img src=\"./assets/img/faces/charindu.jpg\" alt=\"...\"></a>\n                        </div>\n                        <div class=\"card-block\">\n                            <a href=\"#paper-kit\">\n                                <div class=\"author\">\n                                    <h4 class=\"card-title\">Charindu Kavishan</h4>\n                                    <h6 class=\"card-category\">Developer</h6>\n                                </div>\n                            </a>\n                            <p class=\"card-description text-center\">\n                            Teamwork is so important that it is virtually impossible for you to reach the heights of your capabilities or make the money that you want without becoming very good at it.\n                            </p>\n                        </div>\n                        <div class=\"card-footer text-center\">\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-twitter\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-google-plus\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-linkedin\"></i></a>\n                        </div>\n                    </div>\n                </div>\n    \n                <div class=\"col-md-4\">\n                    <div class=\"card card-profile card-plain\">\n                        <div class=\"card-avatar\">\n                            <a href=\"#avatar\"><img src=\"./assets/img/faces/wageesha.jpg\" alt=\"...\"></a>\n                        </div>\n                        <div class=\"card-block\">\n                            <a href=\"#paper-kit\">\n                                <div class=\"author\">\n                                    <h4 class=\"card-title\">Thilina Nisansala</h4>\n                                    <h6 class=\"card-category\">Developer</h6>\n                                </div>\n                            </a>\n                            <p class=\"card-description text-center\">\n                            A group becomes a team when each member is sure enough of himself and his contribution to praise the skill of the others. No one can whistle a symphony. It takes an orchestra to play it.\n                            </p>\n                        </div>\n                        <div class=\"card-footer text-center\">\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-twitter\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-google-plus\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-linkedin\"></i></a>\n                        </div>\n                    </div>\n                </div>\n    \n                <div class=\"col-md-4\">\n                    <div class=\"card card-profile card-plain\">\n                        <div class=\"card-avatar\">\n                            <a href=\"#avatar\"><img src=\"./assets/img/faces/thari.jpg\" alt=\"...\"></a>\n                        </div>\n                        <div class=\"card-block\">\n                            <a href=\"#paper-kit\">\n                                <div class=\"author\">\n                                    <h4 class=\"card-title\">Tharinduni Kawshalya</h4>\n                                    <h6 class=\"card-category\">Developer</h6>\n                                </div>\n                            </a>\n                            <p class=\"card-description text-center\">\n                            The strength of the team is each individual member. The strength of each member is the team. If you can laugh together, you can work together, silence isn’t golden, it’s deadly.\n                            </p>\n                        </div>\n                        <div class=\"card-footer text-center\">\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-twitter\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-google-plus\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-linkedin\"></i></a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-4\">\n                    <div class=\"card card-profile card-plain\">\n                        <div class=\"card-avatar\">\n                            <a href=\"#avatar\"><img src=\"./assets/img/faces/piumika.jpg\" alt=\"...\"></a>\n                        </div>\n                        <div class=\"card-block\">\n                            <a href=\"#paper-kit\">\n                                <div class=\"author\">\n                                    <h4 class=\"card-title\">Piumika Madhuphashani</h4>\n                                    <h6 class=\"card-category\">Developer</h6>\n                                </div>\n                            </a>\n                            <p class=\"card-description text-center\">\n                            The strength of the team is each individual member. The strength of each member is the team. If you can laugh together, you can work together, silence isn’t golden, it’s deadly.\n                            </p>\n                        </div>\n                        <div class=\"card-footer text-center\">\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-twitter\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-google-plus\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-linkedin\"></i></a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-4\">\n                    <div class=\"card card-profile card-plain\">\n                        <div class=\"card-avatar\">\n                            <a href=\"#avatar\"><img src=\"./assets/img/faces/piumi.jpg\" alt=\"...\"></a>\n                        </div>\n                        <div class=\"card-block\">\n                            <a href=\"#paper-kit\">\n                                <div class=\"author\">\n                                    <h4 class=\"card-title\">Piumi</h4>\n                                    <h6 class=\"card-category\">Developer</h6>\n                                </div>\n                            </a>\n                            <p class=\"card-description text-center\">\n                            The strength of the team is each individual member. The strength of each member is the team. If you can laugh together, you can work together, silence isn’t golden, it’s deadly.\n                            </p>\n                        </div>\n                        <div class=\"card-footer text-center\">\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-twitter\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-google-plus\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-linkedin\"></i></a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    \n\n\n\n \n    \n\n\n\n\n        <div class=\"section landing-section\">\n            <div class=\"container\">\n                <div class=\"row\">\n                    <div class=\"col-md-8 mr-auto ml-auto\">\n                        <h2 class=\"text-center\">Keep in touch?</h2>\n                        <form class=\"contact-form\">\n                            <div class=\"row\">\n                                <div class=\"col-md-6\">\n                                    <label>Name</label>\n                                    <div class=\"input-group\" [ngClass]=\"{'input-group-focus':focus===true}\">\n                                        <div class=\"input-group-prepend\">\n                                          <span class=\"input-group-text\"><i class=\"nc-icon nc-single-02\"></i></span>\n                                        </div>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Name\" (focus)=\"focus=true\" (blur)=\"focus=false\" >\n                                    </div>\n                                </div>\n                                <div class=\"col-md-6\">\n                                    <label>Email</label>\n                                    <div class=\"input-group\" [ngClass]=\"{'input-group-focus':focus1===true}\">\n                                        <div class=\"input-group-prepend\">\n                                          <span class=\"input-group-text\">  <i class=\"nc-icon nc-email-85\"></i></span>\n                                        </div>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Email\" (focus)=\"focus1=true\" (blur)=\"focus1=false\" >\n                                    </div>\n                                </div>\n                            </div>\n                            <label>Message</label>\n                            <textarea class=\"form-control\" rows=\"4\" placeholder=\"Tell us your thoughts and feelings...\"></textarea>\n                            <div class=\"row\">\n                                <div class=\"col-md-4 mr-auto ml-auto\">\n                                    <button class=\"btn btn-danger btn-lg btn-fill\">Send Message</button>\n                                </div>\n                            </div>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    "
+module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header section-dark\" style=\"background-image: url('assets/img/mainpic.jpg')\">\n        <div class=\"filter\"></div>\n        <div class=\"content-center\">\n            <div class=\"container\">\n                <div class=\"title-brand\">\n                    <!-- <div class=\"angular-logo\">\n                        \n                        \n                    </div> -->\n                    <!-- <img style=\"width: 300px\" src=\"../../assets/img/WebNew.png\" alt=\"\"> -->\n                    <h1 class=\"presentation-title\">PARK HERE</h1>\n                    <!-- <div class=\"fog-low\">\n                        <img src=\"assets/img/fog-low.png\" alt=\"\">\n                    </div> -->\n                    <!-- <div class=\"fog-low right\">\n                        <img src=\"assets/img/fog-low.png\" alt=\"\">\n                    </div> -->\n                </div>\n\n                <h2 class=\"presentation-subtitle text-center\">Assuring Your Secure and Pleasure</h2>\n            </div>\n        </div>\n        <!-- <div class=\"moving-clouds\" style=\"background-image: url('assets/img/clouds.png'); \"></div> -->\n        <!-- <h6 class=\" category-absolute ml-auto mr-auto\">Designed and coded by -->\n        <h6 class=\"category category-absolute\">Designed and coded by Park Here \n\n            \n        </h6>\n    </div>\n    <div class=\"main\">\n        <div class=\"section text-center\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-8 mr-auto ml-auto\">\n                    <h2 class=\"title\">Welcome to PARK HERE</h2>\n                    <h5 class=\"description\" style=\"color:black\">Parking your vehicle is a problem for you? It won't be an issue anymore with <strong>PARK HERE</strong>. Feel the best parking experience with the relaiable security ever.</h5>\n                    <br>\n                    <a href=\"#paper-kit\" class=\"btn btn-danger btn-round\">About Us</a>\n                </div>\n            </div>\n            <br/><br/>\n            <div class=\"row\" style=\"color:black\">\n                <div class=\"col-md-3\">\n                    <div class=\"info\">\n                        <div class=\"icon icon-danger\">\n                                <i class='fas fa-taxi' style='font-size:48px'></i>\n                        </div>\n                        <div class=\"description\">\n                            <h4 class=\"info-title\"><b>Innovative Parking Solutions</b></h4>\n                            <p class=\"description\" style=\"color:black\">Provides advanced parkings services to drives in island wide.</p>\n                            \n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"info\">\n                        <div class=\"icon icon-danger\">\n                                <i class='fas fa-mobile-alt' style='font-size:48px'></i>\n                        </div>\n                        <div class=\"description\">\n                            <h4 class=\"info-title\"><b>Easy Park Mobile</b></h4>\n                            <p style=\"color:black\">The most innovative parking pay by phone solution</p>\n                            \n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"info\">\n                        <div class=\"icon icon-danger\">\n                                <i class='fab fa-amazon-pay' style='font-size:48px'></i>\n                        </div>\n                        <div class=\"description\">\n                            <h4 class=\"info-title\"><b>User friendly, easy to operate</b></h4>\n                            <p style=\"color:black\">Pay for exact time parked with cash or card.</p>\n                            \n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"info\">\n                        <div class=\"icon icon-danger\">\n                                <i class='fas fa-child' style='font-size:48px'></i>\n                        </div>\n                        <div class=\"description\">\n                            <h4 class=\"info-title\"><b>Increase Your Parking Operations net Revenues</b> </h4>\n                            <p style=\"color:black\">Higher net income and happier customers !</p>\n                            \n                        </div>\n                    </div>\n                </div>\n            </div>\n    \n        </div>\n    </div>\n    <div class=\"panel-header panel-header-sm\">\n    </div>\n    <div class=\"main-content\">\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <div class=\"card \">\n            <div class=\"card-header \">\n              Google Maps\n            </div>\n            <div class=\"card-body \">\n                    <agm-map [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\n                            <!-- <agm-direction\n                              *ngIf=\"destination.lat !== null\"\n                              [origin]=\"{ lat: lat, lng: lng }\"\n                              [destination]=\"destination\"\n                            >\n                            </agm-direction> -->\n                \n                            <!-- <agm-marker\n                            *ngIf=\"destination.lat === null\"\n                            [latitude]=\"lat\"\n                            [longitude]=\"lng\"\n                          ></agm-marker> -->\n                          <agm-marker ng-click=\"click()\" *ngFor=\"let keeper of keepers\"\n                            [latitude]=\" keeper.lat\"\n                            [longitude]=\" keeper.lng\"\n                          ></agm-marker>\n                          </agm-map> \n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"section section-dark text-center\">\n        <div class=\"container\">\n            <h2 class=\"title\">Let's talk about us</h2>\n            <div class=\"row\">\n                <div class=\"col-md-4\">\n                    <div class=\"card card-profile card-plain\">\n                        <div class=\"card-avatar\">\n                            <a href=\"#avatar\"><img src=\"./assets/img/faces/charindu.jpg\" alt=\"...\"></a>\n                        </div>\n                        <div class=\"card-block\">\n                            <a href=\"#paper-kit\">\n                                <div class=\"author\">\n                                    <h4 class=\"card-title\">Charindu Kavishan</h4>\n                                    <h6 class=\"card-category\">Developer</h6>\n                                </div>\n                            </a>\n                            <p class=\"card-description text-center\">\n                            Teamwork is so important that it is virtually impossible for you to reach the heights of your capabilities or make the money that you want without becoming very good at it.\n                            </p>\n                        </div>\n                        <div class=\"card-footer text-center\">\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-twitter\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-google-plus\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-linkedin\"></i></a>\n                        </div>\n                    </div>\n                </div>\n    \n                <div class=\"col-md-4\">\n                    <div class=\"card card-profile card-plain\">\n                        <div class=\"card-avatar\">\n                            <a href=\"#avatar\"><img src=\"./assets/img/faces/wageesha.jpg\" alt=\"...\"></a>\n                        </div>\n                        <div class=\"card-block\">\n                            <a href=\"#paper-kit\">\n                                <div class=\"author\">\n                                    <h4 class=\"card-title\">Thilina Nisansala</h4>\n                                    <h6 class=\"card-category\">Developer</h6>\n                                </div>\n                            </a>\n                            <p class=\"card-description text-center\">\n                            A group becomes a team when each member is sure enough of himself and his contribution to praise the skill of the others. No one can whistle a symphony. It takes an orchestra to play it.\n                            </p>\n                        </div>\n                        <div class=\"card-footer text-center\">\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-twitter\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-google-plus\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-linkedin\"></i></a>\n                        </div>\n                    </div>\n                </div>\n    \n                <div class=\"col-md-4\">\n                    <div class=\"card card-profile card-plain\">\n                        <div class=\"card-avatar\">\n                            <a href=\"#avatar\"><img src=\"./assets/img/faces/thari1.jpg\" alt=\"...\"></a>\n                        </div>\n                        <div class=\"card-block\">\n                            <a href=\"#paper-kit\">\n                                <div class=\"author\">\n                                    <h4 class=\"card-title\">Tharinduni Kaushalya</h4>\n                                    <h6 class=\"card-category\">Developer</h6>\n                                </div>\n                            </a>\n                            <p class=\"card-description text-center\">\n                            The strength of the team is each individual member. The strength of each member is the team. If you can laugh together, you can work together, silence isn’t golden, it’s deadly.\n                            </p>\n                        </div>\n                        <div class=\"card-footer text-center\">\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-twitter\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-google-plus\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-linkedin\"></i></a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-4\">\n                    <div class=\"card card-profile card-plain\">\n                        <div class=\"card-avatar\">\n                            <a href=\"#avatar\"><img src=\"./assets/img/faces/piumika.jpg\" alt=\"...\"></a>\n                        </div>\n                        <div class=\"card-block\">\n                            <a href=\"#paper-kit\">\n                                <div class=\"author\">\n                                    <h4 class=\"card-title\">Piumika Bhashani</h4>\n                                    <h6 class=\"card-category\">Developer</h6>\n                                </div>\n                            </a>\n                            <p class=\"card-description text-center\">\n                                    Team means encouraging a high regard on such things as team spirit, respecting others, and valuing their contributions and fostering a sense that more can be achieved by working together than as individuals.\n                            </p>\n                        </div>\n                        <div class=\"card-footer text-center\">\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-twitter\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-google-plus\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-linkedin\"></i></a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-4\">\n                    <div class=\"card card-profile card-plain\">\n                        <div class=\"card-avatar\">\n                            <a href=\"#avatar\"><img src=\"./assets/img/faces/piumi.jpg\" alt=\"...\"></a>\n                        </div>\n                        <div class=\"card-block\">\n                            <a href=\"#paper-kit\">\n                                <div class=\"author\">\n                                    <h4 class=\"card-title\">Piyumi Madhubhashani</h4>\n                                    <h6 class=\"card-category\">Developer</h6>\n                                </div>\n                            </a>\n                            <p class=\"card-description text-center\">\n                                    Teamwork suggests that people work in an atmosphere of mutual support and trust, working together cohesively, with good inter-group relations. Each other’s strengths are valued.\n                            </p>\n                        </div>\n                        <div class=\"card-footer text-center\">\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-twitter\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-google-plus\"></i></a>\n                            <a href=\"#pablo\" class=\"btn btn-link btn-just-icon btn-neutral\"><i class=\"fa fa-linkedin\"></i></a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    \n\n\n\n \n    \n\n\n\n\n        <div class=\"section landing-section\">\n            <div class=\"container\">\n                <div class=\"row\">\n                    <div class=\"col-md-8 mr-auto ml-auto\">\n                        <h2 class=\"text-center\">Keep in touch?</h2>\n                        <form #form=\"ngForm\" class=\"contact-form\">\n                            <div class=\"row\">\n                                <div class=\"col-md-6\">\n                                    <label>Name</label>\n                                    <div class=\"input-group\" #name=\"ngModel\" [(ngModel)]=\"send.name\" >\n                                        <div class=\"input-group-prepend\">\n                                          <span class=\"input-group-text\"><i class=\"nc-icon nc-single-02\"></i></span>\n                                        </div>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Name\"  >\n                                    </div>\n                                </div>\n                                <div class=\"col-md-6\">\n                                    <label>Email</label>\n                                    <div class=\"input-group\" [ngClass]=\"{'input-group-focus':focus1===true}\">\n                                        <div class=\"input-group-prepend\">\n                                          <span class=\"input-group-text\">  <i class=\"nc-icon nc-email-85\"></i></span>\n                                        </div>\n                                        <input type=\"text\" #email=\"ngModel\" [(ngModel)]=\"email\" class=\"form-control\" placeholder=\"Email\" >\n                                    </div>\n                                </div>\n                            </div>\n                            <label>Message</label>\n                            <textarea class=\"form-control\" #message=\"ngModel\" [(ngModel)]=\"send.message\" rows=\"4\" placeholder=\"Tell us your thoughts and feelings...\"></textarea>\n                            <div class=\"row\">\n                                <div class=\"col-md-4 mr-auto ml-auto\">\n                                    <button (click)=\"sendmessage()\" class=\"btn btn-danger btn-lg btn-fill\">Send Message</button>\n                                </div>\n                            </div>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    "
 
 /***/ }),
 
@@ -2611,6 +3284,11 @@ module.exports = "agm-map {\n  height: 500px; }\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jwt-decode */ "./node_modules/jwt-decode/lib/index.js");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2621,25 +3299,136 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(mapsAPILoader, ngZone, service) {
+        this.mapsAPILoader = mapsAPILoader;
+        this.ngZone = ngZone;
+        this.service = service;
         this.model = {
             left: true,
             middle: false,
             right: false
         };
-        this.title = 'My first AGM project';
-        this.lat = 51.678418;
-        this.lng = 7.809007;
+        this.lat = null;
+        this.lng = null;
+        this.zoom = 4;
+        this.origin = { lat: this.lat, lng: this.lng };
+        this.destination = { lat: null, lng: null };
+        this.keepers = [];
     }
-    HomeComponent.prototype.ngOnInit = function () { };
+    HomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        navigator.geolocation.getCurrentPosition(function (position) {
+            _this.lat = position.coords.latitude;
+            _this.lng = position.coords.longitude;
+            _this.zoom = 8;
+            console.log(_this.lat, _this.lng);
+        }, function (err) { return console.log(err); });
+        this.searchControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
+        this.mapsAPILoader.load().then(function () {
+            var autocomplete = new google.maps.places.Autocomplete(_this.searchElementRef.nativeElement, {
+                types: [],
+                componentRestrictions: { country: "LK" }
+            });
+            autocomplete.addListener("place_changed", function () {
+                _this.ngZone.run(function () {
+                    //get the place result
+                    var place = autocomplete.getPlace();
+                    //verify result
+                    if (place.geometry === undefined || place.geometry === null) {
+                        return;
+                    }
+                    //set latitude, longitude and zoom
+                    _this.destination.lat = place.geometry.location.lat();
+                    _this.destination.lng = place.geometry.location.lng();
+                    console.log(_this.destination);
+                });
+            });
+        });
+        var token = this.service.getToken();
+        var tokenPayload = jwt_decode__WEBPACK_IMPORTED_MODULE_3___default()(token);
+        this.service.allkeepers().subscribe(function (response) {
+            console.log(response);
+            _this.kepers = response;
+            _this.res = _this.kepers.length;
+            for (var i = 0; i < _this.kepers.length; i++) {
+                if (_this.kepers[i].state == "open") {
+                    _this.class = "btn btn-danger btn-round";
+                    _this.kepers[i].state = "close";
+                }
+                else {
+                    _this.class = "btn btn-warning btn-round";
+                    _this.kepers[i].state = "open";
+                }
+                _this.keepers[i] = {
+                    id: _this.kepers[i]._id,
+                    name: _this.kepers[i].name,
+                    class: _this.class,
+                    isactivate: _this.kepers[i].isactivate,
+                    state: _this.kepers[i].state,
+                    lat: _this.kepers[i].lat,
+                    lng: _this.kepers[i].lng,
+                };
+            }
+        });
+    };
+    // calculateDuration() {
+    //   var directionsService = new google.maps.DirectionsService();
+    //   var directionsDisplay = new google.maps.DirectionsRenderer();
+    //   var mapOptions = {
+    //     zoom: 15,
+    //     center: this.origin
+    //   };
+    //   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    //   directionsDisplay.setMap(map);
+    //   var request = {
+    //     origin: this.origin,
+    //     destination: this.destination,
+    //     travelMode: "DRIVING"
+    //   };
+    //   directionsService.route(request, function(response, status) {
+    //     console.log(response);
+    //     // var point = response.routes[0].legs[0];
+    //     // if (status == "OK") {
+    //     //   document.getElementById("point").innerHTML =
+    //     //     point + point.duration.text + " km";
+    //     // }
+    //   });
+    // }
+    // calculateDuration() {
+    //   var duration = google.maps.geometry.duration(
+    //     new google.maps.LatLng(this.lat, this.lng),
+    //     new google.maps.LatLng(this.destination.lat, this.destination.lng)
+    //   );
+    //   document.getElementById("duration").innerHTML = duration / 1000 + "S";
+    // }
+    HomeComponent.prototype.calculateDistance = function () {
+        // console.log(google.maps.geometry.spherical.computeDurationBetween());
+        var distance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(this.lat, this.lng), new google.maps.LatLng(this.destination.lat, this.destination.lng));
+        console.log(distance);
+        document.getElementById("distance").innerHTML = distance / 1000 + "km";
+    };
+    HomeComponent.prototype.click = function () {
+        console.log('click');
+    };
+    HomeComponent.prototype.sendmessage = function () {
+        console.log(this.email);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("search"),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], HomeComponent.prototype, "searchElementRef", void 0);
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-home',
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/home/home.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_agm_core__WEBPACK_IMPORTED_MODULE_1__["MapsAPILoader"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_4__["RegserviceService"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -2666,12 +3455,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _components_components_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/components.module */ "./src/app/components/components.module.ts");
 /* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
+/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./about/about.component */ "./src/app/home/about/about.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -2695,7 +3486,7 @@ var HomeModule = /** @class */ (function () {
                     apiKey: 'AIzaSyDySdsZG3tJO4FJqgu24ujKy8kIdlexmsE'
                 })
             ],
-            declarations: [_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"]],
+            declarations: [_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"], _about_about_component__WEBPACK_IMPORTED_MODULE_8__["AboutComponent"]],
             exports: [_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"]],
             providers: []
         })
@@ -2769,6 +3560,554 @@ var LandingComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/parkkeeper/bookinghistory/bookinghistory.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/parkkeeper/bookinghistory/bookinghistory.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "   \n  <div class=\"panel-header panel-header-sm\">\n    </div>\n    <div class=\"main-content\">\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <div class=\"card \">\n            <div class=\"card-header \">\n              Bookings\n            </div>\n            <div class=\"card-body \">\n                <flash-messages></flash-messages>\n                <table style=\"border-collapse: collapse;\n                border-spacing: 20px;\n                width: 100%\">\n                <tr style=\"font-size:15px\">\n                  <th>Vehicle Number</th>\n                  <th>Slot type</th>\n                  <th>Slot No</th>\n                  <th>Date</th>\n                  <th>Arrive Time</th>\n                  <th>Leave Time</th>\n                </tr>\n               \n                <tr *ngFor=\"let i of bookings\" >\n                  <td>{{i.vehicleNum}}</td>\n                  <td>{{i.vehicleType}}</td>\n                  <td>{{i.slotNum}}</td>\n                  <td>{{i.date}}</td>\n                  <td>{{i.arivalTime}}</td>\n                  <td>{{i.depatureTime}}</td>\n                  \n                </tr>\n                \n              </table>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    "
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/bookinghistory/bookinghistory.component.scss":
+/*!*************************************************************************!*\
+  !*** ./src/app/parkkeeper/bookinghistory/bookinghistory.component.scss ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/bookinghistory/bookinghistory.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/parkkeeper/bookinghistory/bookinghistory.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: BookinghistoryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookinghistoryComponent", function() { return BookinghistoryComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jwt-decode */ "./node_modules/jwt-decode/lib/index.js");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_3__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var BookinghistoryComponent = /** @class */ (function () {
+    function BookinghistoryComponent(flashMessage, service) {
+        this.flashMessage = flashMessage;
+        this.service = service;
+    }
+    BookinghistoryComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var token = this.service.getToken();
+        var tokenPayload = jwt_decode__WEBPACK_IMPORTED_MODULE_3___default()(token);
+        this.service.gethistory(tokenPayload._id).subscribe(function (res) {
+            _this.bookings = res;
+        }, function (err) {
+        });
+    };
+    BookinghistoryComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-bookinghistory',
+            template: __webpack_require__(/*! ./bookinghistory.component.html */ "./src/app/parkkeeper/bookinghistory/bookinghistory.component.html"),
+            styles: [__webpack_require__(/*! ./bookinghistory.component.scss */ "./src/app/parkkeeper/bookinghistory/bookinghistory.component.scss")]
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_1__["FlashMessagesService"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_2__["RegserviceService"]])
+    ], BookinghistoryComponent);
+    return BookinghistoryComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/bookings/bookings.component.html":
+/*!*************************************************************!*\
+  !*** ./src/app/parkkeeper/bookings/bookings.component.html ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "   \n  <div class=\"panel-header panel-header-sm\">\n    </div>\n    <div class=\"main-content\">\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <div class=\"card \">\n            <div class=\"card-header \">\n              Bookings\n            </div>\n            <div class=\"card-body \">\n                <flash-messages></flash-messages>\n                <table style=\"border-collapse: collapse;\n                border-spacing: 20px;\n                width: 100%\">\n                <tr style=\"font-size:15px\">\n                  <th>Vehicle Number</th>\n                  <th>Slot type</th>\n                  <th>Slot No</th>\n                  <th>Date</th>\n                  <th>Arrive Time</th>\n                  <th>Leave Time</th>\n                  <th>Release</th>\n                  <th>Cancel</th>\n                </tr>\n               \n                <tr *ngFor=\"let i of bookings\" >\n                  <td>{{i.vehicleNum}}</td>\n                  <td>{{i.vehicleType}}</td>\n                  <td>{{i.slotNum}}</td>\n                  <td>{{i.date}}</td>\n                  <td>{{i.arivalTime}}</td>\n                  <td>{{i.depatureTime}}</td>\n                  <td><button type=\"button\" (click)=\"sethistory(i)\"  class=\"btn btn-primary btn-sm\">Release</button></td>\n                  <td><button type=\"button\" (click)=\"delete(i.bookId)\" class=\"btn btn-danger btn-sm\">Cancel</button></td>\n                </tr>\n                \n              </table>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    "
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/bookings/bookings.component.scss":
+/*!*************************************************************!*\
+  !*** ./src/app/parkkeeper/bookings/bookings.component.scss ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/bookings/bookings.component.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/parkkeeper/bookings/bookings.component.ts ***!
+  \***********************************************************/
+/*! exports provided: BookingsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookingsComponent", function() { return BookingsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jwt-decode */ "./node_modules/jwt-decode/lib/index.js");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_3__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var BookingsComponent = /** @class */ (function () {
+    function BookingsComponent(flashMessage, service) {
+        this.flashMessage = flashMessage;
+        this.service = service;
+    }
+    BookingsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var token = this.service.getToken();
+        var tokenPayload = jwt_decode__WEBPACK_IMPORTED_MODULE_3___default()(token);
+        this.service.getbooking(tokenPayload._id).subscribe(function (res) {
+            _this.bookings = res;
+        }, function (err) {
+        });
+    };
+    BookingsComponent.prototype.delete = function (id) {
+        var _this = this;
+        console.log(id);
+        this.service.deletebook(id).subscribe(function (res) {
+            _this.flashMessage.show('Delete successfull', { cssClass: 'alert-danger', timeout: 3000 });
+            _this.ngOnInit();
+        });
+    };
+    BookingsComponent.prototype.sethistory = function (data) {
+        var _this = this;
+        this.service.sethistory(data).subscribe(function (res) {
+            _this.flashMessage.show('Release successfull', { cssClass: 'alert-success', timeout: 3000 });
+            _this.service.deletebook(data.bookId).subscribe(function (res) {
+                _this.flashMessage.show('Remove booking', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.ngOnInit();
+            });
+            _this.ngOnInit();
+        });
+    };
+    BookingsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-bookings',
+            template: __webpack_require__(/*! ./bookings.component.html */ "./src/app/parkkeeper/bookings/bookings.component.html"),
+            styles: [__webpack_require__(/*! ./bookings.component.scss */ "./src/app/parkkeeper/bookings/bookings.component.scss")]
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_1__["FlashMessagesService"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_2__["RegserviceService"]])
+    ], BookingsComponent);
+    return BookingsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/details/details.component.html":
+/*!***********************************************************!*\
+  !*** ./src/app/parkkeeper/details/details.component.html ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n  <div class=\"panel-header panel-header-sm\">\n    </div>\n    <div class=\"main-content\">\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <div class=\"card \">\n            <div class=\"card-header \">\n              My Details\n            </div>\n            <div class=\"card-body \">\n                <ul class=\"list-group\">\n                    <li class=\"list-group-item\" style=\"color:black\"><b>Username:   {{user.username}}</b></li>\n                    <li class=\"list-group-item\"  style=\"color:black\"><b>Email:   {{user.email}}</b></li>\n                    <li class=\"list-group-item\" style=\"color:black\"><b>Mobile Number:   {{user.mobileNum}}</b></li>\n                    <li class=\"list-group-item\" style=\"color:black\"><b>NIC Number:   {{user.NICnumber}}</b></li>\n                  </ul> \n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    "
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/details/details.component.scss":
+/*!***********************************************************!*\
+  !*** ./src/app/parkkeeper/details/details.component.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/details/details.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/parkkeeper/details/details.component.ts ***!
+  \*********************************************************/
+/*! exports provided: DetailsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DetailsComponent", function() { return DetailsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DetailsComponent = /** @class */ (function () {
+    function DetailsComponent(service) {
+        this.service = service;
+    }
+    DetailsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getKeeperProfile().subscribe(function (res) {
+            _this.user = res['user'];
+            console.log(_this.user);
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    DetailsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-details',
+            template: __webpack_require__(/*! ./details.component.html */ "./src/app/parkkeeper/details/details.component.html"),
+            styles: [__webpack_require__(/*! ./details.component.scss */ "./src/app/parkkeeper/details/details.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"]])
+    ], DetailsComponent);
+    return DetailsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/keeper-pic/keeper-pic.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/parkkeeper/keeper-pic/keeper-pic.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-md-4\">\n        <br>\n          <form>\n              <div  class=\"form-group\">\n                  <label for=\"multiple\">Choose file(s)</label>\n                  <!-- <input type=\"file\" class=\"form-control\" name=\"multiple\" ng2FileSelect [uploader]=\"uploader\" multiple  /> -->\n      \n                  <input type=\"file\" class=\"form-control\" (change)=\"upload($event)\" accept=\".png,.jpg\" />\n              </div>            \n          </form>\n          <!-- <button type=\"button\" class=\"btn btn-success btn-s\"\n                            (click)=\"uploader.uploadAll()\" [disabled]=\"!uploader.getNotUploadedItems().length\">\n                        <span class=\"fa fa-upload\"></span> Upload all\n                    </button> -->\n      </div>\n      \n      \n      <!-- <div class=\"card-body\">\n          <h5 class=\"card-title\">Select a file for upload:</h5>\n          <input type=\"file\" class=\"form-control\" (change)=\"upload($event)\" accept=\".png,.jpg\" />\n        </div>\n        \n        <br>\n              <div *ngIf=\"downloadURL | async; let downloadSrc\" class=\"alert alert-info\" role=\"alert\">\n                  File uploaded: <a [href]=\"downloadSrc\">{{downloadSrc}}</a>\n                  <img src={{downloadSrc}} alt=\"\">\n              </div>\n        \n              <br> -->"
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/keeper-pic/keeper-pic.component.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/parkkeeper/keeper-pic/keeper-pic.component.scss ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/keeper-pic/keeper-pic.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/parkkeeper/keeper-pic/keeper-pic.component.ts ***!
+  \***************************************************************/
+/*! exports provided: KeeperPicComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KeeperPicComponent", function() { return KeeperPicComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jwt-decode */ "./node_modules/jwt-decode/lib/index.js");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/index.js");
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng2_file_upload__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _keeperprofile_keeperprofile_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../keeperprofile/keeperprofile.component */ "./src/app/parkkeeper/keeperprofile/keeperprofile.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var KeeperPicComponent = /** @class */ (function () {
+    function KeeperPicComponent(service, afStorage, router, keeper) {
+        this.service = service;
+        this.afStorage = afStorage;
+        this.router = router;
+        this.keeper = keeper;
+        this.pic = "";
+        this.files = [];
+        this.id = '';
+        this.url = '';
+        this.model = {
+            url: "",
+            PicUrl: ""
+        };
+    }
+    KeeperPicComponent.prototype.ngOnInit = function () {
+        var token = this.service.getToken();
+        var tokenPayload = jwt_decode__WEBPACK_IMPORTED_MODULE_2___default()(token);
+        this.id = tokenPayload._id;
+        this.url = 'http://localhost:3001/api/updatekeeperpic/' + tokenPayload._id;
+        this.uploader = new ng2_file_upload__WEBPACK_IMPORTED_MODULE_3__["FileUploader"]({ url: this.url, itemAlias: 'photo' });
+    };
+    KeeperPicComponent.prototype.upload = function (event) {
+        var _this = this;
+        var id = Math.random().toString(36).substring(2);
+        this.ref = this.afStorage.ref(id);
+        this.task = this.ref.put(event.target.files[0]);
+        this.task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["finalize"])(function () { return _this.downloadURL = _this.ref.getDownloadURL(); }))
+            .subscribe();
+        this.task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["finalize"])(function () {
+            _this.ref.getDownloadURL().subscribe(function (PicUrl) {
+                _this.model.PicUrl = PicUrl;
+                // console.log(url); // <-- do what ever you want with the url..
+                var token = _this.service.getToken();
+                var tokenPayload = jwt_decode__WEBPACK_IMPORTED_MODULE_2___default()(token);
+                _this.id = tokenPayload._id;
+                _this.model.url = 'http://localhost:3000/api/updatekeeperpic/' + tokenPayload._id;
+                _this.service.editkeeperPic(_this.model).subscribe(function (res) {
+                    _this.keeper.ngOnInit();
+                    _this.keeper.editpi = false;
+                }, function (err) {
+                    console.log(err);
+                });
+                // this.pic=url;
+            });
+        })).subscribe();
+    };
+    KeeperPicComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-keeper-pic',
+            template: __webpack_require__(/*! ./keeper-pic.component.html */ "./src/app/parkkeeper/keeper-pic/keeper-pic.component.html"),
+            styles: [__webpack_require__(/*! ./keeper-pic.component.scss */ "./src/app/parkkeeper/keeper-pic/keeper-pic.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], angularfire2_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _keeperprofile_keeperprofile_component__WEBPACK_IMPORTED_MODULE_7__["KeeperprofileComponent"]])
+    ], KeeperPicComponent);
+    return KeeperPicComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/keeperedit/keeperedit.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/parkkeeper/keeperedit/keeperedit.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div class=\"main-content\">\n    <div a class=\"row\">\n      <div  class=\"col-md-12 mr-auto ml-auto\">\n        <div class=\"card\">\n          <div class=\"card-header\">\n            <h5 class=\"title\">Edit park details</h5>\n          </div>\n          <div class=\"card-body\">\n            <form #regForm=\"ngForm\">\n                <div class=\"form-group\">\n                    <label>Name</label>\n                    <input type=\"text\" [value]=\"userDetails.name\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n                  </div>\n                  <div class=\"form-group\">\n                      <label>Username</label>\n                      <input type=\"text\" [value]=\"userDetails.username\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\n                    </div>\n                    <div class=\"form-group\">\n                        <label>Email</label>\n                        <input type=\"text\" [value]=\"userDetails.email\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\n                      </div>\n                        <div class=\"form-group\">\n                          <label>Mobile Number</label>\n                          <input type=\"text\" [value]=\"userDetails.mobileNum\" [(ngModel)]=\"mobileNum\" name=\"mobileNum\" class=\"form-control\">\n                        </div>\n                        <div class=\"form-group\">\n                          <label>NIC number</label>\n                          <input type=\"text\" [value]=\"userDetails.NICnumber\" [(ngModel)]=\"NICnumber\" name=\"NICnumber\" class=\"form-control\">\n                        </div>\n                        <br>\n                        <br>\n                        <br>\n                        <h2>Fill this fields for get your park details</h2>\n                        <div class=\"form-group\">\n                          <label>Park Name</label>\n                          <input type=\"text\"[value]=\"userDetails.parkName\" [(ngModel)]=\"parkName\" name=\"parkName\" class=\"form-control\">\n                        </div>\n                        <div class=\"form-group\">\n                          <label>Number of total slots</label>\n                          <input type=\"number\" [value]=\"userDetails.numberOfSlots\" [(ngModel)]=\"numberOfSlots\" name=\"numberOfSlots\" class=\"form-control\">\n                          <label>Open houres</label>\n                          <input type=\"text\" [value]=\"userDetails.openHours\" [(ngModel)]=\"openHours\" name=\"openHours\" class=\"form-control\">\n                        </div>\n                        \n                        <br>\n                <br>\n                <br>\n                <h2>Please fill these fileds to get your paking slots' details</h2>\n                \n                        <table class=\"table\">\n                          <thead class=\"thead-dark\">\n                          \n                            <tr>\n                              <th scope=\"col\">Vehicle Type</th>\n                              <th scope=\"col\">Number of slots allocated</th>\n                              <th scope=\"col\">Charge per one hour</th>\n                              \n                            </tr>\n                          </thead>\n                          <tbody>\n                            <tr>\n                              <th scope=\"row\" style=\"color:black\">Cars and Vans</th>\n                              <td><input type=\"number\" [value]=\"userDetails.alocatedSlots1\" [(ngModel)]=\"alocatedSlots1\" name=\"alocatedSlots1\" class=\"form-control\"></td>\n                              <td><input type=\"text\" [value]=\"userDetails.hourCharge1\" [(ngModel)]=\"hourCharge1\" name=\"hourCharge1\" class=\"form-control\"></td>\n                             \n                            </tr>\n                            <tr>\n                              <th scope=\"row\" style=\"color:blue\">Bikes</th>\n                              <td><input type=\"number\" [value]=\"userDetails.alocatedSlots2\" [(ngModel)]=\"alocatedSlots2\" name=\"alocatedSlots2\" class=\"form-control\"></td>\n                              <td><input type=\"text\" [value]=\"userDetails.hourCharge2\" [(ngModel)]=\"hourCharge2\" name=\"hourCharge2\" class=\"form-control\"></td>\n                              \n                            </tr>\n                            <tr>\n                              <th scope=\"row\" style=\"color:red\">Lorries and Buses</th>\n                              <td><input type=\"number\" [value]=\"userDetails.alocatedSlots3\" [(ngModel)]=\"alocatedSlots3\" name=\"alocatedSlots3\" class=\"form-control\"></td>\n                              <td><input type=\"text\" [value]=\"userDetails.hourCharge3\" [(ngModel)]=\"hourCharge3\" name=\"hourCharge3\" class=\"form-control\"></td>\n                            </tr>\n                            <tr>\n                              <th scope=\"row\" style=\"color:green\">Three Wheelers</th>\n                              <td><input type=\"number\" [value]=\"userDetails.alocatedSlots4\" [(ngModel)]=\"alocatedSlots4\" name=\"alocatedSlots4\" class=\"form-control\"></td>\n                              <td><input type=\"text\" [value]=\"userDetails.hourCharge4\" [(ngModel)]=\"hourCharge4\" name=\"hourCharge4\" class=\"form-control\"></td>\n                            </tr>\n                            <tr>\n                              <th scope=\"row\" style=\"color:yellow\">Long Vehicles</th>\n                              <td><input type=\"number\" [value]=\"userDetails.alocatedSlots5\" [(ngModel)]=\"alocatedSlots5\" name=\"alocatedSlots5\" class=\"form-control\"></td>\n                              <td><input type=\"text\" [value]=\"userDetails.hourCharge5\" [(ngModel)]=\"hourCharge5\" name=\"hourCharge5\" class=\"form-control\"></td>\n                            </tr>\n                          </tbody>\n                        </table>\n                        <br>\n                        <br>\n                        <br>\n                        <div class=\"form-group\">\n                          <label>Maximum Weight</label>\n                          <input type=\"text\" [value]=\"userDetails.MaximumWeight\" [(ngModel)]=\"MaximumWeight\" name=\"MaximumWeight\" class=\"form-control\">\n                        </div>\n                        <div class=\"form-group\">\n                          <label>Maximum Height</label>\n                          <input type=\"text\" [value]=\"userDetails.MaximumHeight\" [(ngModel)]=\"MaximumHeight\" name=\"MaximumHeight\" class=\"form-control\">\n                        </div>\n                        <br>\n                        <br>\n                        <br>\n                        <flash-messages></flash-messages>\n                        <div class=\"ml-auto mr-auto text-center\">\n                            <button (click)=\"register()\"  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-tap-01\"></i>Add</button>\n                         </div>\n            </form>\n            \n          </div>\n        </div>\n      </div>\n      \n    </div>\n  </div>\n  \n   "
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/keeperedit/keeperedit.component.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/parkkeeper/keeperedit/keeperedit.component.scss ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/keeperedit/keeperedit.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/parkkeeper/keeperedit/keeperedit.component.ts ***!
+  \***************************************************************/
+/*! exports provided: KeepereditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KeepereditComponent", function() { return KeepereditComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jwt-decode */ "./node_modules/jwt-decode/lib/index.js");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _servers_validate_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../servers/validate.service */ "./src/app/servers/validate.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var KeepereditComponent = /** @class */ (function () {
+    function KeepereditComponent(validateService, flashMessage, service, router, mapsAPILoader, ngZone) {
+        this.validateService = validateService;
+        this.flashMessage = flashMessage;
+        this.service = service;
+        this.router = router;
+        this.mapsAPILoader = mapsAPILoader;
+        this.ngZone = ngZone;
+        this.iserror = false;
+        this.res = '';
+        this.serverErrorMessages = '';
+        this.laat = null;
+        this.lnng = null;
+        this.zoom = 4;
+        this.origin = { lat: this.laat, lng: this.lnng };
+        this.destination = { lat: null, lng: null };
+        this.userId = '';
+    }
+    KeepereditComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        if (!this.service.isLoggedIn())
+            this.router.navigate(['/login']);
+        this.service.getKeeperProfile().subscribe(function (res) {
+            _this.userDetails = res['user'];
+            console.log(_this.userDetails);
+            _this.userId = _this.userDetails._id;
+            // console.log(this.userId);
+            console.log(_this.userDetails.name);
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    KeepereditComponent.prototype.register = function () {
+        var _this = this;
+        console.log('skjfgnfsfnkagjb');
+        var user = {
+            name: this.name,
+            email: this.email,
+            username: this.username,
+            // password: this.password,
+            mobileNum: this.mobileNum,
+            NICnumber: this.NICnumber,
+            parkName: this.parkName,
+            numberOfSlots: this.numberOfSlots,
+            openHours: this.openHours,
+            alocatedSlots1: this.alocatedSlots1,
+            hourCharge1: this.hourCharge1,
+            alocatedSlots2: this.alocatedSlots2,
+            hourCharge2: this.hourCharge2,
+            alocatedSlots3: this.alocatedSlots3,
+            hourCharge3: this.hourCharge3,
+            alocatedSlots4: this.alocatedSlots4,
+            hourCharge4: this.hourCharge4,
+            alocatedSlots5: this.alocatedSlots5,
+            hourCharge5: this.hourCharge5,
+            MaximumWeight: this.MaximumWeight,
+            MaximumHeight: this.MaximumHeight,
+            role: "keeper",
+        };
+        console.log(user);
+        // if(!this.validateService. validateRegister(user)){
+        //   this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});
+        //   return false;
+        // }
+        // ///Validate Email
+        // if(!this.validateService.validateEmail(user.email)){
+        //   this.flashMessage.show('Please use a valid email', {cssClass: 'alert-danger', timeout: 3000});
+        //   return false;
+        // }
+        var token = this.service.getToken();
+        var tokenPayload = jwt_decode__WEBPACK_IMPORTED_MODULE_3___default()(token);
+        this.service.regkeeper(user, tokenPayload._id)
+            .subscribe(function (response) {
+            if (response) {
+                _this.res = response['status'];
+                console.log(response);
+                if (!_this.res) {
+                    _this.serverErrorMessages = 'Your email is already exists';
+                }
+                else {
+                    console.log(response);
+                    _this.serverErrorMessages = "Registration Succsesfull";
+                    _this.router.navigateByUrl('/user-profile/myparks');
+                }
+            }
+        }, function (error) {
+            console.log(error);
+            _this.iserror = true;
+            {
+                if (error)
+                    _this.serverErrorMessages = 'Your email is already exists';
+            }
+        });
+    };
+    KeepereditComponent.prototype.closeAlert = function () {
+        this.iserror = false;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("search"),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], KeepereditComponent.prototype, "searchElementRef", void 0);
+    KeepereditComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-keeperedit',
+            template: __webpack_require__(/*! ./keeperedit.component.html */ "./src/app/parkkeeper/keeperedit/keeperedit.component.html"),
+            styles: [__webpack_require__(/*! ./keeperedit.component.scss */ "./src/app/parkkeeper/keeperedit/keeperedit.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_servers_validate_service__WEBPACK_IMPORTED_MODULE_6__["ValidateService"],
+            angular2_flash_messages__WEBPACK_IMPORTED_MODULE_5__["FlashMessagesService"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _agm_core__WEBPACK_IMPORTED_MODULE_4__["MapsAPILoader"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]])
+    ], KeepereditComponent);
+    return KeepereditComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/parkkeeper/keeperprofile/keeperprofile.component.html":
 /*!***********************************************************************!*\
   !*** ./src/app/parkkeeper/keeperprofile/keeperprofile.component.html ***!
@@ -2776,7 +4115,7 @@ var LandingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<!-- <div class=\"grid-container\">\n  <div class=\"card\" style=\"background-color: orange\">\n    <div class=\"bg-img\"></div>\n    <div class=\"content\">\n      <h4>Slot no : 1</h4>\n      <p style=\"text-align: center\"><br>\n       Availability : yes<br>\n       Release      : 1.30pm<br>\n       User : chiranga\n      </p>\n      <button>Book Now</button>\n    </div>\n  </div>\n</div> -->\n{{userDetails.name}}\n<div class=\"wrapper\">\n    <div class=\"page-header page-header-xs\" data-parallax=\"true\" style=\"background-image: url('./assets/img/fabio-mangione.jpg');\">\n        <div class=\"filter\"></div>\n        \n    </div>\n    <div class=\"section profile-content\">\n        <div class=\"container\">\n            <div class=\"owner\">\n                <div class=\"avatar\">\n                    <img src=\"file:///C:/Users/H.A.C.K.Hettiarachch/Desktop/AuditingHelpApp/server/uploads/user/5c02b7232cfb801080464c05/photo-1543840520711.jpg\" alt=\"Circle Image\" class=\"img-thumbnail img-responsive\">\n                </div>\n                <!-- <button type=\"button\" class=\"btn btn-primary btn-just-icon\"><i class='fas fa-edit' style='font-size:24px'></i></button> -->\n                <!-- <button type=\"file\" rel=\"tooltip\" (click)=\"editpic()\" ngbTooltip=\"Edit profile picture\" data-placement=\"bottom\" type=\"button\" class=\"btn btn-primary btn-link\"> <i class='fa fa-edit' style='font-size:36px'></i></button> -->\n                <!-- <s -->\n                <div class=\"name\">\n                    <h2 class=\"title\">{{userDetails.name}}<br /></h2>\n                \n                </div>\n            </div>\n            <div class=\"row\">\n                <div *ngIf=\"ishome()&& home\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/owner\"> <button class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i> Owner details</button></a>\n                </div>\n                <div  *ngIf=\"ishome()&& home\" class=\"ml-auto mr-auto text-center\">\n                    \n                       <a ><button (click)=\"slotmode()\" class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-bank\"></i> Parking Slot</button></a> \n                </div>\n                <div  *ngIf=\"ishome() && home\" class=\"ml-auto mr-auto text-center\">\n                    \n                   <a routerLink=\"/keeper/booking\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-pin-3\"></i> Booking details</button></a> \n                </div>\n                <div  *ngIf=\"ishome() && home\" class=\"ml-auto mr-auto text-center\">\n                    \n                   <a routerLink=\"/keeper/recent\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i> Recent activities</button></a> \n                </div>\n                <div  *ngIf=\"ishome() &&isslot\" class=\"ml-auto mr-auto text-center\">\n                    <a ><button (click)=\"gohome()\" class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i> Home</button></a> \n                </div>\n                <div  *ngIf=\"ishome() &&isslot\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/MotorBicycle\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i>car and Van</button></a> \n                 </div>\n                 <div  *ngIf=\"ishome()&&isslot\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/ThreeWheelers\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i>Bikes</button></a> \n                 </div>\n                 <div  *ngIf=\"ishome()&&isslot\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/LightVehicle\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i>Busses and Lorries</button></a> \n                </div>\n                <div  *ngIf=\"ishome()&&isslot\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/HeavyVehicle\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i>Three Wheelers</button></a> \n                 </div>\n                 <div  *ngIf=\"ishome()&&isslot\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/HeavyVehicle\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i>Long</button></a> \n                 </div>\n            </div>\n            <br/>\n            <div class=\"nav-tabs-navigation\">\n                <div class=\"nav-tabs-wrapper\">\n                        <router-outlet></router-outlet>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n"
+module.exports = "\n<div class=\"wrapper\">\n    <div class=\"page-header page-header-xs\" data-parallax=\"true\" style=\"background-image: url('./assets/img/8.jpg');\">\n        <div class=\"filter\"></div>\n        \n    </div>\n    <div class=\"section profile-content\">\n        <div class=\"container\">\n            <div class=\"owner\">\n                    <div class=\"avatar\">\n                            <img src=\"{{pic}}\" alt=\"Circle Image\" class=\"img-thumbnail img-responsive\">\n                        </div>\n                        <!-- <button type=\"button\" class=\"btn btn-primary btn-just-icon\"><i class='fas fa-edit' style='font-size:24px'></i></button> -->\n                        <button type=\"file\" rel=\"tooltip\" (click)=\"editpic()\" ngbTooltip=\"Edit profile picture\" data-placement=\"bottom\" type=\"button\"\n                            class=\"btn btn-primary btn-link\">\n                            <i class='fa fa-edit' style='font-size:36px'></i>\n                        </button>\n                        <div *ngIf=\"editpi\">\n                            <app-keeper-pic></app-keeper-pic>\n                        </div>\n                <!-- <button type=\"button\" class=\"btn btn-primary btn-just-icon\"><i class='fas fa-edit' style='font-size:24px'></i></button> -->\n                <!-- <button type=\"file\" rel=\"tooltip\" (click)=\"editpic()\" ngbTooltip=\"Edit profile picture\" data-placement=\"bottom\" type=\"button\" class=\"btn btn-primary btn-link\"> <i class='fa fa-edit' style='font-size:36px'></i></button> -->\n                <!-- <s -->\n                <div class=\"name\">\n                    <h2 class=\"title\">{{userDetails.parkName}}<br /></h2>\n                \n                </div>\n            </div>\n            <div class=\"row\">\n                <div *ngIf=\"ishome()&& home\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/details\"> <button class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i>Details</button></a>\n                </div>\n                <div  *ngIf=\"ishome()&& home\" class=\"ml-auto mr-auto text-center\">\n                    \n                       <a routerLink=\"/keeper/slot\"><button (click)=\"slotmode()\" class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-bank\"></i> Parking Slot</button></a> \n                </div>\n                <div  *ngIf=\"ishome() && home\" class=\"ml-auto mr-auto text-center\">\n                    \n                   <a routerLink=\"/keeper/booking\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-pin-3\"></i> Booking details</button></a> \n                </div>\n                <div  *ngIf=\"ishome() && home\" class=\"ml-auto mr-auto text-center\">\n                    \n                   <a routerLink=\"/keeper/recent\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i> Recent activities</button></a> \n                </div>\n                <div  *ngIf=\"isslot()\" class=\"ml-auto mr-auto text-center\">\n                    <a routerLink=\"/keeper\"><button (click)=\"gohome()\" class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i> Home</button></a> \n                </div>\n                <div  *ngIf=\"isslot()\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/car\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i>car and Van</button></a> \n                 </div>\n                 <div  *ngIf=\"isslot()\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/bike\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i>Bikes</button></a> \n                 </div>\n                 <div  *ngIf=\"isslot()\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/lorry\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i>Busses and Lorries</button></a> \n                </div>\n                <div  *ngIf=\"isslot()\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/weel\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i>Three Wheelers</button></a> \n                 </div>\n                 <div  *ngIf=\"isslot()\" class=\"ml-auto mr-auto text-center\">\n                    \n                    <a routerLink=\"/keeper/longVehicle\"><button  class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-simple-add\"></i>Long</button></a> \n                 </div>\n            </div>\n            <br/>\n            <div class=\"nav-tabs-navigation\">\n                <div class=\"nav-tabs-wrapper\">\n                        <router-outlet></router-outlet>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -2823,13 +4162,15 @@ var KeeperprofileComponent = /** @class */ (function () {
         this.service = service;
         this.router = router;
         this.location = location;
-        this.isslot = false;
+        this.isSlot = false;
         this.home = true;
         this.MotorBicycle = false;
         this.ThreeWheelers = false;
         this.LightVehicle = false;
         this.HeavyVehicle = false;
         this.userId = '';
+        this.editpi = false;
+        this.pic = "../../../assets/img/faces/default.jpg";
     }
     KeeperprofileComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -2839,6 +4180,7 @@ var KeeperprofileComponent = /** @class */ (function () {
             _this.userDetails = res['user'];
             console.log(_this.userDetails);
             _this.userId = _this.userDetails._id;
+            _this.pic = _this.userDetails.proPic;
             _this.service.setid(_this.userDetails._id);
             // console.log(this.userId);
             console.log(_this.userDetails.name);
@@ -2847,11 +4189,11 @@ var KeeperprofileComponent = /** @class */ (function () {
         });
     };
     KeeperprofileComponent.prototype.slotmode = function () {
-        this.isslot = true;
+        this.isSlot = true;
         this.home = false;
     };
     KeeperprofileComponent.prototype.gohome = function () {
-        this.isslot = false;
+        this.isSlot = false;
         this.home = true;
     };
     KeeperprofileComponent.prototype.ishome = function () {
@@ -2862,6 +4204,21 @@ var KeeperprofileComponent = /** @class */ (function () {
         else {
             return false;
         }
+    };
+    KeeperprofileComponent.prototype.isslot = function () {
+        var titlee = this.location.prepareExternalUrl(this.location.path());
+        if (titlee === '/keeper/slot') {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    KeeperprofileComponent.prototype.editpic = function () {
+        if (this.editpi == false)
+            this.editpi = true;
+        else
+            this.editpi = false;
     };
     KeeperprofileComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2885,7 +4242,7 @@ var KeeperprofileComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"main-content\">\n  <div a class=\"row\">\n    <div  class=\"col-md-12 mr-auto ml-auto\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h5 class=\"title\">Add my park</h5>\n        </div>\n        <div class=\"card-body\">\n          <form #regForm=\"ngForm\">\n            \n            \n            <div class=\"row\">\n              <div class=\"col-md-12 pr-1\">\n                <div class=\"form-group\">\n                  <label>Park Name</label>\n                  <input #firstname=\"ngModel\" required id=\"firstName\" name=\"firstName\" type=\"text\" class=\"form-control\" placeholder=\"Company\" [(ngModel)]=\"reg.firstName\">\n                  <!-- <div class=\"form-control-feedback\" [hidden]=\"firstname.valid\">First Name is required</div> -->\n                  <div class=\"form-control-feedback\" [hidden]=\"firstname.valid\">Park Name is required and must be valid</div>\n                </div>\n              </div>\n              <!-- <div class=\"col-md-6 pl-1\">\n                <div class=\"form-group\">\n                  <label>Last Name</label>\n                  <input #lastName=\"ngModel\" required type=\"text\" id=\"lastName\" name=\"lastName\" class=\"form-control\" placeholder=\"Last Name\" [(ngModel)]=\"reg.lastName\">\n                  <div class=\"form-control-feedback\" [hidden]=\"lastName.valid\">last name required and must be valid</div>\n\n                </div>\n              </div> -->\n            </div>\n            <!-- <div class=\"row\"> -->\n                <!-- <div class=\"col-md-5 pr-1\">\n                  <div class=\"form-group\">\n                    <label>Company (disabled)</label>\n                    <input type=\"text\" class=\"form-control\" disabled=\"\" placeholder=\"Company\" value=\"Creative Code Inc.\">\n                  </div>\n                </div> -->\n                <!-- <div class=\"col-md-3 px-1\">\n                  <div class=\"form-group\">\n                    <label>Username</label>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Username\" value=\"michael23\">\n                  </div>\n                </div> -->\n                <!-- <div class=\"col-md-12 pl-1\">\n                  <div class=\"form-group\">\n                    <label for=\"exampleInputEmail1\">Email address</label>\n                    <input type=\"email\" class=\"form-control\" placeholder=\"Email\">\n                  </div>\n                </div> -->\n              <!-- </div> -->\n              <div class=\"row\">\n                  <div class=\"col-md-12\">\n                    <div class=\"form-group\">\n                        <label for=\"exampleInputEmail1\">Email address</label>\n                        <input #email=\"ngModel\" pattern=\"^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$\" id=\"email\" required type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"reg.email\">\n                        <div class=\"form-control-feedback\" [hidden]=\"email.valid\">Email is required and must be valid</div>\n                      </div>\n                  </div>\n                  \n                </div>\n                <p *ngIf=\"iserror\">\n                    <ngb-alert type=\"danger\"  [dismissible]=\"false\">\n                        <div class=\"container\">\n                            <ng-container>\n                                <i class=\"nc-icon nc-bell-55\"></i>\n                            </ng-container>\n                {{ serverErrorMessages }}\n                            <button type=\"button\" name=\"button\" class=\"close\" (click)=\"closeAlert()\">\n                                <i class=\"nc-icon nc-simple-remove\"></i>\n                            </button>\n                        </div>\n                    </ngb-alert>\n                </p>\n                <div class=\"form-group\">\n                    <label>Serch your park <i class=\"fas fa-map-marker-alt\"></i></label>\n                    <input\n                    required\n                      placeholder=\"search the park\"\n                      autocorrect=\"off\"\n                      autocapitalize=\"off\"\n                      spellcheck=\"off\"\n                      type=\"text\"\n                      class=\"form-control\"\n                      #search\n                      [formControl]=\"searchControl\"\n                    />\n                    \n                    </div>\n            <div class=\"row\">\n              <div class=\"col-md-12\">\n                <div class=\"form-group\">\n                  <label>Address</label>\n                  <input #address=\"ngModel\" id=\"address\" required name=\"address\" type=\"text\" class=\"form-control\" [(ngModel)]=\"reg.address\">\n                </div>\n              </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"col-md-4 pr-1\">\n                <div class=\"form-group\">\n                  <label>City</label>\n                  <input #city=\"ngModel\" type=\"text\" required id=\"city\" name=\"city\" class=\"form-control\" placeholder=\"City\" [(ngModel)]=\"reg.city\">\n                </div>\n              </div>\n              <div class=\"col-md-4 px-1\">\n                <div class=\"form-group\">\n                  <label>Country</label>\n                  <input #country=\"ngModel\" type=\"text\" required id=\"country\" name=\"country\" class=\"form-control\" placeholder=\"Country\" [(ngModel)]=\"reg.country\">\n                </div>\n              </div>\n              <div class=\"col-md-4 pl-1\">\n                <div class=\"form-group\">\n                  <label>Postal Code</label>\n                  <input #zip=\"ngModel\" type=\"number\" required id=\"zip\" name=\"zip\" class=\"form-control\" placeholder=\"ZIP Code\" [(ngModel)]=\"reg.zip\">\n                  <div class=\"form-control-feedback\" [hidden]=\"email.valid\">Must be number</div>\n                </div>\n              </div>\n            </div>\n            <!-- <div class=\"row\">\n              <div class=\"col-md-12\">\n                <div class=\"form-group\">\n                  <label>About Me</label>\n                  <textarea rows=\"4\" cols=\"80\" class=\"form-control\" placeholder=\"Here can be your description\" >Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>\n                </div>\n              </div>\n            </div> -->\n            <div class=\"row\">\n                <div class='col-xs-12 col-sm-6'>\n                    <div class=\"form-group\">\n                        <label class=\"control-label\" for=\"password\">Create Password</label>  \n                        <input class=\"form-control input-md\" #password=\"ngModel\" pattern=\".{6,}\" required id=\"password\" name=\"password\" type=\"password\" placeholder=\"Create password\" [(ngModel)]=\"reg.password\">   \n                        <div class=\"form-control-feedback\" [hidden]=\"password.valid\">Password must be at least 6 characters long</div>\n                    </div>\n                </div>\n                <div class='col-xs-12 col-sm-6'>\n                    <div class=\"form-group\">\n                        <label class=\"control-label\" for=\"confirmPassword\">Repeat Password</label>  \n                        <input  class=\"form-control input-md\" #confirmPassword=\"ngModel\" required id=\"confirmPassword\" name=\"confirmPassword\" type=\"password\" placeholder=\"Repeat password\" [(ngModel)]=\"reg.confirmPassword\">\n                        <div class=\"form-control-feedback\" *ngIf=\"password.value!=confirmPassword.value\">Password not match</div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"ml-auto mr-auto text-center\">\n                <button (click)=\"register()\" [disabled]=\"!regForm.valid||(password.value!=confirmPassword.value)\" class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-tap-01\"></i>Add</button>\n             </div>\n          </form>\n          \n        </div>\n      </div>\n    </div>\n    \n  </div>\n</div>\n\n "
+module.exports = "<div class=\"main-content\">\n  <div a class=\"row\">\n    <div class=\"col-md-12 mr-auto ml-auto\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h5 class=\"title\">Add my park</h5>\n        </div>\n        <div class=\"card-body\">\n          <form #regForm=\"ngForm\">\n            <div class=\"form-group\">\n              <label>Name</label>\n              <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n              <label>Username</label>\n              <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n              <label>Email</label>\n              <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n              <label>Serch your park\n                <i class=\"fas fa-map-marker-alt\"></i>\n              </label>\n              <input required placeholder=\"search the park\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"off\" type=\"text\" class=\"form-control\"\n                #search [formControl]=\"searchControl\" />\n\n            </div>\n            <div class=\"form-group\">\n              <label>Password</label>\n              <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n              <label>Mobile Number</label>\n              <input type=\"text\" [(ngModel)]=\"mobileNum\" name=\"mobileNum\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n              <label>NIC number</label>\n              <input type=\"text\" [(ngModel)]=\"NICnumber\" name=\"NICnumber\" class=\"form-control\">\n            </div>\n            <br>\n            <br>\n            <br>\n            <h2>Fill this fields for get your park details</h2>\n            <div class=\"form-group\">\n              <label>Park Name</label>\n              <input type=\"text\" [(ngModel)]=\"parkName\" name=\"parkName\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n              <label>Number of total slots</label>\n              <input type=\"number\" [(ngModel)]=\"numberOfSlots\" name=\"numberOfSlots\" class=\"form-control\">\n              <label>Open houres</label>\n              <input type=\"text\" [(ngModel)]=\"openHours\" name=\"openHours\" class=\"form-control\">\n            </div>\n\n            <br>\n            <br>\n            <br>\n            <h2>Please fill these fileds to get your paking slots' details</h2>\n\n            <table class=\"table\">\n              <thead class=\"thead-dark\">\n\n                <tr>\n                  <th scope=\"col\">Vehicle Type</th>\n                  <th scope=\"col\">Number of slots allocated</th>\n                  <th scope=\"col\">Charge per one hour</th>\n\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <th scope=\"row\" style=\"color:black\">Cars and Vans</th>\n                  <td>\n                    <input type=\"number\" [(ngModel)]=\"alocatedSlots1\" name=\"alocatedSlots1\" class=\"form-control\">\n                  </td>\n                  <td>\n                    <input type=\"text\" [(ngModel)]=\"hourCharge1\" name=\"hourCharge1\" class=\"form-control\">\n                  </td>\n\n                </tr>\n                <tr>\n                  <th scope=\"row\" style=\"color:blue\">Bikes</th>\n                  <td>\n                    <input type=\"number\" [(ngModel)]=\"alocatedSlots2\" name=\"alocatedSlots2\" class=\"form-control\">\n                  </td>\n                  <td>\n                    <input type=\"text\" [(ngModel)]=\"hourCharge2\" name=\"hourCharge2\" class=\"form-control\">\n                  </td>\n\n                </tr>\n                <tr>\n                  <th scope=\"row\" style=\"color:red\">Lorries and Buses</th>\n                  <td>\n                    <input type=\"number\" [(ngModel)]=\"alocatedSlots3\" name=\"alocatedSlots3\" class=\"form-control\">\n                  </td>\n                  <td>\n                    <input type=\"text\" [(ngModel)]=\"hourCharge3\" name=\"hourCharge3\" class=\"form-control\">\n                  </td>\n                </tr>\n                <tr>\n                  <th scope=\"row\" style=\"color:green\">Three Wheelers</th>\n                  <td>\n                    <input type=\"number\" [(ngModel)]=\"alocatedSlots4\" name=\"alocatedSlots4\" class=\"form-control\">\n                  </td>\n                  <td>\n                    <input type=\"text\" [(ngModel)]=\"hourCharge4\" name=\"hourCharge4\" class=\"form-control\">\n                  </td>\n                </tr>\n                <tr>\n                  <th scope=\"row\" style=\"color:yellow\">Long Vehicles</th>\n                  <td>\n                    <input type=\"number\" [(ngModel)]=\"alocatedSlots5\" name=\"alocatedSlots5\" class=\"form-control\">\n                  </td>\n                  <td>\n                    <input type=\"text\" [(ngModel)]=\"hourCharge5\" name=\"hourCharge5\" class=\"form-control\">\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n            <br>\n            <br>\n            <br>\n            <div class=\"form-group\">\n              <label>Maximum Weight</label>\n              <input type=\"text\" [(ngModel)]=\"MaximumWeight\" name=\"MaximumWeight\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n              <label>Maximum Height</label>\n              <input type=\"text\" [(ngModel)]=\"MaximumHeight\" name=\"MaximumHeight\" class=\"form-control\">\n            </div>\n            <form>\n              <div class=\"form-group\">\n                <label for=\"multiple\">Upload park's leagle document</label>\n                <input type=\"file\" class=\"form-control\" (change)=\"upload($event)\"  accept=\".png,.jpg,.doc,.docx,.pdf\" />\n              </div>\n            </form>\n            <br>\n            <br>\n            <br>\n            <flash-messages></flash-messages>\n            <div class=\"ml-auto mr-auto text-center\">\n              <button (click)=\"register()\" class=\"btn btn-outline-default btn-round\">\n                <i class=\"nc-icon nc-tap-01\"></i>Add</button>\n            </div>\n          </form>\n\n        </div>\n      </div>\n    </div>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2917,6 +4274,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _servers_validate_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../servers/validate.service */ "./src/app/servers/validate.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_9__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2932,35 +4295,32 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
+
 var KeeperregComponent = /** @class */ (function () {
-    function KeeperregComponent(service, router, mapsAPILoader, ngZone) {
+    function KeeperregComponent(validateService, flashMessage, service, router, mapsAPILoader, ngZone, afStorage) {
+        this.validateService = validateService;
+        this.flashMessage = flashMessage;
         this.service = service;
         this.router = router;
         this.mapsAPILoader = mapsAPILoader;
         this.ngZone = ngZone;
-        this.reg = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            address: '',
-            city: '',
-            country: '',
-            zip: '',
-            nic: '',
-            password: '',
-            confirmPassword: '',
-            lat: '',
-            lng: '',
-            role: 'keeper',
+        this.afStorage = afStorage;
+        this.model = {
+            url: "",
+            PicUrl: ""
         };
         this.iserror = false;
         this.res = '';
         this.serverErrorMessages = '';
-        this.lat = null;
-        this.lng = null;
+        this.laat = null;
+        this.lnng = null;
         this.zoom = 4;
-        this.origin = { lat: this.lat, lng: this.lng };
+        this.origin = { lat: this.laat, lng: this.lnng };
         this.destination = { lat: null, lng: null };
+        this.id = '';
     }
     KeeperregComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -2982,8 +4342,8 @@ var KeeperregComponent = /** @class */ (function () {
                     _this.destination.lat = place.geometry.location.lat();
                     _this.destination.lng = place.geometry.location.lng();
                     console.log(_this.destination);
-                    _this.reg.lat = _this.destination.lat;
-                    _this.reg.lng = _this.destination.lng;
+                    _this.lat = _this.destination.lat;
+                    _this.lng = _this.destination.lng;
                     // console.log(this.reg.lat)
                 });
             });
@@ -2991,9 +4351,46 @@ var KeeperregComponent = /** @class */ (function () {
     };
     KeeperregComponent.prototype.register = function () {
         var _this = this;
+        var user = {
+            name: this.name,
+            email: this.email,
+            username: this.username,
+            password: this.password,
+            mobileNum: this.mobileNum,
+            NICnumber: this.NICnumber,
+            parkName: this.parkName,
+            numberOfSlots: this.numberOfSlots,
+            openHours: this.openHours,
+            alocatedSlots1: this.alocatedSlots1,
+            hourCharge1: this.hourCharge1,
+            alocatedSlots2: this.alocatedSlots2,
+            hourCharge2: this.hourCharge2,
+            alocatedSlots3: this.alocatedSlots3,
+            hourCharge3: this.hourCharge3,
+            alocatedSlots4: this.alocatedSlots4,
+            hourCharge4: this.hourCharge4,
+            alocatedSlots5: this.alocatedSlots5,
+            hourCharge5: this.hourCharge5,
+            MaximumWeight: this.MaximumWeight,
+            MaximumHeight: this.MaximumHeight,
+            role: "keeper",
+            lat: this.lat,
+            lng: this.lng,
+            docUrl: this.docUrl
+        };
+        console.log(user);
+        if (!this.validateService.validateRegister(user)) {
+            this.flashMessage.show('Please fill in all fields', { cssClass: 'alert-danger', timeout: 3000 });
+            return false;
+        }
+        ///Validate Email
+        if (!this.validateService.validateEmail(user.email)) {
+            this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
+            return false;
+        }
         var token = this.service.getToken();
         var tokenPayload = jwt_decode__WEBPACK_IMPORTED_MODULE_3___default()(token);
-        this.service.regkeeper(this.reg, tokenPayload._id)
+        this.service.regkeeper(user, tokenPayload._id)
             .subscribe(function (response) {
             if (response) {
                 _this.res = response['status'];
@@ -3019,6 +4416,25 @@ var KeeperregComponent = /** @class */ (function () {
     KeeperregComponent.prototype.closeAlert = function () {
         this.iserror = false;
     };
+    KeeperregComponent.prototype.upload = function (event) {
+        var _this = this;
+        var id = Math.random().toString(36).substring(2);
+        this.ref = this.afStorage.ref(id);
+        this.task = this.ref.put(event.target.files[0]);
+        this.task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["finalize"])(function () { return _this.downloadURL = _this.ref.getDownloadURL(); }))
+            .subscribe();
+        this.task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["finalize"])(function () {
+            _this.ref.getDownloadURL().subscribe(function (PicUrl) {
+                _this.docUrl = PicUrl;
+                console.log(_this.docUrl);
+                // console.log(url); // <-- do what ever you want with the url..
+                // const token = this.service.getToken();
+                // const tokenPayload = decode(token);
+                // this.id = tokenPayload._id;
+                // this.pic=url;
+            });
+        })).subscribe();
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("search"),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
@@ -3029,9 +4445,805 @@ var KeeperregComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./keeperreg.component.html */ "./src/app/parkkeeper/keeperreg/keeperreg.component.html"),
             styles: [__webpack_require__(/*! ./keeperreg.component.scss */ "./src/app/parkkeeper/keeperreg/keeperreg.component.scss")]
         }),
-        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _agm_core__WEBPACK_IMPORTED_MODULE_5__["MapsAPILoader"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]])
+        __metadata("design:paramtypes", [_servers_validate_service__WEBPACK_IMPORTED_MODULE_7__["ValidateService"],
+            angular2_flash_messages__WEBPACK_IMPORTED_MODULE_6__["FlashMessagesService"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _agm_core__WEBPACK_IMPORTED_MODULE_5__["MapsAPILoader"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], angularfire2_storage__WEBPACK_IMPORTED_MODULE_9__["AngularFireStorage"]])
     ], KeeperregComponent);
     return KeeperregComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/bike/bike.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/bike/bike.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Bikes</h1>\n<br>\n<br>\n<br>\n<h2>Total number of allocated slots: {{amounts}}</h2>\n<h2>Charge per Hour: {{charge}}</h2>\n<flash-messages></flash-messages>\n\n<div class=\"grid-container\">\n  <div *ngFor=\"let i of Arr\">\n    <div class=\"flip-card\">\n      <div class=\"flip-card-inner\">\n\n        <div class=\"flip-card-front\" style=\"background-color:rgb(19, 198, 221)\">\n          <div class=\"card-header\" style=\"font-size: 30pt\">{{i.slotNumber}}</div>\n\n          <div class=\"card-body\">\n            <h1 *ngIf=\"i.isBook==false\" style=\"font-size: 20pt\">Available Now</h1>\n            <h1 *ngIf=\"i.isBook==true\" style=\"font-size: 20pt\">Parked</h1>\n          </div>\n        </div>\n        <div class=\"flip-card-back\">\n          <h3 *ngIf=\"i.isBook\">Reserved by : {{i.name}}</h3>\n          <h3 *ngIf=\"i.isBook\">Reverver Id : {{i.nic}}</h3>\n          <h3 *ngIf=\"i.isBook\">Parks : {{i.parkedAt}}</h3>\n          <h3 *ngIf=\"i.isBook\">Leaves : {{i.leavAt}}</h3>\n          <br>\n          \n          \n          <button class=\"btn btn-success btn-sm\" (click)=\"open(i.slotId)\">Details</button>\n          <button class=\"btn btn-danger btn-sm\"*ngIf=\"i.isBook\" (click)=\"Release(i.slotId)\">Release</button>\n          <br>\n          <br>\n          <button (click)=\"price(i)\" type=\"top\" class=\"btn btn-outline-light  btn-sm btn-round\" placement=\"top\" ngbPopover=\"Rs. {{finalPrice}}\"\n            popoverTitle=\"Calculated charge\">\n            Calculate charge\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/bike/bike.component.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/bike/bike.component.scss ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "body {\n  font-family: Arial, Helvetica, sans-serif; }\n\n.flip-card {\n  background-color: transparent;\n  width: 250px;\n  height: 250px;\n  -webkit-perspective: 1000px;\n          perspective: 1000px; }\n\n.flip-card-inner {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  transition: -webkit-transform 0.6s;\n  transition: transform 0.6s;\n  transition: transform 0.6s, -webkit-transform 0.6s;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }\n\n.flip-card:hover .flip-card-inner {\n  -webkit-transform: rotateY(180deg);\n          transform: rotateY(180deg); }\n\n.flip-card-front, .flip-card-back {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden; }\n\n.flip-card-front {\n  background-color: #bbb;\n  color: black;\n  z-index: 2; }\n\n.flip-card-back {\n  background-color: #2980b9;\n  color: white;\n  -webkit-transform: rotateY(180deg);\n          transform: rotateY(180deg);\n  z-index: 1; }\n\n.grid-container {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: auto auto auto auto;\n      grid-template-columns: auto auto auto auto;\n  grid-gap: 80px;\n  /* background-color: #2196F3; */\n  padding: 10px; }\n\n.grid-container > div {\n  /* background-color: rgba(255, 255, 255, 0.8); */\n  text-align: center;\n  padding: 20px 0;\n  font-size: 7px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/bike/bike.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/bike/bike.component.ts ***!
+  \***************************************************************/
+/*! exports provided: NgbdModalContent, popup, BikeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgbdModalContent", function() { return NgbdModalContent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "popup", function() { return popup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BikeComponent", function() { return BikeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var NgbdModalContent = /** @class */ (function () {
+    function NgbdModalContent(flashMessage, activeModal, service) {
+        this.flashMessage = flashMessage;
+        this.activeModal = activeModal;
+        this.service = service;
+    }
+    NgbdModalContent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getbookings(this.Id).subscribe(function (res) {
+            _this.bookings = res;
+        }, function (err) {
+        });
+    };
+    NgbdModalContent.prototype.delete = function (id) {
+        var _this = this;
+        console.log(id);
+        this.service.deletebook(id).subscribe(function (res) {
+            _this.flashMessage.show('Delete successfull', { cssClass: 'alert-danger', timeout: 3000 });
+            _this.ngOnInit();
+        });
+    };
+    NgbdModalContent.prototype.sethistory = function (data) {
+        var _this = this;
+        this.service.sethistory(data).subscribe(function (res) {
+            _this.flashMessage.show('Accept', { cssClass: 'alert-success', timeout: 3000 });
+            _this.service.deletebook(data.bookId).subscribe(function (res) {
+                _this.flashMessage.show('Remove booking', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.ngOnInit();
+            });
+            _this.ngOnInit();
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], NgbdModalContent.prototype, "Id", void 0);
+    NgbdModalContent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-modal-content',
+            template: "\n    <div class=\"card bg-light mb-3\" style=\"width: 100%;\">\n  \n  <div class=\"card-body\">\n  <flash-messages></flash-messages>\n  <table style=\"border-collapse: collapse;\n  border-spacing: 20px;\n  width: 100%;\n  borde:none\">\n  <tr style=\"font-size:10px\">\n    <th>Vehicle Number</th>\n    <th>Driver Name</th>\n    <th>Diver Id</th>\n    <th>Date</th>\n    <th>Arrive Time</th>\n    <th>Leave Time</th>\n    <th>Release</th>\n    <th>Cancel</th>\n  </tr>\n \n  <tr *ngFor=\"let i of bookings\" >\n    <td>{{i.vehicleNum}}</td>\n    <td>{{i.DriverName}}</td>\n    <td>{{i.DriverId}}</td>\n    <td>{{i.date}}</td>\n    <td>{{i.arivalTime}}</td>\n    <td>{{i.bookId}}</td>\n    <td><button type=\"button\"  (click)=\"sethistory(i)\"  class=\"btn btn-primary btn-sm\">Accept</button></td>\n    <td><button type=\"button\" (click)=\"delete(i.bookId)\" class=\"btn btn-danger btn-sm\">Cancel</button></td>\n  </tr>\n  \n</table>\n    \n </div>\n  \n</div>\n"
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"]])
+    ], NgbdModalContent);
+    return NgbdModalContent;
+}());
+
+var popup = /** @class */ (function () {
+    function popup(flashMessage, activeModal, service) {
+        this.flashMessage = flashMessage;
+        this.activeModal = activeModal;
+        this.service = service;
+    }
+    popup.prototype.ngOnInit = function () { };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], popup.prototype, "Id", void 0);
+    popup = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'popup',
+            template: ""
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"]])
+    ], popup);
+    return popup;
+}());
+
+var BikeComponent = /** @class */ (function () {
+    function BikeComponent(flashMessage, modalService, service, router) {
+        this.flashMessage = flashMessage;
+        this.modalService = modalService;
+        this.service = service;
+        this.router = router;
+        this.data = {
+            keeperId: '',
+            slotId: '',
+            charge: 0
+        };
+        this.finalPrice = 0;
+        this.penalty = 0;
+    }
+    BikeComponent.prototype.open = function (id) {
+        var modalRef = this.modalService.open(NgbdModalContent, { size: 'lg' });
+        modalRef.componentInstance.Id = id;
+    };
+    BikeComponent.prototype.Release = function (id) {
+        var _this = this;
+        this.data.slotId = id;
+        this.data.charge = this.finalPrice;
+        this.service.release(this.data).subscribe(function (res) {
+            _this.ngOnInit();
+            // console.log('success');
+            _this.flashMessage.show('Slot is available now', { cssClass: 'alert-success', timeout: 3000 });
+        });
+    };
+    BikeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getKeeperProfile().subscribe(function (profile) {
+            _this.user = profile['user'];
+            console.log(_this.user);
+            _this.amounts = _this.user.alocatedSlots2;
+            _this.num = _this.user.alocatedSlots2;
+            _this.charge = _this.user.hourCharge2;
+            _this.Arr = _this.user.type2;
+            _this.data.keeperId = _this.user._id;
+            console.log(_this.Arr);
+            //   this.i = this.Arr.indexof(this.Arr);
+        }, function (err) {
+            console.log(err);
+            return false;
+        });
+    };
+    //   onClick(){
+    //     this.Arr.i.isBook="false";
+    //   }
+    BikeComponent.prototype.price = function (data) {
+        // console.log(this.finalPrice)
+        //     let date=new Date();
+        //     var one_hour=1000*60;
+        //   var date1_ms = date.getTime();
+        //   var date2_ms = data.parkedAtgetTime();
+        //   var difference_ms = date2_ms - date1_ms;    
+        // if(Math.round(difference_ms/one_hour)>15)
+        // this.penalty=(difference_ms/one_hour);
+        // else this.penalty=0;
+        this.finalPrice = (data.charge);
+        console.log(this.finalPrice);
+        // console.log(dat.getTime())
+    };
+    BikeComponent.prototype.onClick1 = function () {
+        alert("shqwqwk");
+    };
+    BikeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-bike',
+            template: __webpack_require__(/*! ./bike.component.html */ "./src/app/parkkeeper/parkingslot/bike/bike.component.html"),
+            styles: [__webpack_require__(/*! ./bike.component.scss */ "./src/app/parkkeeper/parkingslot/bike/bike.component.scss")]
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], BikeComponent);
+    return BikeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/car/car.component.html":
+/*!***************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/car/car.component.html ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n        \n    <h1>Cars and Vans</h1>\n<br>\n<br>\n<br>\n<h2>Total number of allocated slots: {{amounts}}</h2>\n<h2>Charge per Hour: {{charge}}</h2>\n<flash-messages></flash-messages>\n<div class=\"grid-container\">\n  <div *ngFor=\"let i of Arr\">\n    <div class=\"flip-card\">\n      <div class=\"flip-card-inner\">\n\n        <div class=\"flip-card-front\" style=\"background-color:rgb(53, 57, 58)\">\n          <div class=\"card-header\" style=\"font-size: 30pt\">{{i.slotNumber}}</div>\n\n          <div class=\"card-body\">\n            <h1 *ngIf=\"i.isBook==false\" style=\"font-size: 20pt\">Available Now</h1>\n            <h1 *ngIf=\"i.isBook==true\" style=\"font-size: 20pt\">Parked</h1>\n          </div>\n        </div>\n        <div class=\"flip-card-back\">\n          <h3 *ngIf=\"i.isBook\">Reserved by : {{i.name}}</h3>\n          <h3 *ngIf=\"i.isBook\">Reverver Id : {{i.nic}}</h3>\n          <h3 *ngIf=\"i.isBook\">Parks : {{i.parkedAt}}</h3>\n          <h3 *ngIf=\"i.isBook\">Leaves : {{i.leavAt}}</h3>\n          <br>\n          <button class=\"btn btn-success btn-sm \" (click)=\"open(i.slotId)\">Details</button>\n          <button class=\"btn btn-danger btn-sm \" *ngIf=\"i.isBook\" (click)=\"Release(i.slotId)\">Release</button>\n          <br>\n          <br>\n          <button (click)=\"price(i)\" type=\"top\" class=\"btn btn-outline-light btn-sm btn-round\" placement=\"top\" ngbPopover=\"Rs. {{finalPrice}}\"\n            popoverTitle=\"Calculated charge\">\n            Calculate charge\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/car/car.component.scss":
+/*!***************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/car/car.component.scss ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "body {\n  font-family: Arial, Helvetica, sans-serif; }\n\n.flip-card {\n  background-color: transparent;\n  width: 250px;\n  height: 250px;\n  -webkit-perspective: 1000px;\n          perspective: 1000px; }\n\n.flip-card-inner {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  transition: -webkit-transform 0.6s;\n  transition: transform 0.6s;\n  transition: transform 0.6s, -webkit-transform 0.6s;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }\n\n.flip-card:hover .flip-card-inner {\n  -webkit-transform: rotateY(180deg);\n          transform: rotateY(180deg); }\n\n.flip-card-front, .flip-card-back {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden; }\n\n.flip-card-front {\n  background-color: #bbb;\n  color: black;\n  z-index: 2; }\n\n.flip-card-back {\n  background-color: #2980b9;\n  color: white;\n  -webkit-transform: rotateY(180deg);\n          transform: rotateY(180deg);\n  z-index: 1; }\n\n.grid-container {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: auto auto auto auto;\n      grid-template-columns: auto auto auto auto;\n  grid-gap: 80px;\n  /* background-color: #2196F3; */\n  padding: 10px; }\n\n.grid-container > div {\n  /* background-color: rgba(255, 255, 255, 0.8); */\n  text-align: center;\n  padding: 20px 0;\n  font-size: 7px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/car/car.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/car/car.component.ts ***!
+  \*************************************************************/
+/*! exports provided: NgbdModalContent, popup, CarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgbdModalContent", function() { return NgbdModalContent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "popup", function() { return popup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CarComponent", function() { return CarComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var NgbdModalContent = /** @class */ (function () {
+    function NgbdModalContent(flashMessage, activeModal, service) {
+        this.flashMessage = flashMessage;
+        this.activeModal = activeModal;
+        this.service = service;
+    }
+    NgbdModalContent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getbookings(this.Id).subscribe(function (res) {
+            _this.bookings = res;
+        }, function (err) {
+        });
+    };
+    NgbdModalContent.prototype.delete = function (id) {
+        var _this = this;
+        console.log(id);
+        this.service.deletebook(id).subscribe(function (res) {
+            _this.flashMessage.show('Delete successfull', { cssClass: 'alert-danger', timeout: 3000 });
+            _this.ngOnInit();
+        });
+    };
+    NgbdModalContent.prototype.sethistory = function (data) {
+        var _this = this;
+        this.service.sethistory(data).subscribe(function (res) {
+            _this.flashMessage.show('Accept', { cssClass: 'alert-success', timeout: 3000 });
+            _this.service.deletebook(data.bookId).subscribe(function (res) {
+                _this.flashMessage.show('Remove booking', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.ngOnInit();
+            });
+            _this.ngOnInit();
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], NgbdModalContent.prototype, "Id", void 0);
+    NgbdModalContent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-modal-content',
+            template: "\n    <div class=\"card bg-light mb-3\" style=\"width: 100%;\">\n  \n  <div class=\"card-body\">\n  <flash-messages></flash-messages>\n  <table style=\"border-collapse: collapse;\n  border-spacing: 20px;\n  width: 100%;\n  borde:none\">\n  <tr style=\"font-size:10px\">\n    <th>Vehicle Number</th>\n    <th>Driver Name</th>\n    <th>Diver Id</th>\n    <th>Date</th>\n    <th>Arrive Time</th>\n    <th>Leave Time</th>\n    <th>Release</th>\n    <th>Cancel</th>\n  </tr>\n \n  <tr *ngFor=\"let i of bookings\" >\n    <td>{{i.vehicleNum}}</td>\n    <td>{{i.DriverName}}</td>\n    <td>{{i.DriverId}}</td>\n    <td>{{i.date}}</td>\n    <td>{{i.arivalTime}}</td>\n    <td>{{i.bookId}}</td>\n    <td><button type=\"button\"  (click)=\"sethistory(i)\"  class=\"btn btn-primary btn-sm\">Accept</button></td>\n    <td><button type=\"button\" (click)=\"delete(i.bookId)\" class=\"btn btn-danger btn-sm\">Cancel</button></td>\n  </tr>\n  \n</table>\n    \n </div>\n  \n</div>\n"
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"]])
+    ], NgbdModalContent);
+    return NgbdModalContent;
+}());
+
+var popup = /** @class */ (function () {
+    function popup(flashMessage, activeModal, service) {
+        this.flashMessage = flashMessage;
+        this.activeModal = activeModal;
+        this.service = service;
+    }
+    popup.prototype.ngOnInit = function () { };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], popup.prototype, "Id", void 0);
+    popup = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'popup',
+            template: ""
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"]])
+    ], popup);
+    return popup;
+}());
+
+var CarComponent = /** @class */ (function () {
+    function CarComponent(flashMessage, modalService, service, router) {
+        this.flashMessage = flashMessage;
+        this.modalService = modalService;
+        this.service = service;
+        this.router = router;
+        this.data = {
+            keeperId: '',
+            slotId: ''
+        };
+        this.finalPrice = 0;
+        this.penalty = 0;
+    }
+    CarComponent.prototype.open = function (id) {
+        var modalRef = this.modalService.open(NgbdModalContent, { size: 'lg' });
+        modalRef.componentInstance.Id = id;
+    };
+    CarComponent.prototype.Release = function (id) {
+        var _this = this;
+        this.data.slotId = id;
+        this.service.release(this.data).subscribe(function (res) {
+            _this.ngOnInit();
+            // console.log('success');
+            _this.flashMessage.show('Slot is available now', { cssClass: 'alert-success', timeout: 3000 });
+        });
+    };
+    CarComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getKeeperProfile().subscribe(function (profile) {
+            _this.user = profile['user'];
+            console.log(_this.user);
+            _this.amounts = _this.user.alocatedSlots1;
+            _this.num = _this.user.alocatedSlots1;
+            _this.charge = _this.user.hourCharge1;
+            _this.Arr = _this.user.type1;
+            _this.data.keeperId = _this.user._id;
+            console.log(_this.Arr);
+            //   this.i = this.Arr.indexof(this.Arr);
+        }, function (err) {
+            console.log(err);
+            return false;
+        });
+    };
+    //   onClick(){
+    //     this.Arr.i.isBook="false";
+    //   }
+    CarComponent.prototype.price = function (data) {
+        var date = new Date();
+        var one_hour = 1000 * 60;
+        var date1_ms = date.getTime();
+        var date2_ms = data.parkedAtgetTime();
+        var difference_ms = date2_ms - date1_ms;
+        if (Math.round(difference_ms / one_hour) > 15)
+            this.penalty = (difference_ms / one_hour);
+        else
+            this.penalty = 0;
+        this.finalPrice = (data.charge + this.penalty);
+        console.log(date.getTime());
+    };
+    CarComponent.prototype.onClick1 = function () {
+        alert("shqwqwk");
+    };
+    CarComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-car',
+            template: __webpack_require__(/*! ./car.component.html */ "./src/app/parkkeeper/parkingslot/car/car.component.html"),
+            styles: [__webpack_require__(/*! ./car.component.scss */ "./src/app/parkkeeper/parkingslot/car/car.component.scss")]
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], CarComponent);
+    return CarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/long-vehicle/long-vehicle.component.html":
+/*!*********************************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/long-vehicle/long-vehicle.component.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Long Vehicles</h1>\n<br>\n<br>\n<br>\n<h2>Total number of allocated slots: {{amounts}}</h2>\n<h2>Charge per Hour: {{charge}}</h2>\n<flash-messages></flash-messages>\n<div class=\"grid-container\">\n  <div *ngFor=\"let i of Arr\">\n    <div class=\"flip-card\">\n      <div class=\"flip-card-inner\">\n\n        <div class=\"flip-card-front\" style=\"background-color:rgb(213, 223, 85)\">\n          <div class=\"card-header\" style=\"font-size: 30pt\">{{i.slotNumber}}</div>\n\n          <div class=\"card-body\">\n            <h1 *ngIf=\"i.isBook==false\" style=\"font-size: 20pt\">Available Now</h1>\n            <h1 *ngIf=\"i.isBook==true\" style=\"font-size: 20pt\">Parked</h1>\n          </div>\n        </div>\n        <div class=\"flip-card-back\">\n          <h3 *ngIf=\"i.isBook\">Reserved by : {{i.name}}</h3>\n          <h3 *ngIf=\"i.isBook\">Reverver Id : {{i.nic}}</h3>\n          <h3 *ngIf=\"i.isBook\">Parks : {{i.parkedAt}}</h3>\n          <h3 *ngIf=\"i.isBook\">Leaves : {{i.leavAt}}</h3>\n          <br>\n          <button class=\"btn btn-success btn-sm \" (click)=\"open(i.slotId)\">Details</button>\n          <button class=\"btn btn-danger btn-sm \" *ngIf=\"i.isBook\" (click)=\"Release(i.slotId)\">Release</button>\n          <br>\n          <br>\n          <button (click)=\"price(i)\" type=\"top\" class=\"btn btn-outline-light btn-sm btn-round\" placement=\"top\" ngbPopover=\"Rs. {{finalPrice}}\"\n            popoverTitle=\"Calculated charge\">\n            Calculate charge\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/long-vehicle/long-vehicle.component.scss":
+/*!*********************************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/long-vehicle/long-vehicle.component.scss ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "body {\n  font-family: Arial, Helvetica, sans-serif; }\n\n.flip-card {\n  background-color: transparent;\n  width: 250px;\n  height: 250px;\n  -webkit-perspective: 1000px;\n          perspective: 1000px; }\n\n.flip-card-inner {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  transition: -webkit-transform 0.6s;\n  transition: transform 0.6s;\n  transition: transform 0.6s, -webkit-transform 0.6s;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }\n\n.flip-card:hover .flip-card-inner {\n  -webkit-transform: rotateY(180deg);\n          transform: rotateY(180deg); }\n\n.flip-card-front, .flip-card-back {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden; }\n\n.flip-card-front {\n  background-color: #bbb;\n  color: black;\n  z-index: 2; }\n\n.flip-card-back {\n  background-color: #2980b9;\n  color: white;\n  -webkit-transform: rotateY(180deg);\n          transform: rotateY(180deg);\n  z-index: 1; }\n\n.grid-container {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: auto auto auto auto;\n      grid-template-columns: auto auto auto auto;\n  grid-gap: 80px;\n  /* background-color: #2196F3; */\n  padding: 10px; }\n\n.grid-container > div {\n  /* background-color: rgba(255, 255, 255, 0.8); */\n  text-align: center;\n  padding: 20px 0;\n  font-size: 7px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/long-vehicle/long-vehicle.component.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/long-vehicle/long-vehicle.component.ts ***!
+  \*******************************************************************************/
+/*! exports provided: NgbdModalContent, popup, LongVehicleComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgbdModalContent", function() { return NgbdModalContent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "popup", function() { return popup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LongVehicleComponent", function() { return LongVehicleComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var NgbdModalContent = /** @class */ (function () {
+    function NgbdModalContent(flashMessage, activeModal, service) {
+        this.flashMessage = flashMessage;
+        this.activeModal = activeModal;
+        this.service = service;
+    }
+    NgbdModalContent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getbookings(this.Id).subscribe(function (res) {
+            _this.bookings = res;
+        }, function (err) {
+        });
+    };
+    NgbdModalContent.prototype.delete = function (id) {
+        var _this = this;
+        console.log(id);
+        this.service.deletebook(id).subscribe(function (res) {
+            _this.flashMessage.show('Delete successfull', { cssClass: 'alert-danger', timeout: 3000 });
+            _this.ngOnInit();
+        });
+    };
+    NgbdModalContent.prototype.sethistory = function (data) {
+        var _this = this;
+        this.service.sethistory(data).subscribe(function (res) {
+            _this.flashMessage.show('Accept', { cssClass: 'alert-success', timeout: 3000 });
+            _this.service.deletebook(data.bookId).subscribe(function (res) {
+                _this.flashMessage.show('Remove booking', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.ngOnInit();
+            });
+            _this.ngOnInit();
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], NgbdModalContent.prototype, "Id", void 0);
+    NgbdModalContent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-modal-content',
+            template: "\n    <div class=\"card bg-light mb-3\" style=\"width: 100%;\">\n  \n  <div class=\"card-body\">\n  <flash-messages></flash-messages>\n  <table style=\"border-collapse: collapse;\n  border-spacing: 20px;\n  width: 100%;\n  borde:none\">\n  <tr style=\"font-size:10px\">\n    <th>Vehicle Number</th>\n    <th>Driver Name</th>\n    <th>Diver Id</th>\n    <th>Date</th>\n    <th>Arrive Time</th>\n    <th>Leave Time</th>\n    <th>Release</th>\n    <th>Cancel</th>\n  </tr>\n \n  <tr *ngFor=\"let i of bookings\" >\n    <td>{{i.vehicleNum}}</td>\n    <td>{{i.DriverName}}</td>\n    <td>{{i.DriverId}}</td>\n    <td>{{i.date}}</td>\n    <td>{{i.arivalTime}}</td>\n    <td>{{i.bookId}}</td>\n    <td><button type=\"button\"  (click)=\"sethistory(i)\"  class=\"btn btn-primary btn-sm\">Accept</button></td>\n    <td><button type=\"button\" (click)=\"delete(i.bookId)\" class=\"btn btn-danger btn-sm\">Cancel</button></td>\n  </tr>\n  \n</table>\n    \n </div>\n  \n</div>\n"
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"]])
+    ], NgbdModalContent);
+    return NgbdModalContent;
+}());
+
+var popup = /** @class */ (function () {
+    function popup(flashMessage, activeModal, service) {
+        this.flashMessage = flashMessage;
+        this.activeModal = activeModal;
+        this.service = service;
+    }
+    popup.prototype.ngOnInit = function () { };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], popup.prototype, "Id", void 0);
+    popup = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'popup',
+            template: ""
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"]])
+    ], popup);
+    return popup;
+}());
+
+var LongVehicleComponent = /** @class */ (function () {
+    function LongVehicleComponent(flashMessage, modalService, service, router) {
+        this.flashMessage = flashMessage;
+        this.modalService = modalService;
+        this.service = service;
+        this.router = router;
+        this.data = {
+            keeperId: '',
+            slotId: ''
+        };
+        this.finalPrice = 0;
+        this.penalty = 0;
+    }
+    LongVehicleComponent.prototype.open = function (id) {
+        var modalRef = this.modalService.open(NgbdModalContent, { size: 'lg' });
+        modalRef.componentInstance.Id = id;
+    };
+    LongVehicleComponent.prototype.Release = function (id) {
+        var _this = this;
+        this.data.slotId = id;
+        this.service.release(this.data).subscribe(function (res) {
+            _this.ngOnInit();
+            // console.log('success');
+            _this.flashMessage.show('Slot is available now', { cssClass: 'alert-success', timeout: 3000 });
+        });
+    };
+    LongVehicleComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getKeeperProfile().subscribe(function (profile) {
+            _this.user = profile['user'];
+            console.log(_this.user);
+            _this.amounts = _this.user.alocatedSlots5;
+            _this.num = _this.user.alocatedSlots5;
+            _this.charge = _this.user.hourCharge5;
+            _this.Arr = _this.user.type5;
+            _this.data.keeperId = _this.user._id;
+            console.log(_this.Arr);
+            //   this.i = this.Arr.indexof(this.Arr);
+        }, function (err) {
+            console.log(err);
+            return false;
+        });
+    };
+    //   onClick(){
+    //     this.Arr.i.isBook="false";
+    //   }
+    LongVehicleComponent.prototype.price = function (data) {
+        var date = new Date();
+        var one_hour = 1000 * 60;
+        var date1_ms = date.getTime();
+        var date2_ms = data.parkedAtgetTime();
+        var difference_ms = date2_ms - date1_ms;
+        if (Math.round(difference_ms / one_hour) > 15)
+            this.penalty = (difference_ms / one_hour);
+        else
+            this.penalty = 0;
+        this.finalPrice = (data.charge + this.penalty);
+        console.log(date.getTime());
+    };
+    LongVehicleComponent.prototype.onClick1 = function () {
+        alert("shqwqwk");
+    };
+    LongVehicleComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-long-vehicle',
+            template: __webpack_require__(/*! ./long-vehicle.component.html */ "./src/app/parkkeeper/parkingslot/long-vehicle/long-vehicle.component.html"),
+            styles: [__webpack_require__(/*! ./long-vehicle.component.scss */ "./src/app/parkkeeper/parkingslot/long-vehicle/long-vehicle.component.scss")]
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], LongVehicleComponent);
+    return LongVehicleComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/lorry/lorry.component.html":
+/*!*******************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/lorry/lorry.component.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Buses and Lorries</h1>\n<br>\n<br>\n<br>\n<h2>Total number of allocated slots: {{amounts}}</h2>\n<h2>Charge per Hour: {{charge}}</h2>\n<flash-messages></flash-messages>\n<div class=\"grid-container\">\n  <div *ngFor=\"let i of Arr\">\n    <div class=\"flip-card\">\n      <div class=\"flip-card-inner\">\n\n        <div class=\"flip-card-front\" style=\"background-color:rgb(233, 123, 108)\">\n          <div class=\"card-header\" style=\"font-size: 30pt\">{{i.slotNumber}}</div>\n\n          <div class=\"card-body\">\n            <h1 *ngIf=\"i.isBook==false\" style=\"font-size: 20pt\">Available Now</h1>\n            <h1 *ngIf=\"i.isBook==true\" style=\"font-size: 20pt\">Parked</h1>\n          </div>\n        </div>\n        <div class=\"flip-card-back\">\n          <h3 *ngIf=\"i.isBook\">Reserved by : {{i.name}}</h3>\n          <h3 *ngIf=\"i.isBook\">Reverver Id : {{i.nic}}</h3>\n          <h3 *ngIf=\"i.isBook\">Parks : {{i.parkedAt}}</h3>\n          <h3 *ngIf=\"i.isBook\">Leaves : {{i.leavAt}}</h3>\n          <br>\n          <button class=\"btn btn-success btn-sm \" (click)=\"open(i.slotId)\">Details</button>\n          <button class=\"btn btn-danger btn-sm \" *ngIf=\"i.isBook\" (click)=\"Release(i.slotId)\">Release</button>\n          <br>\n          <br>\n          <button (click)=\"price(i)\" type=\"top\" class=\"btn btn-outline-light btn-sm btn-round\" placement=\"top\" ngbPopover=\"Rs. {{finalPrice}}\"\n            popoverTitle=\"Calculated charge\">\n            Calculate charge\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/lorry/lorry.component.scss":
+/*!*******************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/lorry/lorry.component.scss ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "body {\n  font-family: Arial, Helvetica, sans-serif; }\n\n.flip-card {\n  background-color: transparent;\n  width: 250px;\n  height: 250px;\n  -webkit-perspective: 1000px;\n          perspective: 1000px; }\n\n.flip-card-inner {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  transition: -webkit-transform 0.6s;\n  transition: transform 0.6s;\n  transition: transform 0.6s, -webkit-transform 0.6s;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }\n\n.flip-card:hover .flip-card-inner {\n  -webkit-transform: rotateY(180deg);\n          transform: rotateY(180deg); }\n\n.flip-card-front, .flip-card-back {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden; }\n\n.flip-card-front {\n  background-color: #bbb;\n  color: black;\n  z-index: 2; }\n\n.flip-card-back {\n  background-color: #2980b9;\n  color: white;\n  -webkit-transform: rotateY(180deg);\n          transform: rotateY(180deg);\n  z-index: 1; }\n\n.grid-container {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: auto auto auto auto;\n      grid-template-columns: auto auto auto auto;\n  grid-gap: 80px;\n  /* background-color: #2196F3; */\n  padding: 10px; }\n\n.grid-container > div {\n  /* background-color: rgba(255, 255, 255, 0.8); */\n  text-align: center;\n  padding: 20px 0;\n  font-size: 7px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/lorry/lorry.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/lorry/lorry.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: NgbdModalContent, popup, LorryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgbdModalContent", function() { return NgbdModalContent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "popup", function() { return popup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LorryComponent", function() { return LorryComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var NgbdModalContent = /** @class */ (function () {
+    function NgbdModalContent(flashMessage, activeModal, service) {
+        this.flashMessage = flashMessage;
+        this.activeModal = activeModal;
+        this.service = service;
+    }
+    NgbdModalContent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getbookings(this.Id).subscribe(function (res) {
+            _this.bookings = res;
+        }, function (err) {
+        });
+    };
+    NgbdModalContent.prototype.delete = function (id) {
+        var _this = this;
+        console.log(id);
+        this.service.deletebook(id).subscribe(function (res) {
+            _this.flashMessage.show('Delete successfull', { cssClass: 'alert-danger', timeout: 3000 });
+            _this.ngOnInit();
+        });
+    };
+    NgbdModalContent.prototype.sethistory = function (data) {
+        var _this = this;
+        this.service.sethistory(data).subscribe(function (res) {
+            _this.flashMessage.show('Accept', { cssClass: 'alert-success', timeout: 3000 });
+            _this.service.deletebook(data.bookId).subscribe(function (res) {
+                _this.flashMessage.show('Remove booking', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.ngOnInit();
+            });
+            _this.ngOnInit();
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], NgbdModalContent.prototype, "Id", void 0);
+    NgbdModalContent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-modal-content',
+            template: "\n    <div class=\"card bg-light mb-3\" style=\"width: 100%;\">\n  \n  <div class=\"card-body\">\n  <flash-messages></flash-messages>\n  <table style=\"border-collapse: collapse;\n  border-spacing: 20px;\n  width: 100%;\n  borde:none\">\n  <tr style=\"font-size:10px\">\n    <th>Vehicle Number</th>\n    <th>Driver Name</th>\n    <th>Diver Id</th>\n    <th>Date</th>\n    <th>Arrive Time</th>\n    <th>Leave Time</th>\n    <th>Release</th>\n    <th>Cancel</th>\n  </tr>\n \n  <tr *ngFor=\"let i of bookings\" >\n    <td>{{i.vehicleNum}}</td>\n    <td>{{i.DriverName}}</td>\n    <td>{{i.DriverId}}</td>\n    <td>{{i.date}}</td>\n    <td>{{i.arivalTime}}</td>\n    <td>{{i.bookId}}</td>\n    <td><button type=\"button\"  (click)=\"sethistory(i)\"  class=\"btn btn-primary btn-sm\">Accept</button></td>\n    <td><button type=\"button\" (click)=\"delete(i.bookId)\" class=\"btn btn-danger btn-sm\">Cancel</button></td>\n  </tr>\n  \n</table>\n    \n </div>\n  \n</div>\n"
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"]])
+    ], NgbdModalContent);
+    return NgbdModalContent;
+}());
+
+var popup = /** @class */ (function () {
+    function popup(flashMessage, activeModal, service) {
+        this.flashMessage = flashMessage;
+        this.activeModal = activeModal;
+        this.service = service;
+    }
+    popup.prototype.ngOnInit = function () { };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], popup.prototype, "Id", void 0);
+    popup = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'popup',
+            template: ""
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"]])
+    ], popup);
+    return popup;
+}());
+
+var LorryComponent = /** @class */ (function () {
+    function LorryComponent(flashMessage, modalService, service, router) {
+        this.flashMessage = flashMessage;
+        this.modalService = modalService;
+        this.service = service;
+        this.router = router;
+        this.data = {
+            keeperId: '',
+            slotId: ''
+        };
+        this.finalPrice = 0;
+        this.penalty = 0;
+    }
+    LorryComponent.prototype.open = function (id) {
+        var modalRef = this.modalService.open(NgbdModalContent, { size: 'lg' });
+        modalRef.componentInstance.Id = id;
+    };
+    LorryComponent.prototype.Release = function (id) {
+        var _this = this;
+        this.data.slotId = id;
+        this.service.release(this.data).subscribe(function (res) {
+            _this.ngOnInit();
+            // console.log('success');
+            _this.flashMessage.show('Slot is available now', { cssClass: 'alert-success', timeout: 3000 });
+        });
+    };
+    LorryComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getKeeperProfile().subscribe(function (profile) {
+            _this.user = profile['user'];
+            console.log(_this.user);
+            _this.amounts = _this.user.alocatedSlots3;
+            _this.num = _this.user.alocatedSlots3;
+            _this.charge = _this.user.hourCharge3;
+            _this.Arr = _this.user.type3;
+            _this.data.keeperId = _this.user._id;
+            console.log(_this.Arr);
+            //   this.i = this.Arr.indexof(this.Arr);
+        }, function (err) {
+            console.log(err);
+            return false;
+        });
+    };
+    //   onClick(){
+    //     this.Arr.i.isBook="false";
+    //   }
+    LorryComponent.prototype.price = function (data) {
+        var date = new Date();
+        var one_hour = 1000 * 60;
+        var date1_ms = date.getTime();
+        var date2_ms = data.parkedAtgetTime();
+        var difference_ms = date2_ms - date1_ms;
+        if (Math.round(difference_ms / one_hour) > 15)
+            this.penalty = (difference_ms / one_hour);
+        else
+            this.penalty = 0;
+        this.finalPrice = (data.charge + this.penalty);
+        console.log(date.getTime());
+    };
+    LorryComponent.prototype.onClick1 = function () {
+        alert("shqwqwk");
+    };
+    LorryComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-lorry',
+            template: __webpack_require__(/*! ./lorry.component.html */ "./src/app/parkkeeper/parkingslot/lorry/lorry.component.html"),
+            styles: [__webpack_require__(/*! ./lorry.component.scss */ "./src/app/parkkeeper/parkingslot/lorry/lorry.component.scss")]
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], LorryComponent);
+    return LorryComponent;
 }());
 
 
@@ -3045,7 +5257,7 @@ var KeeperregComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  parkingslot works!\n</p>\n"
+module.exports = "\n<div class=\"panel-header panel-header-sm\">\n  </div>\n  <div class=\"main-content\">\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <div class=\"card \">\n          <div class=\"card-header \">\n            My Details\n          </div>\n          <div class=\"card-body \">\n              <ul class=\"list-group\">\n                  <li class=\"list-group-item\" style=\"color:black\"><b>Park Name:  {{parkName}}</b></li>\n                <li class=\"list-group-item\" style=\"color:black\"><b>Number of total slots:  {{numberOfSlots}}</b></li>\n                <li class=\"list-group-item\"  style=\"color:black\"><b>Open Hours:  {{openHours}} </b></li>\n              </ul>\n              \n              <br>\n              <br>\n              <br>\n              \n              <table class=\"table\">\n                <thead class=\"thead-dark\">\n                \n                  <tr>\n                    <th scope=\"col\">Vehicle Type</th>\n                    <th scope=\"col\">Number of slots allocated</th>\n                    <th scope=\"col\">Charge per one hour</th>\n                    \n                  </tr>\n                </thead>\n                <tbody>\n                  <tr>\n                    <th scope=\"row\" style=\"color:black\">Cars and Vans</th>\n                    <td>{{alocatedSlots1}}</td>\n                    <td>{{hourCharge1}}</td>\n                   \n                  </tr>\n                  <tr>\n                    <th scope=\"row\" style=\"color:blue\">Bikes</th>\n                    <td>{{alocatedSlots2}}</td>\n                    <td>{{hourCharge2}}</td>\n                    \n                  </tr>\n                  <tr>\n                    <th scope=\"row\" style=\"color:red\">Lorries and Buses</th>\n                    <td>{{alocatedSlots3}}</td>\n                    <td>{{hourCharge3}}</td>\n                  </tr>\n                  <tr>\n                    <th scope=\"row\" style=\"color:green\">Three Wheelers</th>\n                    <td>{{alocatedSlots4}}</td>\n                    <td>{{hourCharge4}}</td>\n                  </tr>\n                  <tr>\n                    <th scope=\"row\" style=\"color:yellow\">Long Vehicles</th>\n                    <td>{{alocatedSlots5}}</td>\n                    <td>{{hourCharge5}}</td>\n                  </tr>\n                </tbody>\n              </table>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  \n"
 
 /***/ }),
 
@@ -3071,6 +5283,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParkingslotComponent", function() { return ParkingslotComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3081,10 +5294,33 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ParkingslotComponent = /** @class */ (function () {
-    function ParkingslotComponent() {
+    function ParkingslotComponent(service) {
+        this.service = service;
     }
     ParkingslotComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getKeeperProfile().subscribe(function (res) {
+            _this.user = res['user'];
+            console.log(_this.user);
+            _this.email = _this.user.email;
+            _this.parkName = _this.user.parkName;
+            _this.numberOfSlots = _this.user.numberOfSlots;
+            _this.openHours = _this.user.openHours;
+            _this.alocatedSlots1 = _this.user.alocatedSlots1;
+            _this.hourCharge1 = _this.user.hourCharge1;
+            _this.alocatedSlots2 = _this.user.alocatedSlots2;
+            _this.hourCharge2 = _this.user.hourCharge2;
+            _this.alocatedSlots3 = _this.user.alocatedSlots3;
+            _this.hourCharge3 = _this.user.hourCharge3;
+            _this.alocatedSlots4 = _this.user.alocatedSlots4;
+            _this.hourCharge4 = _this.user.hourCharge4;
+            _this.alocatedSlots5 = _this.user.alocatedSlots5;
+            _this.hourCharge5 = _this.user.hourCharge5;
+        }, function (err) {
+            console.log(err);
+        });
     };
     ParkingslotComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -3092,9 +5328,207 @@ var ParkingslotComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./parkingslot.component.html */ "./src/app/parkkeeper/parkingslot/parkingslot.component.html"),
             styles: [__webpack_require__(/*! ./parkingslot.component.scss */ "./src/app/parkkeeper/parkingslot/parkingslot.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"]])
     ], ParkingslotComponent);
     return ParkingslotComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/weel/weel.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/weel/weel.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Three Wheels</h1>\n<br>\n<br>\n<br>\n<h2>Total number of allocated slots: {{amounts}}</h2>\n<h2>Charge per Hour: {{charge}}</h2>\n<flash-messages></flash-messages>\n<div class=\"grid-container\">\n  <div *ngFor=\"let i of Arr\">\n    <div class=\"flip-card\">\n      <div class=\"flip-card-inner\">\n\n        <div class=\"flip-card-front\" style=\"background-color:rgb(10, 163, 112)\">\n          <div class=\"card-header\" style=\"font-size: 30pt\">{{i.slotNumber}}</div>\n\n          <div class=\"card-body\">\n            <h1 *ngIf=\"i.isBook==false\" style=\"font-size: 20pt\">Available Now</h1>\n            <h1 *ngIf=\"i.isBook==true\" style=\"font-size: 20pt\">Parked</h1>\n          </div>\n        </div>\n        <div class=\"flip-card-back\">\n          <h3 *ngIf=\"i.isBook\">Reserved by : {{i.name}}</h3>\n          <h3 *ngIf=\"i.isBook\">Reverver Id : {{i.nic}}</h3>\n          <h3 *ngIf=\"i.isBook\">Parks : {{i.parkedAt}}</h3>\n          <h3 *ngIf=\"i.isBook\">Leaves : {{i.leavAt}}</h3>\n          <br>\n          <button class=\"btn btn-success btn-sm \" (click)=\"open(i.slotId)\">Details</button>\n          <button class=\"btn btn-danger btn-sm \" *ngIf=\"i.isBook\" (click)=\"Release(i.slotId)\">Release</button>\n          <br>\n          <br>\n          <button (click)=\"price(i)\" type=\"top\" class=\"btn btn-outline-light btn-sm btn-round\" placement=\"top\" ngbPopover=\"Rs. {{finalPrice}}\"\n            popoverTitle=\"Calculated charge\">\n            Calculate charge\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/weel/weel.component.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/weel/weel.component.scss ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "body {\n  font-family: Arial, Helvetica, sans-serif; }\n\n.flip-card {\n  background-color: transparent;\n  width: 250px;\n  height: 250px;\n  -webkit-perspective: 1000px;\n          perspective: 1000px; }\n\n.flip-card-inner {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  transition: -webkit-transform 0.6s;\n  transition: transform 0.6s;\n  transition: transform 0.6s, -webkit-transform 0.6s;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }\n\n.flip-card:hover .flip-card-inner {\n  -webkit-transform: rotateY(180deg);\n          transform: rotateY(180deg); }\n\n.flip-card-front, .flip-card-back {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden; }\n\n.flip-card-front {\n  background-color: #bbb;\n  color: black;\n  z-index: 2; }\n\n.flip-card-back {\n  background-color: #2980b9;\n  color: white;\n  -webkit-transform: rotateY(180deg);\n          transform: rotateY(180deg);\n  z-index: 1; }\n\n.grid-container {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: auto auto auto auto;\n      grid-template-columns: auto auto auto auto;\n  grid-gap: 80px;\n  /* background-color: #2196F3; */\n  padding: 10px; }\n\n.grid-container > div {\n  /* background-color: rgba(255, 255, 255, 0.8); */\n  text-align: center;\n  padding: 20px 0;\n  font-size: 7px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/parkkeeper/parkingslot/weel/weel.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/parkkeeper/parkingslot/weel/weel.component.ts ***!
+  \***************************************************************/
+/*! exports provided: NgbdModalContent, popup, WeelComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgbdModalContent", function() { return NgbdModalContent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "popup", function() { return popup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WeelComponent", function() { return WeelComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var NgbdModalContent = /** @class */ (function () {
+    function NgbdModalContent(flashMessage, activeModal, service) {
+        this.flashMessage = flashMessage;
+        this.activeModal = activeModal;
+        this.service = service;
+    }
+    NgbdModalContent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getbookings(this.Id).subscribe(function (res) {
+            _this.bookings = res;
+        }, function (err) {
+        });
+    };
+    NgbdModalContent.prototype.delete = function (id) {
+        var _this = this;
+        console.log(id);
+        this.service.deletebook(id).subscribe(function (res) {
+            _this.flashMessage.show('Delete successfull', { cssClass: 'alert-danger', timeout: 3000 });
+            _this.ngOnInit();
+        });
+    };
+    NgbdModalContent.prototype.sethistory = function (data) {
+        var _this = this;
+        this.service.sethistory(data).subscribe(function (res) {
+            _this.flashMessage.show('Accept', { cssClass: 'alert-success', timeout: 3000 });
+            _this.service.deletebook(data.bookId).subscribe(function (res) {
+                _this.flashMessage.show('Remove booking', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.ngOnInit();
+            });
+            _this.ngOnInit();
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], NgbdModalContent.prototype, "Id", void 0);
+    NgbdModalContent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-modal-content',
+            template: "\n    <div class=\"card bg-light mb-3\" style=\"width: 100%;\">\n  \n  <div class=\"card-body\">\n  <flash-messages></flash-messages>\n  <table style=\"border-collapse: collapse;\n  border-spacing: 20px;\n  width: 100%;\n  borde:none\">\n  <tr style=\"font-size:10px\">\n    <th>Vehicle Number</th>\n    <th>Driver Name</th>\n    <th>Diver Id</th>\n    <th>Date</th>\n    <th>Arrive Time</th>\n    <th>Leave Time</th>\n    <th>Release</th>\n    <th>Cancel</th>\n  </tr>\n \n  <tr *ngFor=\"let i of bookings\" >\n    <td>{{i.vehicleNum}}</td>\n    <td>{{i.DriverName}}</td>\n    <td>{{i.DriverId}}</td>\n    <td>{{i.date}}</td>\n    <td>{{i.arivalTime}}</td>\n    <td>{{i.bookId}}</td>\n    <td><button type=\"button\"  (click)=\"sethistory(i)\"  class=\"btn btn-primary btn-sm\">Accept</button></td>\n    <td><button type=\"button\" (click)=\"delete(i.bookId)\" class=\"btn btn-danger btn-sm\">Cancel</button></td>\n  </tr>\n  \n</table>\n    \n </div>\n  \n</div>\n"
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"]])
+    ], NgbdModalContent);
+    return NgbdModalContent;
+}());
+
+var popup = /** @class */ (function () {
+    function popup(flashMessage, activeModal, service) {
+        this.flashMessage = flashMessage;
+        this.activeModal = activeModal;
+        this.service = service;
+    }
+    popup.prototype.ngOnInit = function () { };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], popup.prototype, "Id", void 0);
+    popup = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'popup',
+            template: ""
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"]])
+    ], popup);
+    return popup;
+}());
+
+var WeelComponent = /** @class */ (function () {
+    function WeelComponent(flashMessage, modalService, service, router) {
+        this.flashMessage = flashMessage;
+        this.modalService = modalService;
+        this.service = service;
+        this.router = router;
+        this.data = {
+            keeperId: '',
+            slotId: ''
+        };
+        this.finalPrice = 0;
+        this.penalty = 0;
+    }
+    WeelComponent.prototype.open = function (id) {
+        var modalRef = this.modalService.open(NgbdModalContent, { size: 'lg' });
+        modalRef.componentInstance.Id = id;
+    };
+    WeelComponent.prototype.Release = function (id) {
+        var _this = this;
+        this.data.slotId = id;
+        this.service.release(this.data).subscribe(function (res) {
+            _this.ngOnInit();
+            // console.log('success');
+            _this.flashMessage.show('Slot is available now', { cssClass: 'alert-success', timeout: 3000 });
+        });
+    };
+    WeelComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getKeeperProfile().subscribe(function (profile) {
+            _this.user = profile['user'];
+            console.log(_this.user);
+            _this.amounts = _this.user.alocatedSlots4;
+            _this.num = _this.user.alocatedSlots14;
+            _this.charge = _this.user.hourCharge4;
+            _this.Arr = _this.user.type4;
+            _this.data.keeperId = _this.user._id;
+            console.log(_this.Arr);
+            //   this.i = this.Arr.indexof(this.Arr);
+        }, function (err) {
+            console.log(err);
+            return false;
+        });
+    };
+    //   onClick(){
+    //     this.Arr.i.isBook="false";
+    //   }
+    WeelComponent.prototype.price = function (data) {
+        var date = new Date();
+        var one_hour = 1000 * 60;
+        var date1_ms = date.getTime();
+        var date2_ms = data.parkedAtgetTime();
+        var difference_ms = date2_ms - date1_ms;
+        if (Math.round(difference_ms / one_hour) > 15)
+            this.penalty = (difference_ms / one_hour);
+        else
+            this.penalty = 0;
+        this.finalPrice = (data.charge + this.penalty);
+        console.log(date.getTime());
+    };
+    WeelComponent.prototype.onClick1 = function () {
+        alert("shqwqwk");
+    };
+    WeelComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-weel',
+            template: __webpack_require__(/*! ./weel.component.html */ "./src/app/parkkeeper/parkingslot/weel/weel.component.html"),
+            styles: [__webpack_require__(/*! ./weel.component.scss */ "./src/app/parkkeeper/parkingslot/weel/weel.component.scss")]
+        }),
+        __metadata("design:paramtypes", [angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbModal"], _servers_regservice_service__WEBPACK_IMPORTED_MODULE_3__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], WeelComponent);
+    return WeelComponent;
 }());
 
 
@@ -3164,6 +5598,69 @@ var ParkkeeperComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/profile/documentsupload/documentsupload.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/profile/documentsupload/documentsupload.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  documentsupload works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/profile/documentsupload/documentsupload.component.scss":
+/*!************************************************************************!*\
+  !*** ./src/app/profile/documentsupload/documentsupload.component.scss ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/profile/documentsupload/documentsupload.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/profile/documentsupload/documentsupload.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: DocumentsuploadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentsuploadComponent", function() { return DocumentsuploadComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DocumentsuploadComponent = /** @class */ (function () {
+    function DocumentsuploadComponent() {
+    }
+    DocumentsuploadComponent.prototype.ngOnInit = function () {
+    };
+    DocumentsuploadComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-documentsupload',
+            template: __webpack_require__(/*! ./documentsupload.component.html */ "./src/app/profile/documentsupload/documentsupload.component.html"),
+            styles: [__webpack_require__(/*! ./documentsupload.component.scss */ "./src/app/profile/documentsupload/documentsupload.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DocumentsuploadComponent);
+    return DocumentsuploadComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/profile/editpropic/editpropic.component.html":
 /*!**************************************************************!*\
   !*** ./src/app/profile/editpropic/editpropic.component.html ***!
@@ -3207,6 +5704,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _profile_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../profile.component */ "./src/app/profile/profile.component.ts");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../admin/admin.component */ "./src/app/admin/admin.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3224,12 +5722,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var EditpropicComponent = /** @class */ (function () {
-    function EditpropicComponent(service, afStorage, router, profile) {
+    function EditpropicComponent(service, afStorage, router, profile, admin) {
         this.service = service;
         this.afStorage = afStorage;
         this.router = router;
         this.profile = profile;
+        this.admin = admin;
         this.pic = "";
         this.files = [];
         this.id = '';
@@ -3264,6 +5764,8 @@ var EditpropicComponent = /** @class */ (function () {
                 _this.service.editPic(_this.model).subscribe(function (res) {
                     _this.profile.ngOnInit();
                     _this.profile.editpi = false;
+                    _this.admin.ngOnInit();
+                    _this.admin.editpi = false;
                 }, function (err) {
                     console.log(err);
                 });
@@ -3277,7 +5779,7 @@ var EditpropicComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./editpropic.component.html */ "./src/app/profile/editpropic/editpropic.component.html"),
             styles: [__webpack_require__(/*! ./editpropic.component.scss */ "./src/app/profile/editpropic/editpropic.component.scss")]
         }),
-        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], angularfire2_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _profile_component__WEBPACK_IMPORTED_MODULE_7__["ProfileComponent"]])
+        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], angularfire2_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _profile_component__WEBPACK_IMPORTED_MODULE_7__["ProfileComponent"], _admin_admin_component__WEBPACK_IMPORTED_MODULE_8__["AdminComponent"]])
     ], EditpropicComponent);
     return EditpropicComponent;
 }());
@@ -3470,7 +5972,7 @@ var MapComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h4 class=\"card-title\"> Park Keepers</h4>\n        </div>\n        <div class=\"card-body\">\n          <div class=\"table-responsive\">\n            <table class=\"table\">\n              <thead class=\" text-primary\">\n                <th>\n                  Name\n                </th>\n                <th>\n                  Activate\n                </th>\n                <th>\n                  state\n                </th>\n                <th class=\"text-right\">\n\n                </th>\n              </thead>\n              <tbody>\n                <tr *ngFor=\"let keeper of keepers\">\n                  <td>\n                    {{ keeper.name }}\n                  </td>\n                  <td>\n                    {{ keeper.isactivate }}\n                  </td>\n                  <td>\n                    <button type=\"button\" (click)=\"update(keeper.state,keeper.id)\" class=\"{{keeper.class}}\">{{keeper.state}}</button>\n                    <!-- <button type=\"button\" class=\"btn btn-danger btn-round\">close</button> -->\n\n                  </td>\n                  <td class=\"text-right\">\n                    <button type=\"button\" class=\"btn btn-info btn-round\">view profile</button>\n                  </td>\n                </tr>\n\n              </tbody>\n            </table>\n          </div>\n        </div>\n      </div>\n    </div>\n\n  </div>\n</div>"
+module.exports = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h4 class=\"card-title\"> Park Keepers</h4>\n        </div>\n        <div class=\"card-body\" >\n          <div class=\"table-responsive\">\n            <table class=\"table\">\n              <thead class=\" text-primary\">\n                <th>\n                  Name\n                </th>\n                <th>\n                  Activate\n                </th>\n                <th>\n                  state\n                </th>\n                <th class=\"text-right\">\n\n                </th>\n              </thead>\n              <tbody>\n                <tr *ngFor=\"let keeper of keepers\">\n                  <td>\n                    {{ keeper.name }}\n                  </td>\n                  <td>\n                    {{ keeper.isactivate }}\n                  </td>\n                  <td>\n                    <button type=\"button\" (click)=\"update(keeper.state,keeper.id)\" class=\"{{keeper.class}}\">{{keeper.state}}</button>\n                    <!-- <button type=\"button\" class=\"btn btn-danger btn-round\">close</button> -->\n\n                  </td>\n                  <td class=\"text-right\">\n                    <button type=\"button\" (click)=\" parkPro(keeper.id)\" class=\"btn btn-info btn-round\">view profile</button>\n                  </td>\n                </tr>\n\n              </tbody>\n            </table>\n          </div>\n        </div>\n      </div>\n    </div>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -3499,6 +6001,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jwt-decode */ "./node_modules/jwt-decode/lib/index.js");
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3511,9 +6014,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ParkkeepersComponent = /** @class */ (function () {
-    function ParkkeepersComponent(service) {
+    function ParkkeepersComponent(service, router) {
         this.service = service;
+        this.router = router;
         this.keepers = [];
     }
     ParkkeepersComponent.prototype.ngOnInit = function () {
@@ -3554,13 +6059,17 @@ var ParkkeepersComponent = /** @class */ (function () {
             _this.ngOnInit();
         });
     };
+    ParkkeepersComponent.prototype.parkPro = function (id) {
+        console.log(id);
+        this.router.navigateByUrl('park/' + id);
+    };
     ParkkeepersComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-parkkeepers',
             template: __webpack_require__(/*! ./parkkeepers.component.html */ "./src/app/profile/parkkeepers/parkkeepers.component.html"),
             styles: [__webpack_require__(/*! ./parkkeepers.component.scss */ "./src/app/profile/parkkeepers/parkkeepers.component.scss")]
         }),
-        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"]])
+        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], ParkkeepersComponent);
     return ParkkeepersComponent;
 }());
@@ -3576,7 +6085,7 @@ var ParkkeepersComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header page-header-xs\"  data-parallax=\"true\" style=\"background-image: url('./assets/img/black1.jpg');\">\n        <div class=\"filter\"></div>\n        \n    </div>\n    <div class=\"section profile-content\">\n        <div class=\"container\">\n            <div class=\"owner\">\n                <div class=\"avatar\">\n                    <img src=\"{{pic}}\" alt=\"Circle Image\" class=\"img-thumbnail img-responsive\">\n                </div>\n                <!-- <button type=\"button\" class=\"btn btn-primary btn-just-icon\"><i class='fas fa-edit' style='font-size:24px'></i></button> -->\n                <button type=\"file\" rel=\"tooltip\" (click)=\"editpic()\" ngbTooltip=\"Edit profile picture\" data-placement=\"bottom\" type=\"button\"\n                    class=\"btn btn-primary btn-link\">\n                    <i class='fa fa-edit' style='font-size:36px'></i>\n                </button>\n                <div *ngIf=\"editpi\">\n                    <app-editpropic></app-editpropic>\n                </div>\n                <div class=\"name\">\n                    <h2 class=\"title\">{{userDetails.firstName}} {{userDetails.lastName}}\n                        <br />\n                    </h2>\n\n                </div>\n            </div>\n            <div class=\"row\">\n                <div *ngIf=\"ishome() && isuser()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/user-profile/regkeeper\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-simple-add\"></i> Add Park</button>\n                    </a>\n                </div>\n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/user-profile/myparks\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-bank\"></i> My Parks</button>\n                    </a>\n                </div>\n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/user-profile/map\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-pin-3\"></i>Map</button>\n                    </a>\n                </div>\n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/user-profile/pic\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-simple-add\"></i> Activites</button>\n                    </a>\n                </div>\n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/user-profile/myparks\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-simple-add\"></i> Progress</button>\n                    </a>\n                </div>\n            </div>\n            <br/>\n            <div class=\"nav-tabs-navigation\">\n                <div class=\"nav-tabs-wrapper\">\n\n\n                    <!-- <ngb-tab routerLink=\"/userprofile/userHome\" title=\"Send\">\n                            <ng-template ngbTabContent >\n                                \n                                    <router-outlet></router-outlet>\n                                    </ng-template>\n                        </ngb-tab>\n                        <ngb-tab routerLink=\"/userprofile/gallery\" title=\"Receive\">\n                            <ng-template ngbTabContent>\n                                <router-outlet></router-outlet>\n                            </ng-template>\n                        </ngb-tab> -->\n\n                    <router-outlet></router-outlet>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header page-header-xs\"  data-parallax=\"true\" style=\"background-image: url('./assets/img/ownerwall.jpg');\">\n        <div class=\"filter\"></div>\n        \n    </div>\n    <div class=\"section profile-content\">\n        <div class=\"container\">\n            <div class=\"owner\">\n                <div class=\"avatar\">\n                    <img src=\"{{pic}}\" alt=\"Circle Image\" class=\"img-thumbnail img-responsive\">\n                </div>\n                <!-- <button type=\"button\" class=\"btn btn-primary btn-just-icon\"><i class='fas fa-edit' style='font-size:24px'></i></button> -->\n                <button type=\"file\" rel=\"tooltip\" (click)=\"editpic()\" ngbTooltip=\"Edit profile picture\" data-placement=\"bottom\" type=\"button\"\n                    class=\"btn btn-primary btn-link\">\n                    <i class='fa fa-edit' style='font-size:36px'></i>\n                </button>\n                <div *ngIf=\"editpi\">\n                    <app-editpropic></app-editpropic>\n                </div>\n                <div class=\"name\">\n                    <h2 class=\"title\">{{userDetails.firstName}} {{userDetails.lastName}}\n                        <br />\n                    </h2>\n\n                </div>\n            </div>\n            <div class=\"row\">\n                <div *ngIf=\"ishome() && isuser()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/user-profile/regkeeper\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-simple-add\"></i> Add Park</button>\n                    </a>\n                </div>\n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/user-profile/myparks\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-bank\"></i> My Parks</button>\n                    </a>\n                </div>\n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/user-profile/map\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-pin-3\"></i>Map</button>\n                    </a>\n                </div>\n                \n                <div *ngIf=\"ishome()\" class=\"ml-auto mr-auto text-center\">\n\n                    <a routerLink=\"/user-profile/progress\">\n                        <button class=\"btn btn-outline-default btn-round\">\n                            <i class=\"nc-icon nc-simple-add\"></i> Progress</button>\n                    </a>\n                </div>\n            </div>\n            <br/>\n            <div class=\"nav-tabs-navigation\">\n                <div class=\"nav-tabs-wrapper\">\n\n\n                    <!-- <ngb-tab routerLink=\"/userprofile/userHome\" title=\"Send\">\n                            <ng-template ngbTabContent >\n                                \n                                    <router-outlet></router-outlet>\n                                    </ng-template>\n                        </ngb-tab>\n                        <ngb-tab routerLink=\"/userprofile/gallery\" title=\"Receive\">\n                            <ng-template ngbTabContent>\n                                <router-outlet></router-outlet>\n                            </ng-template>\n                        </ngb-tab> -->\n\n                    <router-outlet></router-outlet>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -3806,6 +6315,120 @@ var ProfileeditComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/profile/progress/progress.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/profile/progress/progress.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"panel-header panel-header-sm\">\n  </div>\n  <div class=\"main-content\">\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <div class=\"card\">\n          <div class=\"card-header\">\n            <h4 class=\"card-title\"> Monthly progress</h4>\n          </div>\n          <div class=\"card-body\">\n            <div class=\"table-responsive\">\n              <table class=\"table\">\n                <thead class=\" text-primary\">\n                  <th>\n                    Name\n                  </th>\n                  <th>\n                    Activate\n                  </th>\n                  <th>\n                    Revenue\n                  </th>\n                  <th class=\"text-right\">\n  \n                  </th>\n                </thead>\n                <tbody>\n                  <tr *ngFor=\"let keeper of keepers\">\n                    <td>\n                      {{ keeper.name }}\n                    </td>\n                    <td>\n                      {{ keeper.isactivate }}\n                    </td>\n                    <td>\n                        Rs. {{keeper.monthrev}}\n                       </td>\n                  </tr>\n  \n                </tbody>\n              </table>\n            </div>\n          </div>\n        </div>\n      </div>\n  \n    </div>\n  </div>"
+
+/***/ }),
+
+/***/ "./src/app/profile/progress/progress.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/profile/progress/progress.component.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/profile/progress/progress.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/profile/progress/progress.component.ts ***!
+  \********************************************************/
+/*! exports provided: ProgressComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgressComponent", function() { return ProgressComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servers/regservice.service */ "./src/app/servers/regservice.service.ts");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jwt-decode */ "./node_modules/jwt-decode/lib/index.js");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ProgressComponent = /** @class */ (function () {
+    function ProgressComponent(service, router) {
+        this.service = service;
+        this.router = router;
+        this.keepers = [];
+    }
+    ProgressComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var token = this.service.getToken();
+        var tokenPayload = jwt_decode__WEBPACK_IMPORTED_MODULE_2___default()(token);
+        this.service.getkeepers(tokenPayload._id).subscribe(function (response) {
+            _this.kepers = response;
+            _this.res = _this.kepers.length;
+            console.log(response);
+            for (var i = 0; i < _this.kepers.length; i++) {
+                if (_this.kepers[i].state == "open") {
+                    _this.class = "btn btn-danger btn-round";
+                    _this.kepers[i].state = "close";
+                }
+                else {
+                    _this.class = "btn btn-warning btn-round";
+                    _this.kepers[i].state = "open";
+                }
+                _this.keepers[i] = {
+                    id: _this.kepers[i]._id,
+                    name: _this.kepers[i].name,
+                    class: _this.class,
+                    isactivate: _this.kepers[i].isactivate,
+                    state: _this.kepers[i].state,
+                    monthrev: _this.kepers[i].monthrev
+                    // time:response[i].state,
+                };
+            }
+        });
+    };
+    ProgressComponent.prototype.update = function (state, id) {
+        var _this = this;
+        var token = this.service.getToken();
+        var tokenPayload = jwt_decode__WEBPACK_IMPORTED_MODULE_2___default()(token);
+        if (tokenPayload.role == "admin")
+            return;
+        this.service.keeperstate(state, id).subscribe(function (response) {
+            _this.ngOnInit();
+        });
+    };
+    ProgressComponent.prototype.parkPro = function (id) {
+        console.log(id);
+        this.router.navigateByUrl('park/' + id);
+    };
+    ProgressComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-progress',
+            template: __webpack_require__(/*! ./progress.component.html */ "./src/app/profile/progress/progress.component.html"),
+            styles: [__webpack_require__(/*! ./progress.component.scss */ "./src/app/profile/progress/progress.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_servers_regservice_service__WEBPACK_IMPORTED_MODULE_1__["RegserviceService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+    ], ProgressComponent);
+    return ProgressComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/profile/receive/receive.component.html":
 /*!********************************************************!*\
   !*** ./src/app/profile/receive/receive.component.html ***!
@@ -3994,6 +6617,9 @@ var RegserviceService = /** @class */ (function () {
     RegserviceService.prototype.regkeeper = function (details, id) {
         return this.http.post(this.url + '/regkeeper/' + id, details, this.noAuthHeader);
     };
+    RegserviceService.prototype.editkeeper = function (details, id) {
+        return this.http.post(this.url + '/editkeeper/' + id, details, this.noAuthHeader);
+    };
     RegserviceService.prototype.login = function (authCredentials, p) {
         console.log(authCredentials);
         return this.http.post(this.url + p + '/authenticate', authCredentials, this.noAuthHeader);
@@ -4005,8 +6631,15 @@ var RegserviceService = /** @class */ (function () {
         console.log(data);
         return this.http.post(data.url, data, this.noAuthHeader);
     };
+    RegserviceService.prototype.editkeeperPic = function (data) {
+        console.log(data);
+        return this.http.post(data.url, data, this.noAuthHeader);
+    };
     RegserviceService.prototype.getKeeperProfile = function () {
         return this.http.get(this.url + '/keeperProfile');
+    };
+    RegserviceService.prototype.release = function (data) {
+        return this.http.post(this.url + '/releaseslot', data);
     };
     RegserviceService.prototype.getowner = function (id) {
         return this.http.get(this.url + '/userProfile/' + id);
@@ -4014,8 +6647,20 @@ var RegserviceService = /** @class */ (function () {
     RegserviceService.prototype.getkeepers = function (id) {
         return this.http.get(this.url + '/getkeepers/' + id);
     };
+    RegserviceService.prototype.sethistory = function (data) {
+        return this.http.post(this.url + '/sethistory', data, this.noAuthHeader);
+    };
+    RegserviceService.prototype.getkeeperprofile = function (id) {
+        return this.http.get(this.url + '/getkeeperprofile/' + id);
+    };
     RegserviceService.prototype.getnewkeepers = function () {
         return this.http.get(this.url + '/getnewkeepers');
+    };
+    RegserviceService.prototype.reported = function () {
+        return this.http.get(this.url + '/reported');
+    };
+    RegserviceService.prototype.allkeepers = function () {
+        return this.http.get(this.url + '/allkeepers');
     };
     RegserviceService.prototype.getowners = function () {
         return this.http.get(this.url + '/getowners');
@@ -4024,11 +6669,11 @@ var RegserviceService = /** @class */ (function () {
         console.log(form);
         return this.http.put(this.url + '/editpro/' + id, form);
     };
-    RegserviceService.prototype.rstpw = function (email) {
-        return this.http.get(this.url + '/rstpw/' + email);
+    RegserviceService.prototype.rstpw = function (email, link) {
+        return this.http.get(this.url + '/rstpw/' + link + '/' + email);
     };
-    RegserviceService.prototype.newpassword = function (token) {
-        return this.http.get(this.url + '/resetpassword/' + token);
+    RegserviceService.prototype.newpassword = function (token, type) {
+        return this.http.get(this.url + '/resetpassword/' + type + '/' + token);
     };
     RegserviceService.prototype.keeperstate = function (state, id) {
         return this.http.get(this.url + '/setstate/' + id + '/' + state);
@@ -4037,8 +6682,12 @@ var RegserviceService = /** @class */ (function () {
         console.log(id);
         return this.http.get(this.url + '/acceptpark/' + id);
     };
-    RegserviceService.prototype.savepassword = function (password) {
-        return this.http.put(this.url + '/savepassword', password);
+    RegserviceService.prototype.reject = function (id) {
+        console.log(id);
+        return this.http.get(this.url + '/reject/' + id);
+    };
+    RegserviceService.prototype.savepassword = function (password, type) {
+        return this.http.put(this.url + '/savepassword/' + type, password);
     };
     //Helper Methods
     RegserviceService.prototype.setToken = function (token) {
@@ -4099,6 +6748,18 @@ var RegserviceService = /** @class */ (function () {
     RegserviceService.prototype.getAllPosts = function () {
         return this.http.get(this.url + '/getPosts');
     };
+    RegserviceService.prototype.getbookings = function (id) {
+        return this.http.get(this.url + '/bookingDetails/' + id);
+    };
+    RegserviceService.prototype.getbooking = function (id) {
+        return this.http.get(this.url + '/booking/' + id);
+    };
+    RegserviceService.prototype.gethistory = function (id) {
+        return this.http.get(this.url + '/bookinghistory/' + id);
+    };
+    RegserviceService.prototype.deletebook = function (id) {
+        return this.http.get(this.url + '/deletebook/' + id);
+    };
     RegserviceService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -4106,6 +6767,63 @@ var RegserviceService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], RegserviceService);
     return RegserviceService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/servers/validate.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/servers/validate.service.ts ***!
+  \*********************************************/
+/*! exports provided: ValidateService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ValidateService", function() { return ValidateService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ValidateService = /** @class */ (function () {
+    function ValidateService() {
+    }
+    ValidateService.prototype.validateRegister = function (user) {
+        if (user.name == undefined || user.email == undefined || user.username == undefined || user.password == undefined) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    ValidateService.prototype.validateDetail = function (detail) {
+        if (detail.city == undefined || detail.street == undefined || detail.number == undefined || detail.MaxWeight == undefined || detail.MaxHeight == undefined || detail.category == undefined) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    ValidateService.prototype.validateEmail = function (email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    };
+    ValidateService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], ValidateService);
+    return ValidateService;
 }());
 
 
@@ -4182,7 +6900,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg fixed-top navbar-transparent\" color-on-scroll=\"500\">\n        <div class=\"container\">\n            <div class=\"navbar-translate\">\n                    <a class=\"navbar-brand\" routerLink=\"/home\" >PARK HERE</a>\n                <button class=\"navbar-toggler navbar-burger\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarToggler\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" (click)=\"sidebarToggle()\">\n                    <span class=\"navbar-toggler-bar\"></span>\n                    <span class=\"navbar-toggler-bar\"></span>\n                    <span class=\"navbar-toggler-bar\"></span>\n                </button>\n            </div>\n            <div class=\"navbar-collapse\" id=\"navbarToggler\">\n                <ul class=\"navbar-nav ml-auto\">\n                    <li class=\"nav-item\" *ngIf=\"isHome()\">\n                        <a class=\"nav-link\" rel=\"tooltip\" title=\"Follow us on Twitter\" data-placement=\"bottom\" href=\"\" target=\"_blank\">\n                            <i class=\"fa fa-twitter\"></i>\n                            <p class=\"d-lg-none\">Twitter</p>\n                        </a>\n                    </li>\n                    <li class=\"nav-item\" *ngIf=\"isHome()\">\n                        <a class=\"nav-link\" rel=\"tooltip\" title=\"Like us on Facebook\" data-placement=\"bottom\" href=\"\" target=\"_blank\">\n                            <i class=\"fa fa-facebook-square\"></i>\n                            <p class=\"d-lg-none\">Facebook</p>\n                        </a>\n                    </li>\n                    <li class=\"nav-item\" *ngIf=\"isHome()\">\n                        <a class=\"nav-link\" rel=\"tooltip\" title=\"Follow us on Instagram\" data-placement=\"bottom\" href=\"\" target=\"_blank\">\n                            <i class=\"fa fa-instagram\"></i>\n                            <p class=\"d-lg-none\">Instagram</p>\n                        </a>\n                    </li>\n                    <li class=\"nav-item\" *ngIf=\"isHome()\">\n                        <a class=\"nav-link\" rel=\"tooltip\" title=\"Star on GitHub\" data-placement=\"bottom\" href=\"https://github.com/charindukavishan/parkhere\" target=\"_blank\">\n                            <i class=\"fa fa-github\"></i>\n                            <p class=\"d-lg-none\">GitHub</p>\n                        </a>\n                    </li>\n                    <li class=\"nav-item\" *ngIf=\"isLogin()\">\n                            <a routerLink=\"/{{url}}\" class=\"nav-link\" href=\"#\"><i class=\"nc-icon nc-single-02\" aria-hidden=\"true\"></i>&nbsp;Profile</a>\n                        </li>\n                        <li routerLink=\"/signup\"  class=\"nav-item\" *ngIf=\"!isLogin()\">\n                            <a target=\"_blank\" class=\"btn btn-info btn-default\">Log In</a>\n                        </li>\n                        <li routerLink=\"/signin\" class=\"nav-item\" *ngIf=\"!isLogin()\">\n                            <a  target=\"_blank\" class=\"btn btn-danger btn-round\">Register</a>\n                        </li>\n                        <!-- <li class=\"nav-item\" *ngIf=\"!isHome()\">\n                            <a [routerLink]=\"['/home']\" *ngIf=\"!isDocumentation()\" class=\"nav-link\"><i class=\"nc-icon nc-layout-11\"></i>Components</a>\n                            <a [routerLink]=\"['/home']\" *ngIf=\"isDocumentation()\" class=\"nav-link\">Back to Kit</a>\n                        </li>\n                        <li class=\"nav-item\" *ngIf=\"isDocumentation()\">\n                            <a href=\"https://github.com/creativetimofficial/paper-kit-2-angular/issues?ref=pk2-free-local\" target=\"_blank\" class=\"nav-link\">Have an issue</a>\n                        </li> -->\n                        <li *ngIf=\"isLogin()\" class=\"nav-item \">\n                            <div ngbDropdown class=\"dropdown\" placement=\"bottom-left\">\n                            <a class=\"nav-link\" id=\"dropdownBasic1\" ngbDropdownToggle><i class=\"nc-icon nc-settings-gear-65\" style=\"color:grey\" aria-hidden=\"true\"></i></a>\n                                <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" class=\"dropdown-danger dropdown-menu-right\">\n                                    <a routerLink=\"/{{url}}/edit\" class=\"dropdown-item\">Edit Profile</a>\n                                    <a class=\"dropdown-item\">Settings</a>\n                                    <a *ngIf=\"isadmin()\" routerLink=\"/{{url}}/edit\" class=\"dropdown-item\">Add admin</a>\n                                    <!-- <a class=\"dropdown-item\">Something else is here</a> -->\n                                    <div class=\"dropdown-divider\"></div>\n                                    <a class=\"dropdown-item\" (click)=\"signout()\">Sign out</a>\n                                </div>\n                            </div>\n                        </li>\n                        <li *ngIf=\"isLogin()\" class=\"nav-item \">\n                            <div ngbDropdown class=\"dropdown\" placement=\"bottom-left\">\n                                \n                            <a class=\"nav-link\" id=\"dropdownBasic1\" ngbDropdownToggle><i class=\"nc-icon nc-email-85\" style=\"color:grey\"  aria-hidden=\"true\"></i><b class=\"caret\"></b>\n                                <span class=\"notification hidden-sm hidden-xs\">5</span></a>\n                                <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" class=\"dropdown-danger dropdown-menu-right\">\n                                    <a *ngIf=\"isadmin()\" routerLink=\"/{{url}}/messages\" class=\"dropdown-item\">New messages</a>\n                                    <a routerLink=\"/{{url}}/inbox\" class=\"dropdown-item\">Inbox</a>\n                                    <a class=\"dropdown-item\">Send</a>\n                                    <!-- <a class=\"dropdown-item\">Something else is here</a> -->\n                                    <!-- <div class=\"dropdown-divider\"></div> -->\n                                    <!-- <a class=\"dropdown-item\">Separated link</a> -->\n                                </div>\n                            </div>\n                        </li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    "
+module.exports = "<nav class=\"navbar navbar-expand-lg fixed-top navbar-transparent\" color-on-scroll=\"500\">\n        <div class=\"container\">\n                <div class=\"angular-logo\"><br>\n                        <img src=\"../../../assets/img/weblogo.png\" alt=\"\">\n                        <a  style=\"color: gray\" routerLink=\"/home\" ><b>PARK HERE</b></a>\n                    </div>\n            <div class=\"navbar-translate\">\n                    \n                    \n                <button class=\"navbar-toggler navbar-burger\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarToggler\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" (click)=\"sidebarToggle()\">\n                    <span class=\"navbar-toggler-bar\"></span>\n                    <span class=\"navbar-toggler-bar\"></span>\n                    <span class=\"navbar-toggler-bar\"></span>\n                </button>\n            </div>\n            <div class=\"navbar-collapse\" id=\"navbarToggler\">\n                <ul class=\"navbar-nav ml-auto\">\n                    <li class=\"nav-item\" *ngIf=\"isHome()\">\n                        <a class=\"nav-link\" rel=\"tooltip\" title=\"Follow us on Twitter\" data-placement=\"bottom\" href=\"\" target=\"_blank\">\n                            <i class=\"fa fa-twitter\"></i>\n                            <p class=\"d-lg-none\">Twitter</p>\n                        </a>\n                    </li>\n                    <li class=\"nav-item\" *ngIf=\"isHome()\">\n                        <a class=\"nav-link\" rel=\"tooltip\" title=\"Like us on Facebook\" data-placement=\"bottom\" href=\"\" target=\"_blank\">\n                            <i class=\"fa fa-facebook-square\"></i>\n                            <p class=\"d-lg-none\">Facebook</p>\n                        </a>\n                    </li>\n                    <li class=\"nav-item\" *ngIf=\"isHome()\">\n                        <a class=\"nav-link\" rel=\"tooltip\" title=\"Follow us on Instagram\" data-placement=\"bottom\" href=\"\" target=\"_blank\">\n                            <i class=\"fa fa-instagram\"></i>\n                            <p class=\"d-lg-none\">Instagram</p>\n                        </a>\n                    </li>\n                    <li class=\"nav-item\" *ngIf=\"isHome()\">\n                        <a class=\"nav-link\" rel=\"tooltip\" title=\"Star on GitHub\" data-placement=\"bottom\" href=\"https://github.com/charindukavishan/parkhere\" target=\"_blank\">\n                            <i class=\"fa fa-github\"></i>\n                            <p class=\"d-lg-none\">GitHub</p>\n                        </a>\n                    </li>\n                    <li class=\"nav-item\" *ngIf=\"isLogin()\">\n                            <a routerLink=\"/{{url}}\" class=\"nav-link\" href=\"#\"><i class=\"nc-icon nc-single-02\" aria-hidden=\"true\"></i>&nbsp;Profile</a>\n                        </li>\n                        <li routerLink=\"/signup\"  class=\"nav-item\" *ngIf=\"!isLogin()\">\n                            <a target=\"_blank\" class=\"btn btn-info btn-default\">Log In</a>\n                        </li>\n                        <li routerLink=\"/signin\" class=\"nav-item\" *ngIf=\"!isLogin()\">\n                            <a  target=\"_blank\" class=\"btn btn-danger btn-round\">Register</a>\n                        </li>\n                        <!-- <li class=\"nav-item\" *ngIf=\"!isHome()\">\n                            <a [routerLink]=\"['/home']\" *ngIf=\"!isDocumentation()\" class=\"nav-link\"><i class=\"nc-icon nc-layout-11\"></i>Components</a>\n                            <a [routerLink]=\"['/home']\" *ngIf=\"isDocumentation()\" class=\"nav-link\">Back to Kit</a>\n                        </li>\n                        <li class=\"nav-item\" *ngIf=\"isDocumentation()\">\n                            <a href=\"https://github.com/creativetimofficial/paper-kit-2-angular/issues?ref=pk2-free-local\" target=\"_blank\" class=\"nav-link\">Have an issue</a>\n                        </li> -->\n                        <li *ngIf=\"isLogin()\" class=\"nav-item \">\n                            <div ngbDropdown class=\"dropdown\" placement=\"bottom-left\">\n                            <a class=\"nav-link\" id=\"dropdownBasic1\" ngbDropdownToggle><i class=\"nc-icon nc-settings-gear-65\" style=\"color:grey\" aria-hidden=\"true\"></i></a>\n                                <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" class=\"dropdown-danger dropdown-menu-right\">\n                                    <a routerLink=\"/{{url}}/edit\" class=\"dropdown-item\">Edit Profile</a>\n                                   \n                                    <a *ngIf=\"isadmin()\" routerLink=\"/{{url}}/addadmin\" class=\"dropdown-item\">Add admin</a>\n                                    <!-- <a class=\"dropdown-item\">Something else is here</a> -->\n                                    <div class=\"dropdown-divider\"></div>\n                                    <a class=\"dropdown-item\" (click)=\"signout()\">Sign out</a>\n                                </div>\n                            </div>\n                        </li>\n                       \n                </ul>\n            </div>\n        </div>\n    </nav>\n    "
 
 /***/ }),
 
@@ -4339,7 +7057,7 @@ var NavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header page-header-xs\" data-parallax=\"true\" style=\"background-image: url('./assets/img/login.jpg');\">\n        <div class=\"filter\"></div>\n    </div>\n\n<div class=\"panel-header panel-header-sm\">\n  </div>\n  <div class=\"main-content\">\n    <div a class=\"row\">\n      <div  class=\"col-md-12 mr-auto ml-auto\">\n        <div class=\"card\">\n          <div class=\"card-header\">\n            <h5 class=\"title\">Create Profile</h5>\n          </div>\n          <div class=\"card-body\">\n            <form #regForm=\"ngForm\">\n              \n              \n              <div class=\"row\">\n                <div class=\"col-md-6 pr-1\">\n                  <div class=\"form-group\">\n                    <label>First Name</label>\n                    <input #firstname=\"ngModel\" required id=\"firstName\" name=\"firstName\" type=\"text\" class=\"form-control\" placeholder=\"Company\" [(ngModel)]=\"reg.firstName\">\n                    <!-- <div class=\"form-control-feedback\" [hidden]=\"firstname.valid\">First Name is required</div> -->\n                    <div class=\"form-control-feedback\" [hidden]=\"firstname.valid\">Email is required and must be valid</div>\n                  </div>\n                </div>\n                <div class=\"col-md-6 pl-1\">\n                  <div class=\"form-group\">\n                    <label>Last Name</label>\n                    <input #lastName=\"ngModel\" required type=\"text\" id=\"lastName\" name=\"lastName\" class=\"form-control\" placeholder=\"Last Name\" [(ngModel)]=\"reg.lastName\">\n                    <div class=\"form-control-feedback\" [hidden]=\"lastName.valid\">Email is required and must be valid</div>\n\n                  </div>\n                </div>\n              </div>\n              <!-- <div class=\"row\"> -->\n                  <!-- <div class=\"col-md-5 pr-1\">\n                    <div class=\"form-group\">\n                      <label>Company (disabled)</label>\n                      <input type=\"text\" class=\"form-control\" disabled=\"\" placeholder=\"Company\" value=\"Creative Code Inc.\">\n                    </div>\n                  </div> -->\n                  <!-- <div class=\"col-md-3 px-1\">\n                    <div class=\"form-group\">\n                      <label>Username</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Username\" value=\"michael23\">\n                    </div>\n                  </div> -->\n                  <!-- <div class=\"col-md-12 pl-1\">\n                    <div class=\"form-group\">\n                      <label for=\"exampleInputEmail1\">Email address</label>\n                      <input type=\"email\" class=\"form-control\" placeholder=\"Email\">\n                    </div>\n                  </div> -->\n                <!-- </div> -->\n                <div class=\"row\">\n                    <div class=\"col-md-12\">\n                      <div class=\"form-group\">\n                          <label for=\"exampleInputEmail1\">Email address</label>\n                          <input #email=\"ngModel\" pattern=\"^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$\" id=\"email\" required type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"reg.email\">\n                          <div class=\"form-control-feedback\" [hidden]=\"email.valid\">Email is required and must be valid</div>\n                        </div>\n                    </div>\n                    \n                  </div>\n                  <p *ngIf=\"iserror\">\n                      <ngb-alert type=\"danger\"  [dismissible]=\"false\">\n                          <div class=\"container\">\n                              <ng-container>\n                                  <i class=\"nc-icon nc-bell-55\"></i>\n                              </ng-container>\n                  {{ serverErrorMessages }}\n                              <button type=\"button\" name=\"button\" class=\"close\" (click)=\"closeAlert()\">\n                                  <i class=\"nc-icon nc-simple-remove\"></i>\n                              </button>\n                          </div>\n                      </ngb-alert>\n                  </p>\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label>Address</label>\n                    <input #address=\"ngModel\" id=\"address\" required name=\"address\" type=\"text\" class=\"form-control\" [(ngModel)]=\"reg.address\">\n                  </div>\n                </div>\n              </div>\n              <div class=\"row\">\n                <div class=\"col-md-4 pr-1\">\n                  <div class=\"form-group\">\n                    <label>City</label>\n                    <input #city=\"ngModel\" type=\"text\" required id=\"city\" name=\"city\" class=\"form-control\" placeholder=\"City\" [(ngModel)]=\"reg.city\">\n                  </div>\n                </div>\n                <div class=\"col-md-4 px-1\">\n                  <div class=\"form-group\">\n                    <label>Country</label>\n                    <input #country=\"ngModel\" type=\"text\" required id=\"country\" name=\"country\" class=\"form-control\" placeholder=\"Country\" [(ngModel)]=\"reg.country\">\n                  </div>\n                </div>\n                <div class=\"col-md-4 pl-1\">\n                  <div class=\"form-group\">\n                    <label>Postal Code</label>\n                    <input #zip=\"ngModel\" type=\"number\" required id=\"zip\" name=\"zip\" class=\"form-control\" placeholder=\"ZIP Code\" [(ngModel)]=\"reg.zip\">\n                    <div class=\"form-control-feedback\" [hidden]=\"email.valid\">Must be number</div>\n                  </div>\n                </div>\n              </div>\n              <!-- <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label>About Me</label>\n                    <textarea rows=\"4\" cols=\"80\" class=\"form-control\" placeholder=\"Here can be your description\" >Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>\n                  </div>\n                </div>\n              </div> -->\n              <div class=\"row\">\n                  <div class='col-xs-12 col-sm-6'>\n                      <div class=\"form-group\">\n                          <label class=\"control-label\" for=\"password\">Create Password</label>  \n                          <input class=\"form-control input-md\" #password=\"ngModel\" pattern=\".{6,}\" required id=\"password\" name=\"password\" type=\"password\" placeholder=\"Create password\" [(ngModel)]=\"reg.password\">   \n                          <div class=\"form-control-feedback\" [hidden]=\"password.valid\">Password must be at least 6 characters long</div>\n                      </div>\n                  </div>\n                  <div class='col-xs-12 col-sm-6'>\n                      <div class=\"form-group\">\n                          <label class=\"control-label\" for=\"confirmPassword\">Repeat Password</label>  \n                          <input  class=\"form-control input-md\" #confirmPassword=\"ngModel\" required id=\"confirmPassword\" name=\"confirmPassword\" type=\"password\" placeholder=\"Repeat password\" [(ngModel)]=\"reg.confirmPassword\">\n                          <div class=\"form-control-feedback\" *ngIf=\"password.value!=confirmPassword.value\">Password not match</div>\n                      </div>\n                  </div>\n              </div>\n              <div class=\"ml-auto mr-auto text-center\">\n                  <button (click)=\"register()\" [disabled]=\"!regForm.valid||(password.value!=confirmPassword.value)\" class=\"btn btn-outline-default btn-round\"><i class=\"nc-icon nc-tap-01\"></i>Sing Up</button>\n               </div>\n            </form>\n            \n          </div>\n        </div>\n      </div>\n      \n    </div>\n  </div>\n  \n  "
+module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header page-header-xs\" data-parallax=\"true\" style=\"background-image: url('./assets/img/login.jpg');\">\n        <div class=\"filter\"></div>\n    </div>\n\n<div class=\"panel-header panel-header-sm\">\n  </div>\n  <div class=\"main-content\">\n    <div a class=\"row\">\n      <div  class=\"col-md-12 mr-auto ml-auto\">\n        <div class=\"card\">\n          <div class=\"card-header\" style=\"font-size: 28px\">\n            <h5 class=\"title\"> Create Profile</h5>\n          </div>\n          <div class=\"card-body\" style=\"font-size: 20px\">\n            <form #regForm=\"ngForm\">\n              \n              \n              <div class=\"row\" style=\"color:black\" >\n                <div class=\"col-md-6 pr-1\">\n                  <div class=\"form-group\" >\n                    <label><b>First Name</b></label>\n                    <input #firstname=\"ngModel\" required id=\"firstName\" name=\"firstName\" type=\"text\" class=\"form-control\" placeholder=\"Company\" [(ngModel)]=\"reg.firstName\">\n                    <!-- <div class=\"form-control-feedback\" [hidden]=\"firstname.valid\">First Name is required</div> -->\n                    <div class=\"form-control-feedback\" [hidden]=\"firstname.valid\">First Name is required and must be valid</div>\n                  </div>\n                </div>\n                <div class=\"col-md-6 pl-1\">\n                  <div class=\"form-group\">\n                    <label><b>Last Name</b></label>\n                    <input #lastName=\"ngModel\" required type=\"text\" id=\"lastName\" name=\"lastName\" class=\"form-control\" placeholder=\"Last Name\" [(ngModel)]=\"reg.lastName\">\n                    <div class=\"form-control-feedback\" [hidden]=\"lastName.valid\">Last Name is required and must be valid</div>\n\n                  </div>\n                </div>\n              </div>\n              <!-- <div class=\"row\"> -->\n                  <!-- <div class=\"col-md-5 pr-1\">\n                    <div class=\"form-group\">\n                      <label>Company (disabled)</label>\n                      <input type=\"text\" class=\"form-control\" disabled=\"\" placeholder=\"Company\" value=\"Creative Code Inc.\">\n                    </div>\n                  </div> -->\n                  <!-- <div class=\"col-md-3 px-1\">\n                    <div class=\"form-group\">\n                      <label>Username</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Username\" value=\"michael23\">\n                    </div>\n                  </div> -->\n                  <!-- <div class=\"col-md-12 pl-1\">\n                    <div class=\"form-group\">\n                      <label for=\"exampleInputEmail1\">Email address</label>\n                      <input type=\"email\" class=\"form-control\" placeholder=\"Email\">\n                    </div>\n                  </div> -->\n                <!-- </div> -->\n                <div class=\"row\" >\n                    <div class=\"col-md-12\">\n                      <div class=\"form-group\">\n                          <label for=\"exampleInputEmail1\"><b>Email address</b></label>\n                          <input #email=\"ngModel\" pattern=\"^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$\" id=\"email\" required type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"reg.email\">\n                          <div class=\"form-control-feedback\" [hidden]=\"email.valid\">Email is required and must be valid</div>\n                        </div>\n                    </div>\n                    \n                  </div>\n                  <p *ngIf=\"iserror\">\n                      <ngb-alert type=\"danger\"  [dismissible]=\"false\">\n                          <div class=\"container\">\n                              <ng-container>\n                                  <i class=\"nc-icon nc-bell-55\"></i>\n                              </ng-container>\n                  {{ serverErrorMessages }}\n                              <button type=\"button\" name=\"button\" class=\"close\" (click)=\"closeAlert()\">\n                                  <i class=\"nc-icon nc-simple-remove\"></i>\n                              </button>\n                          </div>\n                      </ngb-alert>\n                  </p>\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label><b>Address</b></label>\n                    <input #address=\"ngModel\" id=\"address\" required name=\"address\" type=\"text\" class=\"form-control\" [(ngModel)]=\"reg.address\">\n                  </div>\n                </div>\n              </div>\n              <div class=\"row\">\n                <div class=\"col-md-4 pr-1\">\n                  <div class=\"form-group\">\n                    <label><b>City</b></label>\n                    <input #city=\"ngModel\" type=\"text\" required id=\"city\" name=\"city\" class=\"form-control\" placeholder=\"City\" [(ngModel)]=\"reg.city\">\n                  </div>\n                </div>\n                <div class=\"col-md-4 px-1\">\n                  <div class=\"form-group\">\n                    <label><b>Country</b></label>\n                    <input #country=\"ngModel\" type=\"text\" required id=\"country\" name=\"country\" class=\"form-control\" placeholder=\"Country\" [(ngModel)]=\"reg.country\">\n                  </div>\n                </div>\n                <div class=\"col-md-4 pl-1\">\n                  <div class=\"form-group\">\n                    <label><b>Postal Code</b></label>\n                    <input #zip=\"ngModel\" type=\"number\" required id=\"zip\" name=\"zip\" class=\"form-control\" placeholder=\"ZIP Code\" [(ngModel)]=\"reg.zip\">\n                    <div class=\"form-control-feedback\" [hidden]=\"email.valid\">Must be number</div>\n                  </div>\n                </div>\n              </div>\n              <!-- <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label>About Me</label>\n                    <textarea rows=\"4\" cols=\"80\" class=\"form-control\" placeholder=\"Here can be your description\" >Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>\n                  </div>\n                </div>\n              </div> -->\n              <div class=\"row\">\n                  <div class='col-xs-12 col-sm-6'>\n                      <div class=\"form-group\">\n                          <label class=\"control-label\" for=\"password\"><b>Create Password</b></label>  \n                          <input class=\"form-control input-md\" #password=\"ngModel\" pattern=\".{6,}\" required id=\"password\" name=\"password\" type=\"password\" placeholder=\"Create password\" [(ngModel)]=\"reg.password\">   \n                          <div class=\"form-control-feedback\" [hidden]=\"password.valid\">Password must be at least 6 characters long</div>\n                      </div>\n                  </div>\n                  <div class='col-xs-12 col-sm-6'>\n                      <div class=\"form-group\">\n                          <label class=\"control-label\" for=\"confirmPassword\"><b>Repeat Password</b></label>  \n                          <input  class=\"form-control input-md\" #confirmPassword=\"ngModel\" required id=\"confirmPassword\" name=\"confirmPassword\" type=\"password\" placeholder=\"Repeat password\" [(ngModel)]=\"reg.confirmPassword\">\n                          <div class=\"form-control-feedback\" *ngIf=\"password.value!=confirmPassword.value\">Password not match</div>\n                      </div>\n                  </div>\n              </div>\n              <div class=\"ml-auto mr-auto text-center\">\n                  <button (click)=\"register()\" [disabled]=\"!regForm.valid||(password.value!=confirmPassword.value)\" class=\"btn btn-danger btn-round\"><i class=\"nc-icon nc-tap-01\"></i><b>Sing Up</b></button>\n               </div>\n            </form>\n            \n          </div>\n        </div>\n      </div>\n      \n    </div>\n  </div>\n  \n  "
 
 /***/ }),
 
@@ -4452,7 +7170,7 @@ var SigninComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n  <div class=\"page-header\" style=\"background-image: url('../assets/img/login-image.jpg');\">\n      <div class=\"filter\"></div>\n          <div class=\"container\">\n              <div class=\"row\">\n                      \n                  <div class=\"col-lg-4 col-sm-6 mr-auto ml-auto\">\n                      <div class=\"card card-register\">\n                          <h3 class=\"title\">Reset password</h3>\n\n                          <form #signInForm=\"ngForm\" (ngSubmit)=\"signInForm.valid && onSubmit()\" class=\"register-form\">\n                            \n                              <div class=\"form-group\">\n                                  <label for=\"exampleInputEmail1\">Email address</label>\n                                  <input disabled=\"\"  [value]=\"reg.email\" type=\"email\" name=\"email\" class=\"form-control\">\n                                </div>\n                            \n                             \n                                <div class=\"form-group\">\n                                  <label class=\"control-label\" for=\"password\">Create Password</label>  \n                                  <input class=\"form-control input-md\" #password=\"ngModel\" pattern=\".{6,}\" required id=\"password\" name=\"password\" type=\"password\" placeholder=\"Create password\" [(ngModel)]=\"reg.password\">   \n                                  <div class=\"form-control-feedback\" [hidden]=\"password.valid\">Password must be at least 6 characters long</div>\n                              </div>\n                         \n                          \n                              <div class=\"form-group\">\n                                  <label class=\"control-label\" for=\"confirmPassword\">Repeat Password</label>  \n                                  <input  class=\"form-control input-md\" #confirmPassword=\"ngModel\" required id=\"confirmPassword\" name=\"confirmPassword\" type=\"password\" placeholder=\"Repeat password\" [(ngModel)]=\"reg.confirmPassword\">\n                                  <div class=\"form-control-feedback\" *ngIf=\"password.value!=confirmPassword.value\">Password not match</div>\n                              </div>\n                              \n                          \n                              <!-- <button class=\"btn btn-danger btn-block btn-round\">Register</button> -->\n                              <input type=\"submit\" [disabled]=\"!signInForm.valid||(password.value!=confirmPassword.value)\" class=\"btn btn-danger btn-block btn-round\" value=\"Sign In\">\n                          </form>\n                         \n                      </div>\n                  </div>\n              </div>\n              <div class=\"footer register-footer text-center\">\n                  <h6>&copy;{{test | date: 'yyyy'}}, made with <i class=\"fa fa-heart heart\"></i> by Creative Tim</h6>\n              </div>\n          </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"wrapper\">\n  <div class=\"page-header\" style=\"background-image: url('../assets/img/reset.jpg');\">\n      <div class=\"filter\"></div>\n          <div class=\"container\">\n              <div class=\"row\">\n                      \n                  <div class=\"col-lg-4 col-sm-6 mr-auto ml-auto\">\n                      <div class=\"card card-register\">\n                          <h3 class=\"title\">Reset password</h3>\n\n                          <form #signInForm=\"ngForm\" (ngSubmit)=\"signInForm.valid && onSubmit()\" class=\"register-form\">\n                            \n                              <div class=\"form-group\">\n                                  <label for=\"exampleInputEmail1\">Email address</label>\n                                  <input disabled=\"\"  [value]=\"reg.email\" type=\"email\" name=\"email\" class=\"form-control\">\n                                </div>\n                            \n                             \n                                <div class=\"form-group\">\n                                  <label class=\"control-label\" for=\"password\">Create Password</label>  \n                                  <input class=\"form-control input-md\" #password=\"ngModel\" pattern=\".{6,}\" required id=\"password\" name=\"password\" type=\"password\" placeholder=\"Create password\" [(ngModel)]=\"reg.password\">   \n                                  <div class=\"form-control-feedback\" [hidden]=\"password.valid\">Password must be at least 6 characters long</div>\n                              </div>\n                         \n                          \n                              <div class=\"form-group\">\n                                  <label class=\"control-label\" for=\"confirmPassword\">Repeat Password</label>  \n                                  <input  class=\"form-control input-md\" #confirmPassword=\"ngModel\" required id=\"confirmPassword\" name=\"confirmPassword\" type=\"password\" placeholder=\"Repeat password\" [(ngModel)]=\"reg.confirmPassword\">\n                                  <div class=\"form-control-feedback\" *ngIf=\"password.value!=confirmPassword.value\">Password not match</div>\n                              </div>\n                              \n                          \n                              <!-- <button class=\"btn btn-danger btn-block btn-round\">Register</button> -->\n                              <input type=\"submit\" [disabled]=\"!signInForm.valid||(password.value!=confirmPassword.value)\" class=\"btn btn-danger btn-block btn-round\" value=\"Sign In\">\n                          </form>\n                         \n                      </div>\n                  </div>\n              </div>\n              <div class=\"footer register-footer text-center\">\n                  <h6>&copy;{{test | date: 'yyyy'}}, made with PARK HERE TEAM</h6>\n              </div>\n          </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -4508,9 +7226,11 @@ var NewpwComponent = /** @class */ (function () {
         var _this = this;
         this.sub = this.route.params.subscribe(function (params) {
             _this.id = params['token'];
+            _this.type = params['type'];
         });
-        this.service.newpassword(this.id).subscribe(function (res) {
-            // console.log(res);
+        console.log(this.type);
+        this.service.newpassword(this.id, this.type).subscribe(function (res) {
+            console.log(res);
             _this.emai = res['user'];
             _this.reg.email = _this.emai.email;
             console.log(_this.reg.email);
@@ -4520,7 +7240,7 @@ var NewpwComponent = /** @class */ (function () {
     };
     NewpwComponent.prototype.onSubmit = function () {
         var _this = this;
-        this.service.savepassword(this.reg).subscribe(function (res) {
+        this.service.savepassword(this.reg, this.type).subscribe(function (res) {
             console.log(res);
             if (res['sucsess'] == false) {
                 _this.msg = res['message'];
@@ -4559,7 +7279,7 @@ var NewpwComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n  <div class=\"page-header\" style=\"background-image: url('../assets/img/login-image.jpg');\">\n      <div class=\"filter\"></div>\n          <div class=\"container\">\n              <div class=\"row\">\n                      \n                  <div class=\"col-lg-4 col-sm-6 mr-auto ml-auto\">\n                      <div class=\"card card-register\">\n                          <h3 class=\"title\">Reset password</h3>\n\n                          <form #signInForm=\"ngForm\" (ngSubmit)=\"signInForm.valid && onSubmit()\" class=\"register-form\">\n                              <label>Email</label>\n                              <input class=\"form-control\" #email=\"ngModel\" required pattern=\"^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$\" id=\"email\" name=\"email\" type=\"text\" placeholder=\"Email\" [(ngModel)]=\"model.email\">\n                              <div *ngIf=\"email.errors?.pattern\">\n                                  <label class=\"validation-message\">Invalid email address.</label>\n                                </div>\n                               \n                                <ngb-alert *ngIf=\"message\" type=\"Info\"  [dismissible]=\"false\">\n                                      <div style=\"color: blueviolet\" class=\"container\">\n                                          <ng-container>\n                                              <i class=\"nc-icon nc-check-2\"></i>\n                                          </ng-container>\n                                          {{serverErrorMessages}}\n                                          <button type=\"button\" name=\"button\" class=\"close\" (click)=\"closeAlert()\">\n                                              <i class=\"nc-icon nc-simple-remove\"></i>\n                                          </button>\n                                      </div>\n                                  </ngb-alert>\n                              <!-- <button class=\"btn btn-danger btn-block btn-round\">Register</button> -->\n                              <input type=\"submit\" [disabled]=\"!signInForm.valid\" class=\"btn btn-danger btn-block btn-round\" value=\"Sign In\">\n                          </form>\n                         \n                      </div>\n                  </div>\n              </div>\n              <div class=\"footer register-footer text-center\">\n                  <h6>&copy;{{test | date: 'yyyy'}}, made with <i class=\"fa fa-heart heart\"></i> by Creative Tim</h6>\n              </div>\n          </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header\" style=\"background-image: url('../assets/img/8.jpg');\">\n        <div class=\"filter\"></div>\n        <div class=\"container\"> \n            <div class=\"row\">\n\n                <div class=\"col-lg-4 col-sm-6 mr-auto ml-auto\">\n                    <div class=\"card card-register\">\n                        <h3 class=\"title\">Reset password</h3>\n\n                        <form #signInForm=\"ngForm\" (ngSubmit)=\"signInForm.valid && onSubmit()\" class=\"register-form\">\n                            <label>Email</label>\n                            <input class=\"form-control\" #email=\"ngModel\" required pattern=\"^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$\" id=\"email\" name=\"email\" type=\"text\"\n                                placeholder=\"Email\" [(ngModel)]=\"model.email\">\n                            <div *ngIf=\"email.errors?.pattern\">\n                                <label class=\"validation-message\">Invalid email address.</label>\n                            </div>\n\n                            <ngb-alert *ngIf=\"message\" type=\"Info\" [dismissible]=\"false\">\n                                <div style=\"color: blueviolet\" class=\"container\">\n                                    <ng-container>\n                                        <i class=\"nc-icon nc-check-2\"></i>\n                                    </ng-container>\n                                    {{serverErrorMessages}}\n                                    <button type=\"button\" name=\"button\" class=\"close\" (click)=\"closeAlert()\">\n                                        <i class=\"nc-icon nc-simple-remove\"></i>\n                                    </button>\n                                </div>\n                            </ngb-alert>\n\n                            <input type=\"checkbox\" id=\"isKeeper\" name=\"isKeeper\" [(ngModel)]=\"isKeeper\" /> Are you a Keeper\n                            <!-- <button class=\"btn btn-danger btn-block btn-round\">Register</button> -->\n                            <input type=\"submit\" [disabled]=\"!signInForm.valid\" class=\"btn btn-danger btn-block btn-round\" value=\"Sign In\">\n                        </form>\n\n                    </div>\n                </div>\n            </div>\n            <div class=\"footer register-footer text-center\">\n                <h6>&copy;{{test | date: 'yyyy'}}, made with PARK HERE TEAM</h6>\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -4605,13 +7325,28 @@ var ResetpwComponent = /** @class */ (function () {
             email: ''
         };
         this.message = false;
+        this.p = "";
+        //  isKeeper=true;
+        this.isKeeper = false;
     }
     ResetpwComponent.prototype.ngOnInit = function () {
+    };
+    ResetpwComponent.prototype.changtokeeper = function () {
+        if (this.isKeeper)
+            this.isKeeper = false;
+        this.isKeeper = true;
     };
     ResetpwComponent.prototype.onSubmit = function () {
         var _this = this;
         console.log(this.model.email);
-        this.service.rstpw(this.model.email).subscribe(function (res) {
+        var link = '';
+        if (!this.isKeeper) {
+            link = "user";
+        }
+        else if (this.isKeeper) {
+            link = "keeper";
+        }
+        this.service.rstpw(this.model.email, link).subscribe(function (res) {
             _this.message = true;
             _this.serverErrorMessages = res['message'];
             console.log(_this.serverErrorMessages);
@@ -4651,7 +7386,7 @@ var ResetpwComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header\" style=\"background-image: url('./assets/img/login-image.jpg');\">\n        <div class=\"filter\"></div>\n            <div class=\"container\">\n                <div class=\"row\">\n                        \n                    <div class=\"col-lg-4 col-sm-6 mr-auto ml-auto\">\n                        <div class=\"card card-register\">\n                            <h3 class=\"title\">Welcome</h3>\n                            <div class=\"social-line text-center\">\n                                <a href=\"#pablo\" class=\"btn btn-neutral btn-facebook btn-just-icon\">\n                                    <i class=\"fa fa-facebook-square\"></i>\n                                </a>\n                                <a href=\"#pablo\" class=\"btn btn-neutral btn-google btn-just-icon\">\n                                    <i class=\"fa fa-google-plus\"></i>\n                                </a>\n                                <a href=\"#pablo\" class=\"btn btn-neutral btn-twitter btn-just-icon\">\n                                    <i class=\"fa fa-twitter\"></i>\n                                </a>\n                            </div>\n                            <form #signInForm=\"ngForm\" (ngSubmit)=\"signInForm.valid && onSubmit(signInForm)\" class=\"register-form\">\n                                <label>Email</label>\n                                <input class=\"form-control\" #email=\"ngModel\" required pattern=\"^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$\" id=\"email\" name=\"email\" type=\"text\" placeholder=\"Email\" [(ngModel)]=\"model.email\">\n                                <div *ngIf=\"signInForm.submitted && email.errors?.pattern\">\n                                    <label class=\"validation-message\">Invalid email address.</label>\n                                  </div>\n                                  <input class=\"form-control\" #password=\"ngModel\" pattern=\".{6,}\" required id=\"password\" name=\"password\" type=\"password\" placeholder=\"password\" [(ngModel)]=\"model.password\">   \n                                  <div *ngIf=\"signInForm.submitted && password.errors?.minlength\">\n                                    <label class=\"validation-message\">Minimum 4 characters.</label>\n                                  </div>\n                                  <ngb-alert *ngIf=\"message\" type=\"danger\"  [dismissible]=\"false\">\n                                        <div class=\"container\">\n                                            <ng-container>\n                                                <i class=\"nc-icon nc-bell-55\"></i>\n                                            </ng-container>\n                                            {{serverErrorMessages}}\n                                            <button type=\"button\" name=\"button\" class=\"close\" (click)=\"closeAlert()\">\n                                                <i class=\"nc-icon nc-simple-remove\"></i>\n                                            </button>\n                                        </div>\n                                    \n                                    </ngb-alert>\n                                    \n                                      <input type=\"checkbox\" id=\"isKeeper\"name=\"isKeeper\" [(ngModel)]=\"isKeeper\"/> Are you a Keeper\n\n                                <!-- <button class=\"btn btn-danger btn-block btn-round\">Register</button> -->\n                                <input type=\"submit\" class=\"btn btn-danger btn-block btn-round\" value=\"Sign In\">\n                            </form>\n                            <div class=\"forgot\">\n                                <a routerLink=\"/resetpassword\" class=\"btn btn-link btn-danger\">Forgot password?</a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"footer register-footer text-center\">\n                    <h6>&copy;{{test | date: 'yyyy'}}, made with <i class=\"fa fa-heart heart\"></i> by Creative Tim</h6>\n                </div>\n            </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"wrapper\">\n    <div class=\"page-header\" style=\"background-image: url('./assets/img/5.jpg');\">\n        <div class=\"filter\"></div>\n            <div class=\"container\">\n                <div class=\"row\">\n                        \n                    <div class=\"col-lg-4 col-sm-6 mr-auto ml-auto\">\n                        <div class=\"card card-register\">\n                            <h3 class=\"title\">Welcome</h3>\n                            <!-- <div class=\"social-line text-center\">\n                                <a href=\"#pablo\" class=\"btn btn-neutral btn-facebook btn-just-icon\">\n                                    <i class=\"fa fa-facebook-square\"></i>\n                                </a>\n                                <a href=\"#pablo\" class=\"btn btn-neutral btn-google btn-just-icon\">\n                                    <i class=\"fa fa-google-plus\"></i>\n                                </a>\n                                <a href=\"#pablo\" class=\"btn btn-neutral btn-twitter btn-just-icon\">\n                                    <i class=\"fa fa-twitter\"></i>\n                                </a>\n                            </div> -->\n                            <form #signInForm=\"ngForm\" (ngSubmit)=\"signInForm.valid && onSubmit(signInForm)\" class=\"register-form\">\n                                <label>Email</label>\n                                <input class=\"form-control\" #email=\"ngModel\" required pattern=\"^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$\" id=\"email\" name=\"email\" type=\"text\" placeholder=\"Email\" [(ngModel)]=\"model.email\">\n                                <div *ngIf=\"signInForm.submitted && email.errors?.pattern\">\n                                    <label class=\"validation-message\">Invalid email address.</label>\n                                  </div>\n                                  <input class=\"form-control\" #password=\"ngModel\" pattern=\".{6,}\" required id=\"password\" name=\"password\" type=\"password\" placeholder=\"Password\" [(ngModel)]=\"model.password\">   \n                                  <div *ngIf=\"signInForm.submitted && password.errors?.minlength\">\n                                    <label class=\"validation-message\">Minimum 4 characters.</label>\n                                  </div>\n                                  <ngb-alert *ngIf=\"message\" type=\"danger\"  [dismissible]=\"false\">\n                                        <div class=\"container\">\n                                            <ng-container>\n                                                <i class=\"nc-icon nc-bell-55\"></i>\n                                            </ng-container>\n                                            {{serverErrorMessages}}\n                                            <button type=\"button\" name=\"button\" class=\"close\" (click)=\"closeAlert()\">\n                                                <i class=\"nc-icon nc-simple-remove\"></i>\n                                            </button>\n                                        </div>\n                                    \n                                    </ngb-alert>\n                                    \n                                      <input type=\"checkbox\" id=\"isKeeper\"name=\"isKeeper\" [(ngModel)]=\"isKeeper\"/> Are you a Keeper\n\n                                <!-- <button class=\"btn btn-danger btn-block btn-round\">Register</button> -->\n                                <input type=\"submit\" class=\"btn btn-danger btn-block btn-round\" value=\"Sign In\">\n                            </form>\n                            <div class=\"forgot\">\n                                <a routerLink=\"/resetpassword\" class=\"btn btn-link btn-danger\">Forgot password?</a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"footer register-footer text-center\">\n                    <h6>&copy;{{test | date: 'yyyy'}}, made with  Park Here Team</h6>\n                </div>\n            </div>\n    </div>\n</div>\n"
 
 /***/ }),
 

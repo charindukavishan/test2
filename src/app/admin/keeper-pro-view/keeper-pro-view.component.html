@@ -1,0 +1,106 @@
+<div class="wrapper">
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="owner">
+                <div class="avatar">
+                    <img src="{{pic}}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                </div>
+                <!-- <button type="button" class="btn btn-primary btn-just-icon"><i class='fas fa-edit' style='font-size:24px'></i></button> -->
+                <!-- <button type="file" rel="tooltip" ngbTooltip="Edit profile picture" data-placement="bottom" type="button" class="btn btn-primary btn-link"> <i class='fa fa-edit' style='font-size:36px'></i></button>
+                
+                <app-editpropic></app-editpropic> -->
+                <div class="name">
+                    <h2 class="title">{{firstName}} {{lastName}}<br /></h2>
+                   <a routerLink="/admin/sendfile/{{_id}}"><i class='fas fa-archive' style='font-size:36px;color:brown'></i></a> 
+                </div>
+            </div>
+            <div class="row">
+                
+              
+                    
+                      
+            </div>
+            <br/>
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+  
+                  <div class="panel-header panel-header-sm">
+                  </div>
+                  <div class="main-content">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="card">
+                          <div class="card-header">
+                            <h4 class="card-title"> Details</h4>
+                          </div>
+                          <div class="card-body">
+                            
+                              
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="color:black"><b>Park Name:  {{parkName}}</b></li>
+                                  <li class="list-group-item" style="color:black"><b>Number of total slots:  {{numberOfSlots}}</b></li>
+                                  <li class="list-group-item"  style="color:black"><b>Open Hours:  {{openHours}} </b></li>
+                                  <li class="list-group-item"  style="color:black"><b><a href="{{docUrl}}">Park document</a> </b></li>
+                                </ul>
+                                
+                                <br>
+                                <br>
+                                <br>
+                                
+                                <table class="table">
+                                  <thead class="thead-dark">
+                                  
+                                    <tr>
+                                      <th scope="col">Vehicle Type</th>
+                                      <th scope="col">Number of slots allocated</th>
+                                      <th scope="col">Charge per one hour</th>
+                                      
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row" style="color:black">Cars and Vans</th>
+                                      <td>{{alocatedSlots1}}</td>
+                                      <td>{{hourCharge1}}</td>
+                                     
+                                    </tr>
+                                    <tr>
+                                      <th scope="row" style="color:blue">Bikes</th>
+                                      <td>{{alocatedSlots2}}</td>
+                                      <td>{{hourCharge2}}</td>
+                                      
+                                    </tr>
+                                    <tr>
+                                      <th scope="row" style="color:red">Lorries and Buses</th>
+                                      <td>{{alocatedSlots3}}</td>
+                                      <td>{{hourCharge3}}</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row" style="color:green">Three Wheelers</th>
+                                      <td>{{alocatedSlots4}}</td>
+                                      <td>{{hourCharge4}}</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row" style="color:yellow">Long Vehicles</th>
+                                      <td>{{alocatedSlots5}}</td>
+                                      <td>{{hourCharge5}}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                            
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
