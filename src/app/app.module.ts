@@ -64,6 +64,11 @@ import { KeeperPicComponent } from './parkkeeper/keeper-pic/keeper-pic.component
 import { KeeperProViewComponent } from './admin/keeper-pro-view/keeper-pro-view.component';
 import { BookingsComponent } from './parkkeeper/bookings/bookings.component';
 import { BookinghistoryComponent } from './parkkeeper/bookinghistory/bookinghistory.component';
+import { KeepereditComponent } from './parkkeeper/keeperedit/keeperedit.component';
+import { ReportedComponent } from './admin/reported/reported.component';
+import { AddadminComponent } from './admin/addadmin/addadmin.component';
+import { ProgressComponent } from './profile/progress/progress.component';
+import { DocumentsuploadComponent } from './profile/documentsupload/documentsupload.component';
  
 @NgModule({
   declarations: [
@@ -111,7 +116,12 @@ import { BookinghistoryComponent } from './parkkeeper/bookinghistory/bookinghist
     KeeperPicComponent,
     KeeperProViewComponent,
     BookingsComponent,
-    BookinghistoryComponent
+    BookinghistoryComponent,
+    KeepereditComponent,
+    ReportedComponent,
+    AddadminComponent,
+    ProgressComponent,
+    DocumentsuploadComponent
   ],
   imports: [
     BrowserModule,

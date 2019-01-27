@@ -44,7 +44,7 @@ export class KeepersComponent implements OnInit {
     this.service.acceptpark(id).subscribe(response => {
       this.ngOnInit();
     });
-    
+     
   }
 ownerpro(id){
 
@@ -55,6 +55,13 @@ parkPro(id){
 }
 profile(id){console.log(id)
   this.router.navigateByUrl('owner/'+id);
+}
+
+reject(id){
+
+  this.service.reject(id).subscribe(response => {
+    this.ngOnInit();
+  });
 }
  
 

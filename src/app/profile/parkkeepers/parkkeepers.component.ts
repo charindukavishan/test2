@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegserviceService } from '../../servers/regservice.service';
 import decode from 'jwt-decode';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-parkkeepers',
   templateUrl: './parkkeepers.component.html',
@@ -8,7 +9,7 @@ import decode from 'jwt-decode';
 })
 export class ParkkeepersComponent implements OnInit {
 
-  constructor(public service: RegserviceService) { }
+  constructor(public service: RegserviceService,public router:Router) { }
   private kepers;
   private keepers = [];
   res;
@@ -52,5 +53,8 @@ export class ParkkeepersComponent implements OnInit {
       this.ngOnInit();
     });
   }
-
+  parkPro(id){
+    console.log(id)
+    this.router.navigateByUrl('park/'+id);
+  }
 }

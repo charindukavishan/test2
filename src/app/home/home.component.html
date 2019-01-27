@@ -5,8 +5,10 @@
             <div class="container">
                 <div class="title-brand">
                     <!-- <div class="angular-logo">
-                        <img src="assets/img/parkhere.png" alt="">
+                        
+                        
                     </div> -->
+                    <!-- <img style="width: 300px" src="../../assets/img/WebNew.png" alt=""> -->
                     <h1 class="presentation-title">PARK HERE</h1>
                     <!-- <div class="fog-low">
                         <img src="assets/img/fog-low.png" alt="">
@@ -34,7 +36,7 @@
                     <h2 class="title">Welcome to PARK HERE</h2>
                     <h5 class="description" style="color:black">Parking your vehicle is a problem for you? It won't be an issue anymore with <strong>PARK HERE</strong>. Feel the best parking experience with the relaiable security ever.</h5>
                     <br>
-                    <a href="#paper-kit" class="btn btn-danger btn-round">See Details</a>
+                    <a href="#paper-kit" class="btn btn-danger btn-round">About Us</a>
                 </div>
             </div>
             <br/><br/>
@@ -47,7 +49,7 @@
                         <div class="description">
                             <h4 class="info-title"><b>Innovative Parking Solutions</b></h4>
                             <p class="description" style="color:black">Provides advanced parkings services to drives in island wide.</p>
-                            <a href="#pkp" class="btn btn-link btn-danger">See more</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -59,7 +61,7 @@
                         <div class="description">
                             <h4 class="info-title"><b>Easy Park Mobile</b></h4>
                             <p style="color:black">The most innovative parking pay by phone solution</p>
-                            <a href="#pkp" class="btn btn-link btn-danger">See more</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -71,7 +73,7 @@
                         <div class="description">
                             <h4 class="info-title"><b>User friendly, easy to operate</b></h4>
                             <p style="color:black">Pay for exact time parked with cash or card.</p>
-                            <a href="#pkp" class="btn btn-link btn-danger">See more</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -83,7 +85,7 @@
                         <div class="description">
                             <h4 class="info-title"><b>Increase Your Parking Operations net Revenues</b> </h4>
                             <p style="color:black">Higher net income and happier customers !</p>
-                            <a href="#pkp" class="btn btn-link btn-danger">See more</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -101,9 +103,24 @@
               Google Maps
             </div>
             <div class="card-body ">
-                <agm-map [latitude]="lat" [longitude]="lng">
-                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                  </agm-map>
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                            <!-- <agm-direction
+                              *ngIf="destination.lat !== null"
+                              [origin]="{ lat: lat, lng: lng }"
+                              [destination]="destination"
+                            >
+                            </agm-direction> -->
+                
+                            <!-- <agm-marker
+                            *ngIf="destination.lat === null"
+                            [latitude]="lat"
+                            [longitude]="lng"
+                          ></agm-marker> -->
+                          <agm-marker ng-click="click()" *ngFor="let keeper of keepers"
+                            [latitude]=" keeper.lat"
+                            [longitude]=" keeper.lng"
+                          ></agm-marker>
+                          </agm-map> 
             </div>
           </div>
         </div>
@@ -164,7 +181,7 @@
                 <div class="col-md-4">
                     <div class="card card-profile card-plain">
                         <div class="card-avatar">
-                            <a href="#avatar"><img src="./assets/img/faces/thari.jpg" alt="..."></a>
+                            <a href="#avatar"><img src="./assets/img/faces/thari1.jpg" alt="..."></a>
                         </div>
                         <div class="card-block">
                             <a href="#paper-kit">
@@ -248,15 +265,15 @@
                 <div class="row">
                     <div class="col-md-8 mr-auto ml-auto">
                         <h2 class="text-center">Keep in touch?</h2>
-                        <form class="contact-form">
+                        <form #form="ngForm" class="contact-form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Name</label>
-                                    <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+                                    <div class="input-group" #name="ngModel" [(ngModel)]="send.name" >
                                         <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Name" (focus)="focus=true" (blur)="focus=false" >
+                                        <input type="text"  class="form-control" placeholder="Name"  >
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -265,15 +282,15 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">  <i class="nc-icon nc-email-85"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Email" (focus)="focus1=true" (blur)="focus1=false" >
+                                        <input type="text" #email="ngModel" [(ngModel)]="email" class="form-control" placeholder="Email" >
                                     </div>
                                 </div>
                             </div>
                             <label>Message</label>
-                            <textarea class="form-control" rows="4" placeholder="Tell us your thoughts and feelings..."></textarea>
+                            <textarea class="form-control" #message="ngModel" [(ngModel)]="send.message" rows="4" placeholder="Tell us your thoughts and feelings..."></textarea>
                             <div class="row">
                                 <div class="col-md-4 mr-auto ml-auto">
-                                    <button class="btn btn-danger btn-lg btn-fill">Send Message</button>
+                                    <button (click)="sendmessage()" class="btn btn-danger btn-lg btn-fill">Send Message</button>
                                 </div>
                             </div>
                         </form>

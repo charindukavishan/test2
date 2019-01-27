@@ -21,6 +21,9 @@ export class RegserviceService {
    regkeeper(details,id){
     return this.http.post(this.url+'/regkeeper/'+id,details,this.noAuthHeader);
    }
+   editkeeper(details,id){
+    return this.http.post(this.url+'/editkeeper/'+id,details,this.noAuthHeader);
+   }
 
    login(authCredentials,p) {
      console.log(authCredentials); 
@@ -39,6 +42,10 @@ export class RegserviceService {
    getKeeperProfile() {
     return this.http.get(this.url + '/keeperProfile');
   }
+  release(data){
+    return this.http.post(this.url+'/releaseslot',data);
+  }
+
   getowner(id) {
     return this.http.get(this.url + '/userProfile/'+id);
   }
@@ -55,6 +62,13 @@ export class RegserviceService {
   getnewkeepers() {
     return this.http.get(this.url+'/getnewkeepers');
   }
+
+  reported() {
+    return this.http.get(this.url+'/reported');
+  }
+  allkeepers(){
+    return this.http.get(this.url+'/allkeepers')
+  }
   getowners(){
     return this.http.get(this.url+'/getowners');
   }
@@ -62,13 +76,13 @@ export class RegserviceService {
    edit(form,id){console.log(form)
     return this.http.put(this.url+'/editpro/'+id,form);
    }
- rstpw(email){
-   return this.http.get(this.url+'/rstpw/'+email);
+ rstpw(email,link){
+   return this.http.get(this.url+'/rstpw/'+link+'/'+email);
  }
 
- newpassword(token){
-   
-   return this.http.get(this.url+'/resetpassword/'+token);
+ newpassword(token,type){
+    
+   return this.http.get(this.url+'/resetpassword/'+type+'/'+token);
 
  }
  keeperstate(state,id){
@@ -77,8 +91,12 @@ export class RegserviceService {
 acceptpark(id){console.log(id)
   return this.http.get(this.url+'/acceptpark/'+id);
 }
- savepassword(password){
-   return this.http.put(this.url+'/savepassword',password);
+
+reject(id){console.log(id)
+  return this.http.get(this.url+'/reject/'+id);
+}
+ savepassword(password,type){
+   return this.http.put(this.url+'/savepassword/'+type,password);
  }
    //Helper Methods
  

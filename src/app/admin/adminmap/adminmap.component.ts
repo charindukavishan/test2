@@ -8,13 +8,15 @@ import {
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AgmCoreModule } from "@agm/core";
-import { google } from '@google/maps';
+
 import { MapsAPILoader, AgmMap } from "@agm/core";
 import { GoogleMapsAPIWrapper } from "@agm/core/services";
 import { AgmDirectionModule } from "agm-direction";
 import { FormControl } from "@angular/forms";
-//import { } from 'googlemaps';
+import { RegserviceService } from "../../servers/regservice.service";
+import decode from 'jwt-decode';
 declare var google: any;
+import { google } from '@google/maps';
 
 @Component({
   selector: 'app-adminmap',
@@ -28,18 +30,21 @@ export class AdminmapComponent implements OnInit {
   origin = { lat: this.lat, lng: this.lng };
   destination = { lat: null, lng: null };
   // public searchControl: FormControl;
-public searchControl:FormControl
+  public searchControl: FormControl
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {}
-
+  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, public service: RegserviceService) { }
+  private kepers;
+  private keepers = [];
+  res;
+  class; 
   ngOnInit() {
     navigator.geolocation.getCurrentPosition(
       position => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
-        this.zoom = 10;
+        this.zoom = 8;
         console.log(this.lat, this.lng);
       },
       err => console.log(err)
@@ -70,6 +75,36 @@ public searchControl:FormControl
         });
       });
     });
+ 
+
+    this.service.allkeepers().subscribe(response => {
+    this.kepers = response;
+      this.res = this.kepers.length;
+      for (let i = 0; i < this.kepers.length; i++) {
+
+        if (this.kepers[i].state == "open") {
+          this.class = "btn btn-danger btn-round";
+          this.kepers[i].state = "close";
+        }
+        else {
+          this.class = "btn btn-warning btn-round"
+          this.kepers[i].state = "open";
+        }
+        this.keepers[i] = {
+          id: this.kepers[i]._id,
+          name: this.kepers[i].name,
+          class: this.class,
+          isactivate: this.kepers[i].isactivate,
+          state: this.kepers[i].state,
+          lat: this.kepers[i].lat,
+          lng: this.kepers[i].lng,
+          // time:response[i].state,
+        };
+      }
+    });
+
+
+
   }
   // calculateDuration() {
   //   var directionsService = new google.maps.DirectionsService();
@@ -111,5 +146,8 @@ public searchControl:FormControl
     );
     console.log(distance);
     document.getElementById("distance").innerHTML = distance / 1000 + "km";
+  }
+  click() {
+    console.log('click')
   }
 }

@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div class="page-header" style="background-image: url('./assets/img/login-image.jpg');">
+    <div class="page-header" style="background-image: url('./assets/img/5.jpg');">
         <div class="filter"></div>
             <div class="container">
                 <div class="row">
@@ -7,7 +7,7 @@
                     <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
                         <div class="card card-register">
                             <h3 class="title">Welcome</h3>
-                            <div class="social-line text-center">
+                            <!-- <div class="social-line text-center">
                                 <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
                                     <i class="fa fa-facebook-square"></i>
                                 </a>
@@ -17,14 +17,14 @@
                                 <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
                                     <i class="fa fa-twitter"></i>
                                 </a>
-                            </div>
+                            </div> -->
                             <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)" class="register-form">
                                 <label>Email</label>
                                 <input class="form-control" #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" name="email" type="text" placeholder="Email" [(ngModel)]="model.email">
                                 <div *ngIf="signInForm.submitted && email.errors?.pattern">
                                     <label class="validation-message">Invalid email address.</label>
                                   </div>
-                                  <input class="form-control" #password="ngModel" pattern=".{6,}" required id="password" name="password" type="password" placeholder="password" [(ngModel)]="model.password">   
+                                  <input class="form-control" #password="ngModel" pattern=".{6,}" required id="password" name="password" type="password" placeholder="Password" [(ngModel)]="model.password">   
                                   <div *ngIf="signInForm.submitted && password.errors?.minlength">
                                     <label class="validation-message">Minimum 4 characters.</label>
                                   </div>

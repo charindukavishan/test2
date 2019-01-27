@@ -16,6 +16,7 @@ import { ReceiveComponent } from './profile/receive/receive.component';
 import { ParkkeepersComponent } from './profile/parkkeepers/parkkeepers.component';
 import { MapComponent } from './profile/map/map.component';
 import { EditpropicComponent } from './profile/editpropic/editpropic.component';
+import { ProgressComponent } from './profile/progress/progress.component';
 import { ProfileeditComponent } from './profile/profileedit/profileedit.component';
 import { KeeperregComponent } from './parkkeeper/keeperreg/keeperreg.component';
 import { AdminComponent } from './admin/admin.component';
@@ -42,6 +43,10 @@ import { LongVehicleComponent } from './parkkeeper/parkingslot/long-vehicle/long
 import { KeeperProViewComponent } from './admin/keeper-pro-view/keeper-pro-view.component';
 import { BookingsComponent } from './parkkeeper/bookings/bookings.component';
 import { BookinghistoryComponent } from './parkkeeper/bookinghistory/bookinghistory.component';
+import { AboutComponent } from './home/about/about.component';
+import { KeepereditComponent } from './parkkeeper/keeperedit/keeperedit.component';
+import { ReportedComponent } from './admin/reported/reported.component';
+import { AddadminComponent } from './admin/addadmin/addadmin.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
@@ -52,6 +57,7 @@ const routes: Routes =[
       {path:'details', component:DetailsComponent},
       {path:'slot', component:ParkingslotComponent},
       {path:'car', component:CarComponent},
+      {path: 'edit', component: KeepereditComponent},
       {path:'bike', component:BikeComponent},
       {path:'lorry', component:LorryComponent},
       {path:'weel', component:WeelComponent},
@@ -73,8 +79,10 @@ const routes: Routes =[
       { path: 'myparks',      component: ParkkeepersComponent },
       { path: 'map',      component: MapComponent },
       { path: 'pic',      component:EditpropicComponent },
+      { path: 'progress',      component:ProgressComponent },
       { path: 'regkeeper',      component:KeeperregComponent },
       { path: 'keeper',           component: KeeperprofileComponent },
+      
       { path: '',   redirectTo: 'userHome', pathMatch: 'full' },
  
     ]
@@ -83,9 +91,11 @@ const routes: Routes =[
       expectedRole: 'admin'
     } ,children:[
       {path: 'edit', component:ProfileeditadminComponent},
+      {path: 'addadmin', component:AddadminComponent},
       { path: 'map',      component:AdminmapComponent },
       { path: 'newparks',      component:KeepersComponent},
       {path: 'owners', component:OwnersComponent},
+      {path: 'reported', component:ReportedComponent},
       {path: 'sendfile/:id', component:AdminuploadComponent},
 
       {path: 'messages', component:AdminreceiveComponent},
@@ -100,8 +110,9 @@ const routes: Routes =[
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'signin',      component: SigninComponent },
     { path: 'slot',      component: ParkingslotComponent },
-    { path: 'reset/:token',      component: NewpwComponent },
-    
+    { path: 'newpassword/:token/:type',      component: NewpwComponent },
+    // { path: 'newpassword/:token',      component: NewpwComponent },
+    {path:'about', component:AboutComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     // { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

@@ -17,14 +17,18 @@ export class NewpwComponent implements OnInit {
 serverErrorMessages;
 constructor(private service: RegserviceService, private router: Router,private route: ActivatedRoute) { }
 private id: String;
+private type:String
  private sub: any;
 emai;
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.id = params['token'];});
-    this.service.newpassword(this.id).subscribe( 
+      this.id = params['token'];
+    this.type=params['type'];
+    });
+    console.log(this.type)
+    this.service.newpassword(this.id,this.type).subscribe( 
       res => {
-       // console.log(res);
+       console.log(res);
         this.emai=res['user'];
         this.reg.email=this.emai.email;
         console.log(this.reg.email);
@@ -37,7 +41,7 @@ emai;
   }
   msg;
   onSubmit(){
-    this.service.savepassword(this.reg).subscribe(
+    this.service.savepassword(this.reg,this.type).subscribe(
       res => {
         console.log(res);
         if(res['sucsess']==false){

@@ -1,26 +1,28 @@
 <div class="wrapper">
-    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/black1.jpg');">
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/12.jpg');">
         <div class="filter"></div>
     </div>
     <div class="section profile-content">
         <div class="container">
             <div class="owner">
-                    <div class="avatar">
-                            <img src="{{pic}}" alt="Circle Image" class="img-thumbnail img-responsive">
-                        </div>
-                        <!-- <button type="button" class="btn btn-primary btn-just-icon"><i class='fas fa-edit' style='font-size:24px'></i></button> -->
-                        <button type="file" rel="tooltip" (click)="editpic()" ngbTooltip="Edit profile picture" data-placement="bottom" type="button"
-                            class="btn btn-primary btn-link">
-                            <i class='fa fa-edit' style='font-size:36px'></i>
-                        </button>
-                        <div *ngIf="editpi">
-                            <app-admin-pic></app-admin-pic>
-                        </div>
+                <div class="avatar">
+                    <img src="{{pic}}" alt="Circle Image" class="img-thumbnail img-responsive">
+                </div>
+                <!-- <button type="button" class="btn btn-primary btn-just-icon"><i class='fas fa-edit' style='font-size:24px'></i></button> -->
+                <button type="file" rel="tooltip" (click)="editpic()" ngbTooltip="Edit profile picture" data-placement="bottom" type="button"
+                    class="btn btn-primary btn-link">
+                    <i class='fa fa-edit' style='font-size:36px'></i>
+                </button>
+                <div *ngIf="editpi">
+                    <app-admin-pic></app-admin-pic>
+                </div>
                 <!-- <button type="button" class="btn btn-primary btn-just-icon"><i class='fas fa-edit' style='font-size:24px'></i></button> -->
                 <!-- <button type="file" rel="tooltip" ngbTooltip="Edit profile picture" data-placement="bottom" type="button" class="btn btn-primary btn-link"> <i class='fa fa-edit' style='font-size:36px'></i></button> -->
-                <h2 class="title">{{userDetails.firstName}} {{userDetails.lastName}}<br /></h2>
-                    
-                
+                <h2 class="title">{{userDetails.firstName}} {{userDetails.lastName}}
+                    <br />
+                </h2>
+
+
                 <!-- <app-editpropic></app-editpropic> -->
                 <!-- <div class="name">
                     <h2 class="title">{{userDetails.firstName}} {{userDetails.lastName}}<br /></h2>
@@ -29,44 +31,39 @@
             </div>
             <div class="row">
                 <div *ngIf="ishome()" class="ml-auto mr-auto text-center">
-                    
-                    <a routerLink="/admin/owners"> <button class="btn btn-outline-default btn-round"><i class="nc-icon nc-single-02" style="font-size:20px;"></i> Park owners</button></a>
+
+                    <a routerLink="/admin/owners">
+                        <button class="btn btn-outline-default btn-round">
+                            <i class="nc-icon nc-single-02" style="font-size:20px;"></i> Park owners</button>
+                    </a>
                 </div>
-                <div  *ngIf="ishome()" class="ml-auto mr-auto text-center">
-                    
-                       <a routerLink="/admin/newparks"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-bank" style="font-size:20px;"></i> New parks</button></a> 
-                    </div>
-                    <div  *ngIf="ishome()" class="ml-auto mr-auto text-center">
-                    
-                            <a routerLink="/admin/map"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-pin-3" style="font-size:20px;"></i> Map</button></a> 
-                         </div>
-                         <div  *ngIf="ishome()" class="ml-auto mr-auto text-center">
-                    
-                                <a routerLink="/admin/pic"><button  class="btn btn-outline-danger btn-round"><i class="fa fa-wheelchair-alt" style="font-size:20px;"></i>   Low ratings</button></a> 
-                             </div>
-                             <div  *ngIf="ishome()" class="ml-auto mr-auto text-center">
-                    
-                                    <a routerLink="/admin/myparks"><button  class="btn btn-outline-default btn-round"><i class="nc-icon nc-simple-add"></i> My Parks</button></a> 
-                                 </div>
+                <div *ngIf="ishome()" class="ml-auto mr-auto text-center">
+
+                    <a routerLink="/admin/newparks">
+                        <button class="btn btn-outline-default btn-round">
+                            <i class="nc-icon nc-bank" style="font-size:20px;"></i> New parks</button>
+                    </a>
+                </div>
+                <div *ngIf="ishome()" class="ml-auto mr-auto text-center">
+
+                    <a routerLink="/admin/map">
+                        <button class="btn btn-outline-default btn-round">
+                            <i class="nc-icon nc-pin-3" style="font-size:20px;"></i> Map</button>
+                    </a>
+                </div>
+                <div *ngIf="ishome()" class="ml-auto mr-auto text-center">
+
+                    <a routerLink="/admin/reported">
+                        <button class="btn btn-outline-danger btn-round">
+                            <i class="fa fa-wheelchair-alt" style="font-size:20px;"></i>Reported parks</button>
+                    </a>
+                </div>
+
             </div>
             <br/>
             <div class="nav-tabs-navigation">
                 <div class="nav-tabs-wrapper">
-
-                    
-                        <!-- <ngb-tab routerLink="/userprofile/userHome" title="Send">
-                            <ng-template ngbTabContent >
-                                
-                                    <router-outlet></router-outlet>
-                                    </ng-template>
-                        </ngb-tab>
-                        <ngb-tab routerLink="/userprofile/gallery" title="Receive">
-                            <ng-template ngbTabContent>
-                                <router-outlet></router-outlet>
-                            </ng-template>
-                        </ngb-tab> -->
-
-                        <router-outlet></router-outlet>
+                    <router-outlet></router-outlet>
                 </div>
             </div>
         </div>

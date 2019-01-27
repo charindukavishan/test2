@@ -1,4 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    NgZone,
+    OnInit,
+    ViewChild
+  } from "@angular/core";
+  import { BrowserModule } from "@angular/platform-browser";
+  import { NgModule } from "@angular/core";
+  import { AgmCoreModule } from "@agm/core";
+  
+  import { MapsAPILoader, AgmMap } from "@agm/core";
+  import { GoogleMapsAPIWrapper } from "@agm/core/services";
+  import { AgmDirectionModule } from "agm-direction";
+  import { FormControl } from "@angular/forms";
+import decode from 'jwt-decode';
+import { RegserviceService } from "../servers/regservice.service";
+declare var google: any;
+import { google } from '@google/maps';
 
 @Component({
     selector: 'app-home',
@@ -8,239 +26,148 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeComponent implements OnInit {
 
-
-    details={
-        "_id": {
-            "$oid": "5c457304c13afb0b8c57a784"
-        },
-        "type1": [
-            {
-                "isBook": false,
-                "slotNumber": 1,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 2,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 4,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 3,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 5,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            }
-        ],
-        "type2": [
-            {
-                "isBook": false,
-                "slotNumber": 1,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 2,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 3,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 5,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 4,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 6,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 7,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            }
-        ],
-        "type3": [
-            {
-                "isBook": false,
-                "slotNumber": 1,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            }
-        ],
-        "type4": [
-            {
-                "isBook": false,
-                "slotNumber": 1,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 2,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            }
-        ],
-        "type5": [
-            {
-                "isBook": false,
-                "slotNumber": 1,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 2,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            },
-            {
-                "isBook": false,
-                "slotNumber": 3,
-                "name": "",
-                "nic": "",
-                "email": "",
-                "parkedAt": "",
-                "leavAt": "",
-                "isLeav": true
-            }
-        ],
-        "role": "keeper",
-        "isactivate": "yes",
-        "state": "open",
-        "name": "kottawa",
-        "email": "kottawa@gmail.com",
-        "username": "park2",
-        "password": "$2a$10$oMA5Z2K12FK3q0ZSyanyyOVTIsGfuQnM8TKrsuxmJTzD0e2oqNtv2",
-        "mobileNum": "65464532",
-        "NICnumber": "531",
-        "parkName": "park2",
-        "numberOfSlots": 55,
-        "openHours": "6am-8pm",
-        "alocatedSlots1": 5,
-        "hourCharge1": "9",
-        "alocatedSlots2": 7,
-        "hourCharge2": "5",
-        "alocatedSlots3": 1,
-        "hourCharge3": "2",
-        "alocatedSlots4": 2,
-        "hourCharge4": "6",
-        "alocatedSlots5": 3,
-        "hourCharge5": "55",
-        "MaximumWeight": "66",
-        "MaximumHeight": "55",
-        "lat": 6.841165,
-        "lng": 79.965431,
-        "ownerid": "5c4560b18518b626901a8c24",
-        "__v": 0
-    }
     model = {
         left: true,
         middle: false,
         right: false
     };
-    constructor() { }
+    lat: number = null;
+    lng: number = null;
+    zoom: number = 4;
+    origin = { lat: this.lat, lng: this.lng };
+    destination = { lat: null, lng: null };
+    // public searchControl: FormControl;
+    public searchControl: FormControl
+    @ViewChild("search")
+    public searchElementRef: ElementRef;
+  
+    constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, public service: RegserviceService) { }
+    private kepers;
+    private keepers = [];
+    res;
+    class; 
+    
+email:''
+name:''
+message:''
+    
 
-    ngOnInit() {}
-    title: string = 'My first AGM project';
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+    focus: any;
+  focus1: any;
+    ngOnInit() {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          this.lat = position.coords.latitude;
+          this.lng = position.coords.longitude;
+          this.zoom = 8;
+          console.log(this.lat, this.lng);
+        },
+        err => console.log(err)
+      );
+      this.searchControl = new FormControl();
+      this.mapsAPILoader.load().then(() => {
+        let autocomplete = new google.maps.places.Autocomplete(
+          this.searchElementRef.nativeElement,
+          {
+            types: [],
+            componentRestrictions: { country: "LK" }
+          }
+        );
+        autocomplete.addListener("place_changed", () => {
+          this.ngZone.run(() => {
+            //get the place result
+            let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+  
+            //verify result
+            if (place.geometry === undefined || place.geometry === null) {
+              return;
+            }
+  
+            //set latitude, longitude and zoom
+            this.destination.lat = place.geometry.location.lat();
+            this.destination.lng = place.geometry.location.lng();
+            console.log(this.destination);
+          });
+        });
+      });
+  
+      const token = this.service.getToken();
+      const tokenPayload = decode(token);
+      this.service.allkeepers().subscribe(response => {console.log(response)
+      this.kepers = response;
+        this.res = this.kepers.length;
+        for (let i = 0; i < this.kepers.length; i++) {
+  
+          if (this.kepers[i].state == "open") {
+            this.class = "btn btn-danger btn-round";
+            this.kepers[i].state = "close";
+          }
+          else {
+            this.class = "btn btn-warning btn-round"
+            this.kepers[i].state = "open";
+          }
+          this.keepers[i] = {
+            id: this.kepers[i]._id,
+            name: this.kepers[i].name,
+            class: this.class,
+            isactivate: this.kepers[i].isactivate,
+            state: this.kepers[i].state,
+            lat: this.kepers[i].lat,
+            lng: this.kepers[i].lng,
+            // time:response[i].state,
+          };
+        }
+      });
+  
+  
+  
+    }
+    // calculateDuration() {
+    //   var directionsService = new google.maps.DirectionsService();
+    //   var directionsDisplay = new google.maps.DirectionsRenderer();
+    //   var mapOptions = {
+    //     zoom: 15,
+    //     center: this.origin
+    //   };
+    //   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    //   directionsDisplay.setMap(map);
+    //   var request = {
+    //     origin: this.origin,
+    //     destination: this.destination,
+    //     travelMode: "DRIVING"
+    //   };
+    //   directionsService.route(request, function(response, status) {
+    //     console.log(response);
+    //     // var point = response.routes[0].legs[0];
+    //     // if (status == "OK") {
+    //     //   document.getElementById("point").innerHTML =
+    //     //     point + point.duration.text + " km";
+    //     // }
+    //   });
+    // }
+  
+    // calculateDuration() {
+    //   var duration = google.maps.geometry.duration(
+    //     new google.maps.LatLng(this.lat, this.lng),
+    //     new google.maps.LatLng(this.destination.lat, this.destination.lng)
+    //   );
+    //   document.getElementById("duration").innerHTML = duration / 1000 + "S";
+    // }
+  
+    calculateDistance() {
+      // console.log(google.maps.geometry.spherical.computeDurationBetween());
+      var distance = google.maps.geometry.spherical.computeDistanceBetween(
+        new google.maps.LatLng(this.lat, this.lng),
+        new google.maps.LatLng(this.destination.lat, this.destination.lng)
+      );
+      console.log(distance);
+      document.getElementById("distance").innerHTML = distance / 1000 + "km";
+    }
+    click() {
+      console.log('click')
+    }
+sendmessage(){
+  console.log(this.email)
+}
+
 }

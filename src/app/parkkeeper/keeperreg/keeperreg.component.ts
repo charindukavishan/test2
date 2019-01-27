@@ -5,8 +5,12 @@ import decode from 'jwt-decode';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
 import { google } from '@google/maps';
-import {FlashMessagesService} from 'angular2-flash-messages';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { ValidateService } from '../../servers/validate.service';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
+
 declare var google: any;
 @Component({
   selector: 'app-keeperreg',
@@ -16,52 +20,47 @@ declare var google: any;
 
 
 export class KeeperregComponent implements OnInit {
+  model = {
+    url: "",
+    PicUrl: ""
 
+  }
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  downloadURL: Observable<string>;
+  profileUrl: Observable<string>;
   constructor(private validateService: ValidateService,
-    private flashMessage:FlashMessagesService,public service: RegserviceService, public router: Router, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }
-  // reg={
-  //   firstName:'',
-  //   lastName : '',
-  //   email:'',
-  //   address:'',
-  //   city:'',
-  //   country:'',
-  //   zip: '',
-  //   nic:'',
-  //   password:'',
-  //   confirmPassword:'',
-  //   lat:'',
-  //   lng:'',
-  //   role:'keeper'
-  // }
-  name:String;
-  username:String;
-  email:String;
-  password:String;
+    private flashMessage: FlashMessagesService, public service: RegserviceService, public router: Router, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private afStorage: AngularFireStorage) { }
+
+  name: String;
+  username: String;
+  email: String;
+  password: String;
   mobileNum: String;
-  NICnumber:String;
+  NICnumber: String;
   parkName: String;
-  numberOfSlots:Number;
-  openHours:String;
-  alocatedSlots1:Number;
-  hourCharge1:String;
-  alocatedSlots2:Number;
-  hourCharge2:String;
-  alocatedSlots3:Number;
-  hourCharge3:String;
-  alocatedSlots4:Number;
-  hourCharge4:String;
-  alocatedSlots5:Number;
-  hourCharge5:String;
-  MaximumWeight:String;
-  MaximumHeight:String;
-  lat:String;
-  lng:String;
-  city:String;
-  country:String;
-  confirmPassword:String;
-  zip:String;
-  address:String
+  numberOfSlots: Number;
+  openHours: String;
+  alocatedSlots1: Number;
+  hourCharge1: String;
+  alocatedSlots2: Number;
+  hourCharge2: String;
+  alocatedSlots3: Number;
+  hourCharge3: String;
+  alocatedSlots4: Number;
+  hourCharge4: String;
+  alocatedSlots5: Number;
+  hourCharge5: String;
+  MaximumWeight: String;
+  MaximumHeight: String;
+  lat: String;
+  lng: String;
+  city: String;
+  country: String;
+  confirmPassword: String;
+  zip: String;
+  address: String
+  docUrl: String
 
 
   iserror: boolean = false;
@@ -110,8 +109,7 @@ export class KeeperregComponent implements OnInit {
     });
   }
   register() {
-console.log('skjfgnfsfnkagjb')
-    const user={
+    const user = {
       name: this.name,
       email: this.email,
       username: this.username,
@@ -119,7 +117,7 @@ console.log('skjfgnfsfnkagjb')
       mobileNum: this.mobileNum,
       NICnumber: this.NICnumber,
       parkName: this.parkName,
-      numberOfSlots:this.numberOfSlots,
+      numberOfSlots: this.numberOfSlots,
       openHours: this.openHours,
       alocatedSlots1: this.alocatedSlots1,
       hourCharge1: this.hourCharge1,
@@ -131,28 +129,29 @@ console.log('skjfgnfsfnkagjb')
       hourCharge4: this.hourCharge4,
       alocatedSlots5: this.alocatedSlots5,
       hourCharge5: this.hourCharge5,
-      MaximumWeight:this.MaximumWeight,
+      MaximumWeight: this.MaximumWeight,
       MaximumHeight: this.MaximumHeight,
-      role:"keeper",
-      lat:this.lat,
-      lng:this.lng
+      role: "keeper",
+      lat: this.lat,
+      lng: this.lng,
+      docUrl: this.docUrl
     }
-console.log(user)
-if(!this.validateService. validateRegister(user)){
-  this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});
-  return false;
+    console.log(user)
+    if (!this.validateService.validateRegister(user)) {
+      this.flashMessage.show('Please fill in all fields', { cssClass: 'alert-danger', timeout: 3000 });
+      return false;
 
-}
+    }
 
 
 
-///Validate Email
-if(!this.validateService.validateEmail(user.email)){
- 
-  this.flashMessage.show('Please use a valid email', {cssClass: 'alert-danger', timeout: 3000});
-  return false;
+    ///Validate Email
+    if (!this.validateService.validateEmail(user.email)) {
 
-}
+      this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
+      return false;
+
+    }
     const token = this.service.getToken();
     const tokenPayload = decode(token);
     this.service.regkeeper(user, tokenPayload._id)
@@ -182,5 +181,31 @@ if(!this.validateService.validateEmail(user.email)){
 
   public closeAlert() {
     this.iserror = false;
+  }
+
+  id = '';
+  upload(event) {
+    const id = Math.random().toString(36).substring(2);
+    this.ref = this.afStorage.ref(id);
+    this.task = this.ref.put(event.target.files[0]);
+    this.task.snapshotChanges().pipe(
+      finalize(() => this.downloadURL = this.ref.getDownloadURL())
+    )
+      .subscribe(
+      );
+    this.task.snapshotChanges().pipe(
+      finalize(() => {
+        this.ref.getDownloadURL().subscribe(PicUrl => {
+          this.docUrl = PicUrl;
+          console.log(this.docUrl)
+          // console.log(url); // <-- do what ever you want with the url..
+          // const token = this.service.getToken();
+          // const tokenPayload = decode(token);
+          // this.id = tokenPayload._id;
+          
+          // this.pic=url;
+        });
+      })
+    ).subscribe();
   }
 }

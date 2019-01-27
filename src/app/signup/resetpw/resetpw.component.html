@@ -1,41 +1,44 @@
 <div class="wrapper">
-  <div class="page-header" style="background-image: url('../assets/img/login-image.jpg');">
-      <div class="filter"></div>
-          <div class="container">
-              <div class="row">
-                      
-                  <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
-                      <div class="card card-register">
-                          <h3 class="title">Reset password</h3>
+    <div class="page-header" style="background-image: url('../assets/img/8.jpg');">
+        <div class="filter"></div>
+        <div class="container"> 
+            <div class="row">
 
-                          <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit()" class="register-form">
-                              <label>Email</label>
-                              <input class="form-control" #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" name="email" type="text" placeholder="Email" [(ngModel)]="model.email">
-                              <div *ngIf="email.errors?.pattern">
-                                  <label class="validation-message">Invalid email address.</label>
+                <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                    <div class="card card-register">
+                        <h3 class="title">Reset password</h3>
+
+                        <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit()" class="register-form">
+                            <label>Email</label>
+                            <input class="form-control" #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" name="email" type="text"
+                                placeholder="Email" [(ngModel)]="model.email">
+                            <div *ngIf="email.errors?.pattern">
+                                <label class="validation-message">Invalid email address.</label>
+                            </div>
+
+                            <ngb-alert *ngIf="message" type="Info" [dismissible]="false">
+                                <div style="color: blueviolet" class="container">
+                                    <ng-container>
+                                        <i class="nc-icon nc-check-2"></i>
+                                    </ng-container>
+                                    {{serverErrorMessages}}
+                                    <button type="button" name="button" class="close" (click)="closeAlert()">
+                                        <i class="nc-icon nc-simple-remove"></i>
+                                    </button>
                                 </div>
-                               
-                                <ngb-alert *ngIf="message" type="Info"  [dismissible]="false">
-                                      <div style="color: blueviolet" class="container">
-                                          <ng-container>
-                                              <i class="nc-icon nc-check-2"></i>
-                                          </ng-container>
-                                          {{serverErrorMessages}}
-                                          <button type="button" name="button" class="close" (click)="closeAlert()">
-                                              <i class="nc-icon nc-simple-remove"></i>
-                                          </button>
-                                      </div>
-                                  </ngb-alert>
-                              <!-- <button class="btn btn-danger btn-block btn-round">Register</button> -->
-                              <input type="submit" [disabled]="!signInForm.valid" class="btn btn-danger btn-block btn-round" value="Sign In">
-                          </form>
-                         
-                      </div>
-                  </div>
-              </div>
-              <div class="footer register-footer text-center">
-                  <h6>&copy;{{test | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Creative Tim</h6>
-              </div>
-          </div>
-  </div>
+                            </ngb-alert>
+
+                            <input type="checkbox" id="isKeeper" name="isKeeper" [(ngModel)]="isKeeper" /> Are you a Keeper
+                            <!-- <button class="btn btn-danger btn-block btn-round">Register</button> -->
+                            <input type="submit" [disabled]="!signInForm.valid" class="btn btn-danger btn-block btn-round" value="Sign In">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="footer register-footer text-center">
+                <h6>&copy;{{test | date: 'yyyy'}}, made with PARK HERE TEAM</h6>
+            </div>
+        </div>
+    </div>
 </div>
