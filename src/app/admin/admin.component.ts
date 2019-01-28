@@ -12,8 +12,10 @@ export class AdminComponent implements OnInit {
 
   userDetails;
   userId='';
+  firstName="";
+  lastName=""
   editpi=false;
-  pic="./assets/img/faces/default.jpg";
+  pic="../../assets/img/faces/default.jpg";
   constructor(private service: RegserviceService, private router: Router,private location :Location) { }
 
   ngOnInit() { 
@@ -24,6 +26,9 @@ export class AdminComponent implements OnInit {
       res => {
         this.userDetails = res['user'];
         this.userId=this.userDetails._id;
+        this.firstName=this.userDetails.firstName;
+        this.lastName=this.userDetails.lastName
+        if(this.userDetails.proPic!='')
         this.pic=this.userDetails.proPic; 
         this.service.setid(this.userDetails._id);
         // console.log(this.userId);

@@ -14,7 +14,7 @@
               <app-editpropic></app-editpropic> -->
               <div class="name">
                   <h2 class="title">{{userDetails.firstName}} {{userDetails.lastName}}<br /></h2>
-                 <a routerLink="/admin/sendfile/{{userDetails._id}}"><i class='fas fa-archive' style='font-size:36px;color:brown'></i></a> 
+                 <!-- <a routerLink="/admin/sendfile/{{userDetails._id}}"><i class='fas fa-archive' style='font-size:36px;color:brown'></i></a>  -->
               </div>
           </div>
           <div class="row">
@@ -34,20 +34,20 @@
                     <div class="col-md-12">
                       <div class="card">
                         <div class="card-header">
-                          <h4 class="card-title"> Park Keepers</h4>
+                          <h4 class="card-title">Parks' Details</h4>
                         </div>
                         <div class="card-body" style="color:black;font-size: 20px">
                           <div class="table-responsive">
                             <table class="table">
                               <thead class=" text-primary">
                                 <th>
-                                  Name
+                                  Park Name
                                 </th>
                                 <th>
                                   Activate
                                 </th>
                                 <th>
-                                  state
+                                  Status
                                 </th>
                                 <th class="text-right">
                                   
@@ -56,7 +56,7 @@
                               <tbody>
                                 <tr *ngFor="let keeper of keepers">
                                   <td>
-                                    {{ keeper.name }}
+                                    {{ keeper.parkName }}
                                   </td>
                                   <td>
                                     {{ keeper.isactivate }}
@@ -67,7 +67,7 @@
                                     
                                   </td>
                                   <td class="text-right">
-                                    <button type="button" class="btn btn-info btn-round">view profile</button>
+                                    <button type="button" (click)="parkPro(keeper.id)" class="btn btn-info btn-round">view profile</button>
                                   </td>
                                 </tr>
                                

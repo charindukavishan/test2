@@ -32,7 +32,7 @@ import {FlashMessagesService} from 'angular2-flash-messages';
     <td>{{i.DriverId}}</td>
     <td>{{i.date}}</td>
     <td>{{i.arivalTime}}</td>
-    <td>{{i.bookId}}</td>
+    <td>{{i.depatureTime}}</td>
     <td><button type="button"  (click)="sethistory(i)"  class="btn btn-primary btn-sm">Accept</button></td>
     <td><button type="button" (click)="delete(i.bookId)" class="btn btn-danger btn-sm">Cancel</button></td>
   </tr>

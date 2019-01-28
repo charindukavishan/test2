@@ -5,20 +5,23 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Park Keepers</h4>
+          <h4 class="card-title">My Parks</h4>
         </div>
         <div class="card-body" >
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 <th>
-                  Name
+                  Park Keeper Name
+                </th>
+                <th>
+                  Park Name
                 </th>
                 <th>
                   Activate
                 </th>
                 <th>
-                  state
+                  Status
                 </th>
                 <th class="text-right">
 
@@ -28,6 +31,9 @@
                 <tr *ngFor="let keeper of keepers">
                   <td>
                     {{ keeper.name }}
+                  </td>
+                  <td>
+                    {{ keeper.parkName }}
                   </td>
                   <td>
                     {{ keeper.isactivate }}

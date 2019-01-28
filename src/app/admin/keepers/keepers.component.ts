@@ -9,61 +9,62 @@ import { Router } from '@angular/router';
 })
 export class KeepersComponent implements OnInit {
 
-  constructor(public service:RegserviceService,public router:Router) { }
-  private kepers ;
-  private owner ;
-  private keepers=[];
+  constructor(public service: RegserviceService, public router: Router) { }
+  private kepers;
+  private owner;
+  private keepers = [];
   res;
   class;
   // ow;
   ngOnInit() {
-    const token =this.service.getToken();
-  const tokenPayload = decode(token);
-    this.service.getnewkeepers().subscribe(response => {this.kepers=response;
-      // console.log(response)
-      this.res=this.kepers.length;
+    const token = this.service.getToken();
+    const tokenPayload = decode(token);
+    this.service.getnewkeepers().subscribe(response => {
+    this.kepers = response;
+
+      this.res = this.kepers.length;
       for (let i = 0; i < this.kepers.length; i++) {
-        
-        this.service.getowner(this.kepers[i].ownerid).subscribe(user=>{
-          this.owner=user;
+
+        this.service.getowner(this.kepers[i].ownerid).subscribe(user => {
+          this.owner = user;
           console.log(this.kepers[i].name)
           this.keepers[i] = {
-            id:this.kepers[i]._id, 
-            name: this.kepers[i].name, 
+            id: this.kepers[i]._id,
+            name: this.kepers[i].name,
             owner: this.owner.firstName,
-            ownerid:this.owner._id,
-            state:this.kepers[i].state
-            // time:response[i].state,
-          };console.log(this.keepers[i].owner)
+            ownerid: this.owner._id,
+            state: this.kepers[i].state,
+            parkName: this.kepers[i].parkName
+          };
         });
       }
     });
   }
 
-  accept(id){
+  accept(id) {
     this.service.acceptpark(id).subscribe(response => {
       this.ngOnInit();
     });
-     
+
   }
-ownerpro(id){
+  ownerpro(id) {
+
+  }
+  parkPro(id) {
+    console.log(id)
+    this.router.navigateByUrl('park/' + id);
+  }
+  profile(id) {
+    console.log(id)
+    this.router.navigateByUrl('owner/' + id);
+  }
+
+  reject(id) {
+
+    this.service.reject(id).subscribe(response => {
+      this.ngOnInit();
+    });
+  }
+
 
 }
-parkPro(id){
-  console.log(id)
-  this.router.navigateByUrl('park/'+id);
-}
-profile(id){console.log(id)
-  this.router.navigateByUrl('owner/'+id);
-}
-
-reject(id){
-
-  this.service.reject(id).subscribe(response => {
-    this.ngOnInit();
-  });
-}
- 
-
-}
- 

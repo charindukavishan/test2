@@ -16,11 +16,12 @@ export class ProfileComponent implements OnInit {
     userDetails;
     userId='';
     editpi=false;
+    isloading=false
     pic="./assets/img/faces/default.jpg";
     constructor(private service: RegserviceService, private router: Router,private location :Location) { }
   
     ngOnInit() { 
-
+this.editpi=false
       
       if(!this.service.isLoggedIn())
       this.router.navigate(['/login']);

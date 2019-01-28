@@ -44,7 +44,7 @@ export class AdminmapComponent implements OnInit {
       position => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
-        this.zoom = 8;
+        this.zoom = 12;
         console.log(this.lat, this.lng);
       },
       err => console.log(err)
@@ -91,11 +91,7 @@ export class AdminmapComponent implements OnInit {
           this.kepers[i].state = "open";
         }
         this.keepers[i] = {
-          id: this.kepers[i]._id,
-          name: this.kepers[i].name,
-          class: this.class,
-          isactivate: this.kepers[i].isactivate,
-          state: this.kepers[i].state,
+          
           lat: this.kepers[i].lat,
           lng: this.kepers[i].lng,
           // time:response[i].state,

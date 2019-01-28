@@ -36,7 +36,8 @@ export class ParkkeepersComponent implements OnInit {
           name: this.kepers[i].name,
           class: this.class,
           isactivate: this.kepers[i].isactivate,
-          state: this.kepers[i].state
+          state: this.kepers[i].state,
+          parkName:this.kepers[i].parkName
           // time:response[i].state,
         };
       }

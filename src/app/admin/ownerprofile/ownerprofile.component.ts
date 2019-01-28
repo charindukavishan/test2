@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegserviceService } from '../../servers/regservice.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ownerprofile',
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class OwnerprofileComponent implements OnInit {
 
 
-  constructor(public service:RegserviceService,public route:ActivatedRoute) { }
+  constructor(public service:RegserviceService,public route:ActivatedRoute,public router:Router) { }
   private kepers ;
   private keepers=[];
   res;
@@ -53,12 +53,16 @@ export class OwnerprofileComponent implements OnInit {
           name: this.kepers[i].name,
           class: this.class,
           isactivate: this.kepers[i].isactivate,
-          state:this.kepers[i].state
+          state:this.kepers[i].state,
+          parkName:this.kepers[i].parkName
           // time:response[i].state,
         };
       }
     });
   }
 
-
+  parkPro(id){
+    console.log(id)
+    this.router.navigateByUrl('park/'+id);
+  }
 }

@@ -25,6 +25,7 @@ export class KeeperregComponent implements OnInit {
     PicUrl: ""
 
   }
+  isloading=false
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   downloadURL: Observable<string>;
@@ -39,7 +40,7 @@ export class KeeperregComponent implements OnInit {
   mobileNum: String;
   NICnumber: String;
   parkName: String;
-  numberOfSlots: Number;
+  numberOfSlots:Number
   openHours: String;
   alocatedSlots1: Number;
   hourCharge1: String;
@@ -185,6 +186,7 @@ export class KeeperregComponent implements OnInit {
 
   id = '';
   upload(event) {
+    this.isloading=true
     const id = Math.random().toString(36).substring(2);
     this.ref = this.afStorage.ref(id);
     this.task = this.ref.put(event.target.files[0]);
@@ -198,6 +200,7 @@ export class KeeperregComponent implements OnInit {
         this.ref.getDownloadURL().subscribe(PicUrl => {
           this.docUrl = PicUrl;
           console.log(this.docUrl)
+          this.isloading=false
           // console.log(url); // <-- do what ever you want with the url..
           // const token = this.service.getToken();
           // const tokenPayload = decode(token);
@@ -208,4 +211,16 @@ export class KeeperregComponent implements OnInit {
       })
     ).subscribe();
   }
+message1=""
+ validateNIC() 
+{
+    var nic = document.getElementById('NICnumber');
+    var mesg = document.getElementById('message1');
+
+     if (this.NICnumber.length != 14) {
+       mesg.innerHTML="Length must be 14 characters";
+    } else{
+        mesg.innerHTML="Length is good";
+    }
+    }
 }

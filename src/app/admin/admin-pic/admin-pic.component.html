@@ -2,11 +2,12 @@
     <br>
       <form>
           <div  class="form-group">
-              <label for="multiple">Choose file(s)</label>
+              <label for="multiple">Choose file</label>
               <!-- <input type="file" class="form-control" name="multiple" ng2FileSelect [uploader]="uploader" multiple  /> -->
   
               <input type="file" class="form-control" (change)="upload($event)" accept=".png,.jpg" />
-          </div>            
+              <div *ngIf="isloading" class="loader"></div>
+            </div>            
       </form>
       <!-- <button type="button" class="btn btn-success btn-s"
                         (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">

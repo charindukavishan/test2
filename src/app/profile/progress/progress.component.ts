@@ -37,7 +37,8 @@ export class ProgressComponent implements OnInit {
           class: this.class,
           isactivate: this.kepers[i].isactivate,
           state: this.kepers[i].state,
-          monthrev:this.kepers[i].monthrev
+          monthrev:this.kepers[i].monthrev,
+          parkName:this.kepers[i].parkName
                    // time:response[i].state,
         };
       }

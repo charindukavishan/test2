@@ -31,6 +31,7 @@ model={
   PicUrl:""
 
 }
+isloading=false
   private uploader: FileUploader;
 
 
@@ -51,6 +52,7 @@ this.url='http://localhost:3001/api/updateprofilepic/'+tokenPayload._id;
 
   
   upload(event) {
+    this.isloading=true
     const id = Math.random().toString(36).substring(2);
     this.ref = this.afStorage.ref(id);
     this.task = this.ref.put(event.target.files[0]);
@@ -63,11 +65,12 @@ this.url='http://localhost:3001/api/updateprofilepic/'+tokenPayload._id;
     finalize(() => {
       this.ref.getDownloadURL().subscribe(PicUrl => {
         this.model.PicUrl=PicUrl;
+        this.isloading=false
         // console.log(url); // <-- do what ever you want with the url..
         const token =this.service.getToken();
     const tokenPayload = decode(token);
     this.id=tokenPayload._id; 
-this.model.url='http://localhost:3000/api/updateprofilepic/'+tokenPayload._id; 
+this.model.url='http://157.230.218.160:3000/api/updateprofilepic/'+tokenPayload._id; 
 this.service.editPic(this.model).subscribe(
   res => { 
     

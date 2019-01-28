@@ -3,12 +3,13 @@
     <div class="col-md-12 mr-auto ml-auto">
       <div class="card">
         <div class="card-header">
-          <h5 class="title">Add my park</h5>
+          <h2 class="title">Add park</h2>
         </div>
+        <h3>Fill this fields for get your park keeper details</h3>
         <div class="card-body">
           <form #regForm="ngForm">
             <div class="form-group">
-              <label>Name</label>
+              <label>Park Keeper Name</label>
               <input type="text" [(ngModel)]="name" name="name" class="form-control">
             </div>
             <div class="form-group">
@@ -20,7 +21,7 @@
               <input type="text" [(ngModel)]="email" name="email" class="form-control">
             </div>
             <div class="form-group">
-              <label>Serch your park
+              <label>Search your park
                 <i class="fas fa-map-marker-alt"></i>
               </label>
               <input required placeholder="search the park" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
@@ -29,7 +30,7 @@
             </div>
             <div class="form-group">
               <label>Password</label>
-              <input type="password" [(ngModel)]="password" name="password" class="form-control">
+              <input type="password"  [(ngModel)]="password" name="password" class="form-control">
             </div>
             <div class="form-group">
               <label>Mobile Number</label>
@@ -39,6 +40,7 @@
               <label>NIC number</label>
               <input type="text" [(ngModel)]="NICnumber" name="NICnumber" class="form-control">
             </div>
+            
             <br>
             <br>
             <br>
@@ -117,6 +119,15 @@
                     <input type="text" [(ngModel)]="hourCharge5" name="hourCharge5" class="form-control">
                   </td>
                 </tr>
+                <tr>
+                  <th scope="row" >Total Slots</th>
+                  <td>
+                    <input disabled type="number" [(ngModel)]="numberOfSlots" [value]="(alocatedSlots1+alocatedSlots2+alocatedSlots3+alocatedSlots4+alocatedSlots5)" name="numberOfSlots" class="form-control">
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+              
               </tbody>
             </table>
             <br>
@@ -132,13 +143,14 @@
             </div>
             <form>
               <div class="form-group">
-                <label for="multiple">Upload park's leagle document</label>
+                <label for="multiple">Upload park's legal documents</label>
                 <input type="file" class="form-control" (change)="upload($event)"  accept=".png,.jpg,.doc,.docx,.pdf" />
               </div>
             </form>
             <br>
             <br>
             <br>
+            <div *ngIf="isloading" class="loader"></div>
             <flash-messages></flash-messages>
             <div class="ml-auto mr-auto text-center">
               <button (click)="register()" class="btn btn-outline-default btn-round">
